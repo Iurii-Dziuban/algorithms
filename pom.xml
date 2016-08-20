@@ -14,6 +14,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
+  <scm>
+    <connection>scm:git:https://github.com/Iurii-Dziuban/algorithms.git</connection>
+    <developerConnection>scm:git:git@github.com:Iurii-Dziuban/algorithms.git</developerConnection>
+    <url>https://github.com/Iurii-Dziuban/algorithms</url>
+    <tag>HEAD</tag>
+  </scm>
+  
   <developers>
         <developer>
             <id>iurii.dziuban</id>
