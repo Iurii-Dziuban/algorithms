@@ -8,3 +8,18 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - mvn versioneye:update
   - mvn clean cobertura:cobertura coveralls:report
+  
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "SaRDwmlTr7G3II6NhYxBPxR4e7lnXAvX92RvGZpoBGbgkIexVg5taGs5GWJRH42ODpkld0SOPz5Psi4cb1yIWfi5n795vMbItkr+gKuzi/SkMPcgJlFIgAuVZ7EtxCrH8/m0Nra7bmvWbTV0kE+khL6ZKLChW76h6+dCybEqlk7GEHOnafw7XMLA5f1mCJsPK8kioE7kvJ+euNBc2NShDlrNmFLo6xcoCEX6iMRn1zXiVE4MWHTwusBUcxdhy6aFRN3kDqusqrOy1szGXWEiGlIRaPviooeJg91Men3dZ5FqzR4rJXDTCYF2FcpC0tE8H2SN73o6OSgQYh3829EXB9LlNpgu8FVUFv6CpXl3c8PPHcSuZRpQJRqsSNSUVUi9qwtaa+XWdqZQieWglCYGXtN4aUDSnOVHnKUwknCqyPCxqDEbNlEysrSWFRDfT9EUxC/0URmF42Ga0Nm/QhuFPfugRk6MnZ4XWYiVmHntwvjlBa/Yyn0JutqiH0KUOPJSCOK83Tm3Vy24SFwthV0K/+TVEQN4cWAQSJ8d1T3zB8sQroNEikTgEo8bfeh6HXTldV3tTXmeYtxe/5seI73g0vk1UBd4oxLXdTtEko3vrhChkC1Rw/RPDmDbrbOba9wJ2hyYYe4uq68FRG/s5DfJpYXNPxkwBSGSqgPVKvodj0I="
+addons:
+  coverity_scan:
+    project:
+      name: "Iurii-Dziuban/algorithms"
+      description: "Build submitted via Travis CI"
+    notification_email: ydzyuban@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
