@@ -21,6 +21,11 @@
     <tag>HEAD</tag>
   </scm>
   
+  <ciManagement>
+	<url>https://travis-ci.org/Iurii-Dziuban/algorithms</url>
+	<system>Travis</system>
+</ciManagement>
+  
   <developers>
         <developer>
             <id>iurii.dziuban</id>
