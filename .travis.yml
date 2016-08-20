@@ -6,4 +6,4 @@ script:
   - mvn clean package
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn clean test jacoco:report coveralls:report versioneye:update
+  - mvn clean cobertura:cobertura coveralls:report versioneye:update
