@@ -41,6 +41,26 @@
             </plugin>
             
             <plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            
+            <plugin>
       <artifactId>maven-release-plugin</artifactId>
       <version>2.4.1</version>
       <configuration>
@@ -57,6 +77,7 @@
     <id>release</id>
     <build>
       <plugins>
+        
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
           <executions>
@@ -68,6 +89,7 @@
             </execution>
           </executions>
         </plugin>
+        
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
           <executions>
