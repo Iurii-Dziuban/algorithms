@@ -42,7 +42,6 @@
         <autoVersionSubmodules>true</autoVersionSubmodules>
       </configuration>
     </plugin>
-    
         </plugins>
     </build>
     
@@ -77,5 +76,12 @@
     </build>
   </profile>
 </profiles>
+
+<distributionManagement>
+  <repository>
+    <id>bintray</id>
+    <url>https://api.bintray.com/maven/iurii-dziuban/public/algorithms</url>
+  </repository>
+</distributionManagement>
   
 </project>
