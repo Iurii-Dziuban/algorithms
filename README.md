@@ -8,6 +8,7 @@
 </a>
 [![Issue Count](https://codeclimate.com/github/Iurii-Dziuban/algorithms/badges/issue_count.svg)](https://codeclimate.com/github/Iurii-Dziuban/algorithms)
 [![Dependency Status](https://www.versioneye.com/user/projects/57b8ae5bfc1827003a745b57/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57b8ae5bfc1827003a745b57)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Iurii-Dziuban/algorithms/issues)
 
 This is Java Project with source files related to Algorithms and Data structures.
 Includes implementation of algorithms from Princeton and Stanford courses on Coursera
