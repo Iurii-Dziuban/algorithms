@@ -1,16 +1,18 @@
-package iurii.job.interview.push_pull_model;
+/*package iurii.job.interview.push_pull_model;
 
 import java.util.Iterator;
 import java.util.List;
 
 import com.google.common.collect.Lists;
 import rx.Observable;
-/**
+*//**
  * Created by iurii.dziuban on 31.01.2017.
+ *
+ * TODO Will be moved to RX project
  *
  * Push Vs Pull example based on http://blog.amitinside.com/Java-Iterator-Pattern-vs-Stream-vs-RxObservable/
  * And http://www.lightbend.com/resources/video/introducing-reactive-streams
- */
+ *//*
 public final class PushVsPull {
 
     public static void main(final String[] args) {
@@ -40,4 +42,4 @@ public final class PushVsPull {
         pullExample();
         pushExample();
     }
-}
+}*/
