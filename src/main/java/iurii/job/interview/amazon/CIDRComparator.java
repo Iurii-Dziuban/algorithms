@@ -1,4 +1,4 @@
-package iurii.job.interview;
+package iurii.job.interview.amazon;
 
 /**
  * Compare ip addresses. Amazon test.
