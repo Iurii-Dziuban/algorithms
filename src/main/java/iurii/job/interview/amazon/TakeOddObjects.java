@@ -13,19 +13,23 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- * Created by iurii.dziuban on 19/05/2017.
+ *
+ * Amazon task
  *
  * There is a list of objects.
- * Return list of objects, which count is odd in list according to equals.
- * Sorting can be no sorting, sorting by appearance, sorting by natural order or Comparator
+ * Return list of objects, which number is odd in list (according to equals test).
+ * Ordering can be no sorting, ordering by appearance in the list, ordering by natural order or Comparator
+ *
+ * Created by iurii.dziuban on 19/05/2017.
  */
-public class CountOddObjects {
+public class TakeOddObjects {
 
     //General ideas:
     // Objects should be immutable or copied before going to method
     // - otherwise we can not guarantee that someone could change internals.
 
-    // Potentially Set can be quicker than Map in case small amout of duplicates
+    // Potentially Map quicker than Set
+    // , but in case small amount of duplicates Set solution can be good
 
     // Approach 1. HashMap and ArrayList. General Type
 
@@ -41,7 +45,7 @@ public class CountOddObjects {
      * 3) No support for mutability - we can not do much
      * 4) A lot of memory for HashMap and List
      */
-    public List<Object> takeOdd1(List<Object> list) {
+    public List<Object> takeOddHashMapAndArrayListNoOrderingOrSortingNotTypeSafed(List<Object> list) {
         if (list == null) {
             return new ArrayList<>();
         }
@@ -77,7 +81,7 @@ public class CountOddObjects {
      * 2) No support for mutability - we can not do much
      * 3) A lot of memory for HashMap and List
      */
-    public <T> List<T> takeOdd2(List<T> list) {
+    public <T> List<T> takeOddHashMapAndArrayListNoOrderingTypeSafe(List<T> list) {
         if (list == null) {
             return new ArrayList<T>();
         }
@@ -92,7 +96,7 @@ public class CountOddObjects {
         return  oddObjects;
     }
 
-    // Approach 2. LinkedHashMap and ArrayList. Concreate type
+    // Approach 3. LinkedHashMap and ArrayList. Concreate type
 
     /**
      * Good.
@@ -105,7 +109,7 @@ public class CountOddObjects {
      * Bad
      * 1) No support for mutability - we can not do much
      */
-    public <T> List<T> takeOdd3(List<T> list) {
+    public <T> List<T> takeOddLinkedHashMapAndArrayListTypeSafeOrderByAppearance(List<T> list) {
         if (list == null) {
             return new ArrayList<T>();
         }
@@ -117,6 +121,8 @@ public class CountOddObjects {
                 .collect(Collectors.toList());
     }
 
+
+    // Approach 4. LinkedHashSet and HashSet for duplicates. Concreate type
 
     /**
      * Good.
@@ -131,7 +137,7 @@ public class CountOddObjects {
      * 2) More memory than LinkedHashMap
      * 3) More operations than LinkedHashMap
      */
-    public <T> List<T> takeOdd4(List<T> list) {
+    public <T> List<T> takeOddLinkedHashSetAndHashSetForDuplicatesTypeSafeOrderByAppearance(List<T> list) {
         if (list == null) {
             return new ArrayList<T>();
         }
@@ -148,6 +154,8 @@ public class CountOddObjects {
         return new ArrayList<T>(countSet);
     }
 
+    // Approach 5. TreeMap and ArrayList from it. Concreate type. Default Comparator
+
     /**
      * Good.
      * 1) Easy approach
@@ -159,7 +167,7 @@ public class CountOddObjects {
      * 1) No support for mutability - we can not do much
      * 2) Null elements are not possible
      */
-    public <T> List<T> takeOdd5(List<T> list) {
+    public <T> List<T> takeOddTreeMapAndArrayListFromItOrderByDefaultComparator(List<T> list) {
         if (list == null) {
             return new ArrayList<T>();
         }
@@ -183,6 +191,8 @@ public class CountOddObjects {
         return countMap;
     }
 
+    // Approach 6. TreeMap and ArrayList from it. Concreate type. Provided comparator
+
     /**
      * Good.
      * 1) Easy approach
@@ -194,7 +204,7 @@ public class CountOddObjects {
      * Bad
      * 1) No support for mutability - we can not do much
      */
-    public <T> List<T> takeOdd5(List<T> list, Comparator<T> comparator) {
+    public <T> List<T> takeOddTreeMapAndArrayListFromItOrderByComparator(List<T> list, Comparator<T> comparator) {
         if (list == null) {
             return new ArrayList<T>();
         }

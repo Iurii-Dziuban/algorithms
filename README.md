@@ -1,5 +1,5 @@
-
 #Algorithms
+
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)    
 
 [![Build Status](https://travis-ci.org/Iurii-Dziuban/algorithms.svg?branch=master)](https://travis-ci.org/Iurii-Dziuban/algorithms)
@@ -8,6 +8,9 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Iurii-Dziuban/algorithms/issues)
 
 This is Java Project with source files related to Algorithms and Data structures.
-Includes implementation of algorithms from Princeton and Stanford courses on Coursera
+Includes implementation of algorithms and data structures from Princeton and Stanford courses on Coursera.
 
-Maven and Gradle build scripts are provided.
+Maven build script is provided.
+
+#Amazon tasks
+- TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method
