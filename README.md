@@ -1,4 +1,4 @@
-#Algorithms
+# Algorithms
 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)    
 
@@ -12,5 +12,5 @@ Includes implementation of algorithms and data structures from Princeton and Sta
 
 Maven build script is provided.
 
-#Amazon tasks
+# Amazon tasks
 - TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method
