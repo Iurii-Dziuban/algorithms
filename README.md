@@ -12,5 +12,9 @@ Includes implementation of algorithms and data structures from Princeton and Sta
 
 Maven build script is provided.
 
+# Checks
+
+Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
+
 # Amazon tasks
 - TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method
