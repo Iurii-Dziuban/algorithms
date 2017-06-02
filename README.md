@@ -19,3 +19,4 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 # Amazon tasks
 - TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method
 - CIDRComparator (CIDRComparatorTest) - There are two subnet addresses. Find out the relation: Subset, Superset, Equal, Disjoint
+- BalancedParenthensies (BalancedParenthensiesTest) - Check if parenthesies are balanced in a string or not. 
