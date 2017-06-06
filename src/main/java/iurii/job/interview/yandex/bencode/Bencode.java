@@ -1,6 +1,11 @@
 package iurii.job.interview.yandex.bencode;
 
+import iurii.job.interview.yandex.bencode.decoders.CompositeDecoder;
+import iurii.job.interview.yandex.bencode.encoders.CompositeEncoder;
+import iurii.job.interview.yandex.bencode.encoders.IntEncoder;
 import iurii.job.interview.yandex.bencode.exceptions.EmptyValueException;
+import iurii.job.interview.yandex.bencode.utils.ByteString;
+import iurii.job.interview.yandex.bencode.utils.CharacterInputStreamIterator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,12 +18,25 @@ import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+/**
+ *
+ * Implement encode, decode methods for basic data structures:
+ *
+ * byte strings,
+ * integers,
+ * lists, and
+ * dictionaries (associative arrays).
+ *
+ * More details at: https://en.wikipedia.org/wiki/Bencode
+ */
 public class Bencode {
-    
+
+    private IntEncoder intEncoder = new IntEncoder();
     /**
      * Only for testing
      */
@@ -31,8 +49,14 @@ public class Bencode {
         File encodedFile = new File("src/main/resources/encodeBencode.txt");
         InputStream is = new FileInputStream(decodedFile);
         OutputStream os = new FileOutputStream(encodedFile);
+
         System.out.println(new Bencode().decode(is));
-        SortedMap<ByteString, Object> dictionary = new TreeMap<ByteString, Object>();
+
+        is = new FileInputStream(decodedFile);
+
+        System.out.println(new CompositeDecoder().decode(new CharacterInputStreamIterator(is), ""));
+
+        Map<ByteString, Object> dictionary = new TreeMap<ByteString, Object>();
         List<Object> list = new ArrayList<Object>();
         list.add(ByteString.valueOf("Earth"));
         list.add(ByteString.valueOf("Somewhere else"));
@@ -42,13 +66,14 @@ public class Bencode {
         dictionary.put(ByteString.valueOf("picture"), ByteString.valueOf(""));
         dictionary.put(ByteString.valueOf("planets"), list);
         new Bencode().encode(dictionary,os);
+        System.out.println(new CompositeEncoder().encode(dictionary));
         is.close();
         os.close();
     }
     
     public void encode(Object data, OutputStream os) throws IOException {
         if (data == null) {
-            return;
+            throw new EmptyValueException("Value is null!");
         }
         if (data instanceof Integer) {
             Integer intValue = (Integer) data;
@@ -70,9 +95,9 @@ public class Bencode {
             } catch(ClassCastException castException) {
                 throw new IOException("Unsupported object class " + data.getClass());
             }
-        } else if (data instanceof SortedMap) {
+        } else if (data instanceof Map) {
             try {
-                SortedMap<ByteString, Object> map = (SortedMap<ByteString, Object>) data;
+                Map<ByteString, Object> map = (Map<ByteString, Object>) data;
                 os.write(("d").getBytes(Charset.forName("US-ASCII")));
                 for (Entry<ByteString, Object> entry : map.entrySet()) {
                     encode(entry.getKey(), os);
@@ -212,6 +237,5 @@ public class Bencode {
         }
         return Integer.valueOf(intValue);
     }
-    
 
 }
