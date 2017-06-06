@@ -1,9 +1,9 @@
 package iurii.job.interview.graph.minimum_spaning_tree;
 
-import java.util.List;
-
 import iurii.job.interview.graph.structure.DirectedEdge;
 import iurii.job.interview.graph.structure.UnorderedWeightedGraph;
+
+import java.util.List;
 
 public class Main {
 
@@ -21,14 +21,14 @@ public class Main {
         graph.addEdge(4, 3, 2);
         Kruskal kruskal = new Kruskal(graph);
         List<DirectedEdge> minimumSpaningTree = kruskal.minimumSpaningTree();
-        for (DirectedEdge edge :minimumSpaningTree) {
+        for (DirectedEdge edge : minimumSpaningTree) {
             System.out.println(edge);
         }
         System.out.println();
-        
+
         Prima prima = new Prima(graph);
         List<DirectedEdge> minimumSpaningTreeP = prima.minimumSpaningTree();
-        for (DirectedEdge edge :minimumSpaningTreeP) {
+        for (DirectedEdge edge : minimumSpaningTreeP) {
             System.out.println(edge);
         }
 

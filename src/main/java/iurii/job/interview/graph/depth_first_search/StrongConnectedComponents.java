@@ -1,10 +1,10 @@
 package iurii.job.interview.graph.depth_first_search;
 
-import java.util.Iterator;
-import java.util.Stack;
-
 import iurii.job.interview.graph.structure.OrderedGraph;
 import iurii.job.interview.graph.structure.UnorderedGraph;
+
+import java.util.Iterator;
+import java.util.Stack;
 
 /**
  * Directed graph. Similar to Connectivity groups in Unordered graph.

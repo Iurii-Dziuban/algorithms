@@ -20,6 +20,10 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method. Note: Tests knowledge of Map, Set different implementations: hash, tree, linkedHash.
 - CIDRComparator (CIDRComparatorTest) - There are two subnet addresses. Find out the relation: Subset, Superset, Equal, Disjoint . More info : https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 - BalancedParenthensies (BalancedParenthensiesTest) - Check if parenthesies are balanced in a string or not. Note: Tests basic knowledge of Stack.
+- ProcessorsForTasks (ProcessorsForTasksTest) - find minimum number of processors for tasks
 
 # Yandex tasks
 - Bencode (BencodeTest) - implementation of Bencode protocol for encoding/decoding data. Widely used in torrents. More info: https://en.wikipedia.org/wiki/Bencode
+
+# Booking.com
+- CustomerServiceCapacity (CustomerServiceCapacityTest) - find minimum additional number of employers needed to handle all the calls.

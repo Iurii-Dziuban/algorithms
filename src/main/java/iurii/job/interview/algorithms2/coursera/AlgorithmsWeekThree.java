@@ -21,7 +21,7 @@ public class AlgorithmsWeekThree {
         sc1.close();
         KnapsackProblem knapsackProblem1 = new KnapsackProblem(capacity1, items1);
         System.out.println(knapsackProblem1.getMaxValue());
-        
+
         Scanner sc2 = new Scanner(new File("src/main/resources/knapsack_big.txt"));
         int capacity2 = sc2.nextInt();
         List<KnapsackItem> items2 = new ArrayList<KnapsackItem>(sc2.nextInt());

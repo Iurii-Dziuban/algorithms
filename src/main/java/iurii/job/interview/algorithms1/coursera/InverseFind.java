@@ -1,5 +1,7 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import iurii.job.interview.utils.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +33,7 @@ public class InverseFind {
 		int i = 0;
 		int j = 0;
 		for (int index = 0; index < totalLength; index++) {
-			if (i == firstHalf.length ||(j < secondHalf.length && firstHalf[i] > secondHalf[j])) {
+			if (i == firstHalf.length || j < secondHalf.length && firstHalf[i] > secondHalf[j]) {
 				for (int k = i; k < firstHalf.length; k++) {
 					//TODO removed only for AlgorithmsWeekOneToAvoidOutOfMemory
 					//list.add(new Pair(firstHalf[k], secondHalf[j]));
@@ -43,28 +45,6 @@ public class InverseFind {
 			}
 		}
 		return result;
-	}
-	
-	public static class Pair {
-		private final int first;
-		private final int second;
-		
-		public Pair(int first, int second) {
-			super();
-			this.first = first;
-			this.second = second;
-		}
-		public int getFirst() {
-			return first;
-		}
-		public int getSecond() {
-			return second;
-		}
-		
-		public String toString() {
-			return "[" + first + "," + second + "]";
-		}
-		
 	}
 	
 }

@@ -1,6 +1,8 @@
 package iurii.job.interview.topcoder.srm458;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Desertification {
     public int desertArea(String[] island, int T) {
         boolean[][] deserted = new boolean[island.length][island[0].length()];
@@ -39,12 +41,12 @@ public class Desertification {
                     desertedCount++;
                 }
                 if (point.y - 1 >= 0 && !deserted[point.x][point.y - 1]) {
-                     Point newPoint = new Point();
-                     newPoint.y = point.y - 1;
-                     newPoint.x = point.x;
-                     deserted[newPoint.x][newPoint.y] = true;
-                     queue.add(newPoint);
-                     desertedCount++;
+                    Point newPoint = new Point();
+                    newPoint.y = point.y - 1;
+                    newPoint.x = point.x;
+                    deserted[newPoint.x][newPoint.y] = true;
+                    queue.add(newPoint);
+                    desertedCount++;
                 }
                 if (point.y + 1 < island[0].length() && !deserted[point.x][point.y + 1]) {
                     Point newPoint = new Point();
@@ -54,11 +56,11 @@ public class Desertification {
                     queue.add(newPoint);
                     desertedCount++;
                 }
-            }  
+            }
         }
-        return desertedCount;   
+        return desertedCount;
     }
-    
+
 }
 
 class Point {

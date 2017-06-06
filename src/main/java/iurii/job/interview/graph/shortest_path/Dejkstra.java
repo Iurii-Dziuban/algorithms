@@ -1,11 +1,11 @@
 package iurii.job.interview.graph.shortest_path;
 
-import java.util.PriorityQueue;
-import java.util.Stack;
-
 import iurii.job.interview.graph.structure.DirectedEdge;
 import iurii.job.interview.graph.structure.DirectedEdgeComparator;
 import iurii.job.interview.graph.structure.OrderedWeightedGraph;
+
+import java.util.PriorityQueue;
+import java.util.Stack;
 
 /**
  * @author Jacky
@@ -24,7 +24,7 @@ public class Dejkstra {
             distTo[i] = Integer.MAX_VALUE;
         }
         distTo[source] = 0;
-        
+
         PriorityQueue<DirectedEdge> directedEdges = new PriorityQueue<DirectedEdge>(
                 10, new DirectedEdgeComparator());
         addEdges(graph, source, directedEdges);
@@ -41,7 +41,7 @@ public class Dejkstra {
     }
 
     private void addEdges(OrderedWeightedGraph graph,
-            int source, PriorityQueue<DirectedEdge> directedEdges) {
+                          int source, PriorityQueue<DirectedEdge> directedEdges) {
         Iterable<DirectedEdge> adj = graph.adj(source);
         for (DirectedEdge edge : adj) {
             edge.setDistance(edge.getDistance() + distTo[source]);

@@ -28,12 +28,13 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
     public int to() {
         return to;
     }
+
     public int weight() {
         return weight;
     }
-    
+
     public String toString() {
-        return from + " -> " + to +" weight = " + weight;
+        return from + " -> " + to + " weight = " + weight;
     }
 
     @Override

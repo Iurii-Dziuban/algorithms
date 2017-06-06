@@ -1,10 +1,10 @@
 package iurii.job.interview.graph.depth_first_search;
 
-import java.util.Stack;
-
 import iurii.job.interview.graph.breadth_first_search.ConnectivityGroups;
 import iurii.job.interview.graph.structure.OrderedGraph;
 import iurii.job.interview.graph.structure.UnorderedGraph;
+
+import java.util.Stack;
 
 public class Main {
 
@@ -28,7 +28,7 @@ public class Main {
         }
         System.out.println(depthFirstSearch.hasCircle());
         System.out.println();
-        
+
         UnorderedGraph graph1 = new UnorderedGraph(6);
         graph1.addEdge(0, 1);
         graph1.addEdge(0, 2);
@@ -45,7 +45,7 @@ public class Main {
         }
         System.out.println(depthFirstSearchWithoutRecursion.hasCircle());
         System.out.println();
-        
+
         UnorderedGraph graph2 = new UnorderedGraph(13);
         graph2.addEdge(0, 1);
         graph2.addEdge(0, 2);
@@ -60,7 +60,7 @@ public class Main {
         graph2.addEdge(9, 11);
         graph2.addEdge(9, 12);
         graph2.addEdge(11, 12);
-        
+
         ConnectivityGroups cg = new ConnectivityGroups(graph2);
         System.out.println(cg.connected(0, 3));
         System.out.println(cg.connected(0, 7));
@@ -69,7 +69,7 @@ public class Main {
         System.out.println(cg.connected(11, 10));
         System.out.println(cg.connected(11, 5));
         System.out.println();
-        
+
         ConnectivityGroupsWithoutRecursion cg1 = new ConnectivityGroupsWithoutRecursion(graph2);
         System.out.println(cg1.connected(0, 3));
         System.out.println(cg1.connected(0, 7));
@@ -77,9 +77,9 @@ public class Main {
         System.out.println(cg1.connected(8, 9));
         System.out.println(cg1.connected(11, 10));
         System.out.println(cg1.connected(11, 5));
-        
+
         System.out.println();
-        
+
         OrderedGraph og = new OrderedGraph(7);
         og.addEdge(0, 1);
         og.addEdge(0, 2);
@@ -92,7 +92,7 @@ public class Main {
         og.addEdge(5, 2);
         og.addEdge(6, 0);
         og.addEdge(6, 4);
-        
+
         TopologicalOrder topologicalOrder = new TopologicalOrder(og);
         Stack<Integer> order = topologicalOrder.topologicalOrder();
         while (!order.isEmpty()) {
@@ -123,7 +123,7 @@ public class Main {
         ogSC.addEdge(11, 4);
         ogSC.addEdge(11, 12);
         ogSC.addEdge(12, 9);
-        
+
         StrongConnectedComponents scc = new StrongConnectedComponents(ogSC);
         for (int i = 0; i < ogSC.verticesCount(); i++) {
             System.out.print(scc.groupNumber(i) + " ");

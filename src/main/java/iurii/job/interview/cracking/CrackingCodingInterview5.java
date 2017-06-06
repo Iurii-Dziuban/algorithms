@@ -12,7 +12,7 @@ public class CrackingCodingInterview5 {
         // TODO Auto-generated method stub
 
     }
-    
+
     /**
      * Should be done at globallogic and added here.
      */

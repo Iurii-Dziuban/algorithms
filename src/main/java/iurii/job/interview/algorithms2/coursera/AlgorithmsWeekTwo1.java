@@ -13,14 +13,14 @@ public class AlgorithmsWeekTwo1 {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-    	Scanner sc = new Scanner(new File("src/main/resources/clustering1.txt"));
+        Scanner sc = new Scanner(new File("src/main/resources/clustering1.txt"));
         int vertexCount = sc.nextInt();
         UnorderedWeightedGraph graph = new UnorderedWeightedGraph(vertexCount);
         while (sc.hasNextInt()) {
-        	graph.addEdge(sc.nextInt()-1, sc.nextInt()-1, sc.nextInt());
+            graph.addEdge(sc.nextInt() - 1, sc.nextInt() - 1, sc.nextInt());
         }
         sc.close();
         KruskalClustering kruskalClustering = new KruskalClustering(graph, 4);

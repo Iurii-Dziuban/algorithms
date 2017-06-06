@@ -12,7 +12,7 @@ import java.util.Queue;
  * ones elements together border elements in the matrix do not have neighbor
  * from their side or sides Example [1 0 0 0 1] [1 1 0 1 0] [0 0 0 0 0] [1 0 1 1
  * 1] [1 0 1 1 1]
- * 
+ * <p>
  * Result: 4 islands with 3,2,2,6 squares
  */
 public class IslandSearch {
@@ -71,7 +71,6 @@ public class IslandSearch {
             return 0;
         }
     }*/
-
     private static int expandIslandReturnSquareWithoutRecursionBFS(
             int[][] islandMatrix, int i, int j) {
         if (islandMatrix[i][j] == 0) {
@@ -103,7 +102,7 @@ public class IslandSearch {
     }
 
     private static void addToQueueIfIsland(int[][] islandMatrix,
-            Queue<Pair> queue, int curI, int curJ) {
+                                           Queue<Pair> queue, int curI, int curJ) {
         if (islandMatrix[curI][curJ] != 0) {
             queue.add(new Pair(curI, curJ));
         }

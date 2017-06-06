@@ -15,7 +15,7 @@ public class AlgorithmsWeekFive {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         /* Check permutations count
@@ -23,11 +23,11 @@ public class AlgorithmsWeekFive {
             List<Integer> allPermutations = TravelingSalesmanProblem.allPermutations(i, 24);
             System.out.println(allPermutations.size()); 
         }*/
-        
+
         Scanner sc = new Scanner(new File("src/main/resources/tsp.txt"));
         int vertexCount = sc.nextInt();
         float[][] edgeMatrix = new float[vertexCount][vertexCount];
-        
+
         List<Point2D> vertexes = new ArrayList<Point2D>();
         for (int i = 0; i < vertexCount; i++) {
             vertexes.add(new Point2D(sc.nextDouble(), sc.nextDouble()));
@@ -36,9 +36,9 @@ public class AlgorithmsWeekFive {
         for (int i = 0; i < vertexCount - 1; i++) {
             for (int j = i + 1; j < vertexCount; j++) {
                 float weight = (float) Math.sqrt(
-                             (vertexes.get(i).x - vertexes.get(j).x) * (vertexes.get(i).x - vertexes.get(j).x) 
-                             +
-                             (vertexes.get(i).y - vertexes.get(j).y) * (vertexes.get(i).y - vertexes.get(j).y));
+                        (vertexes.get(i).x - vertexes.get(j).x) * (vertexes.get(i).x - vertexes.get(j).x)
+                                +
+                                (vertexes.get(i).y - vertexes.get(j).y) * (vertexes.get(i).y - vertexes.get(j).y));
                 edgeMatrix[i][j] = weight;
                 edgeMatrix[j][i] = weight;
             }

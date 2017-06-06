@@ -8,7 +8,7 @@ import java.util.Queue;
 
 /**
  * Recursion
- * 
+ *
  * @author Iurii
  */
 public class CrackingCodingInterview8 {
@@ -136,13 +136,13 @@ public class CrackingCodingInterview8 {
 
     /**
      * 8.4 Find all permutations of the string.
-     * Solution is the following: extract one character. 
+     * Solution is the following: extract one character.
      * Permute the rest. insert character into each position of permuted rest.
      */
     public static List<String> allPermutations(String string) {
-       List<String> allPermutations = new ArrayList<String>();
-       
-       return allPermutations;
+        List<String> allPermutations = new ArrayList<String>();
+
+        return allPermutations;
     }
 
 }

@@ -15,7 +15,7 @@ public class AlgorithmsWeekOne2 {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/edges_prims_minimum_spanning tree.txt"));
@@ -23,7 +23,7 @@ public class AlgorithmsWeekOne2 {
         int edgesCount = sc.nextInt();
         UnorderedWeightedGraph graph = new UnorderedWeightedGraph(nodesCount);
         for (int i = 0; i < edgesCount; i++) {
-            graph.addEdge(sc.nextInt()-1, sc.nextInt()-1, sc.nextInt());
+            graph.addEdge(sc.nextInt() - 1, sc.nextInt() - 1, sc.nextInt());
         }
         sc.close();
         Prima prima = new Prima(graph);

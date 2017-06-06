@@ -12,7 +12,7 @@ public class AlgorithmsWeekSix1 {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/algo1-programming_prob-2sum.txt"));

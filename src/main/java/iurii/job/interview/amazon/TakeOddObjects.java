@@ -13,13 +13,12 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
- *
  * Amazon task
- *
+ * <p>
  * There is a list of objects.
  * Return list of objects, which number is odd in list (according to equals test).
  * Ordering can be no sorting, ordering by appearance in the list, ordering by natural order or Comparator
- *
+ * <p>
  * Created by iurii.dziuban on 19/05/2017.
  */
 public class TakeOddObjects {
@@ -59,12 +58,12 @@ public class TakeOddObjects {
             }
         }
         List<Object> oddObjects = new ArrayList<>();
-        for(Map.Entry<Object, Integer> entry : countMap.entrySet()) {
+        for (Map.Entry<Object, Integer> entry : countMap.entrySet()) {
             if (entry.getValue() % 2 == 1) {
                 oddObjects.add(entry.getKey());
             }
         }
-        return  oddObjects;
+        return oddObjects;
     }
 
     // Approach 2. HashMap and ArrayList. Concreate type
@@ -88,12 +87,12 @@ public class TakeOddObjects {
         Map<T, Integer> countMap = new HashMap<>();
         fillCountMap(list, countMap);
         List<T> oddObjects = new ArrayList<>();
-        for(Map.Entry<T, Integer> entry : countMap.entrySet()) {
+        for (Map.Entry<T, Integer> entry : countMap.entrySet()) {
             if (entry.getValue() % 2 == 1) {
                 oddObjects.add(entry.getKey());
             }
         }
-        return  oddObjects;
+        return oddObjects;
     }
 
     // Approach 3. LinkedHashMap and ArrayList. Concrete type

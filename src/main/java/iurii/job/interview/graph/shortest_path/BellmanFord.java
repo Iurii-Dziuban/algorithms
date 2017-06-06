@@ -21,7 +21,7 @@ public class BellmanFord {
             distTo[i] = Integer.MAX_VALUE;
         }
         distTo[source] = 0;
-        
+
         PriorityQueue<DirectedEdge> directedEdges = new PriorityQueue<DirectedEdge>(
                 10, new DirectedEdgeComparator());
         addEdges(graph, source, directedEdges);
@@ -30,16 +30,16 @@ public class BellmanFord {
             if (edgeTo[top.to()] == -1) {
                 addEdges(graph, top.to(), directedEdges);
             }
-            if (edgeTo[top.to()] == -1 || ((distTo[top.from()] + top.weight()) < distTo[top.to()])) {
+            if (edgeTo[top.to()] == -1 || distTo[top.from()] + top.weight() < distTo[top.to()]) {
                 edgeTo[top.to()] = top.from();
                 distTo[top.to()] = distTo[top.from()] + top.weight();
             }
-            
+
         }
     }
 
     private void addEdges(OrderedWeightedGraph graph,
-            int source, PriorityQueue<DirectedEdge> directedEdges) {
+                          int source, PriorityQueue<DirectedEdge> directedEdges) {
         Iterable<DirectedEdge> adj = graph.adj(source);
         for (DirectedEdge edge : adj) {
             directedEdges.add(edge);

@@ -12,20 +12,20 @@ public class BalancedParenthensies {
 
     private Map<Character, Character> brackets = new HashMap<>();
 
-    public BalancedParenthensies () {
-        brackets.put(']','[');
-        brackets.put(')','(');
-        brackets.put('}','{');
+    public BalancedParenthensies() {
+        brackets.put(']', '[');
+        brackets.put(')', '(');
+        brackets.put('}', '{');
     }
 
     public boolean areParenthensiesBalanced(String s) {
-        Stack<Character> stack  = new Stack<>();
-        for(char c : s.toCharArray()) {
-            if(c == '[' || c == '(' || c == '{' ) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '[' || c == '(' || c == '{') {
                 stack.push(c);
-            }else {
+            } else {
                 Character oppositeBracket = brackets.get(c);
-                if(oppositeBracket != null) {
+                if (oppositeBracket != null) {
                     if (stack.isEmpty()) {
                         return false;
                     }

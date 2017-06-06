@@ -1,21 +1,21 @@
 package iurii.job.interview.algorithms2.coursera;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import iurii.job.interview._unionfind.quickunion.QuickUnion;
 import iurii.job.interview.graph.structure.DirectedEdge;
 import iurii.job.interview.graph.structure.UnorderedWeightedGraph;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class KruskalClustering2 {
-    
+
     private final List<DirectedEdge> minimumSpaningTree = new ArrayList<DirectedEdge>();
     private int clusterNumber;
-    
-    public KruskalClustering2 (UnorderedWeightedGraph graph) {
+
+    public KruskalClustering2(UnorderedWeightedGraph graph) {
         clusterNumber = graph.verticesCount();
-    	List<DirectedEdge> edges = graph.edges();
+        List<DirectedEdge> edges = graph.edges();
         Collections.sort(edges);
         QuickUnion qu = new QuickUnion(graph.verticesCount());
         int index = 0;
@@ -28,13 +28,13 @@ public class KruskalClustering2 {
             index++;
         }
     }
-    
+
     public List<DirectedEdge> minimumSpaningTree() {
         return minimumSpaningTree;
     }
-    
+
     public int clusterNumber() {
-    	return clusterNumber;
+        return clusterNumber;
     }
-    
+
 }

@@ -1,12 +1,14 @@
 package iurii.job.interview.topcoder.srm468;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class T9 {
-    
+
     public static void main(String[] args) {
-        new T9().message(new String[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}, new String[]{"bad"}, new String[] {"2230223"});
+        new T9().message(new String[]{"", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}, new String[]{"bad"}, new String[]{"2230223"});
     }
-    
+
     public String message(String[] part, String[] dict, String[] keystr) {
         String keystroke = "";
         for (String keystrItem : keystr) {
@@ -23,7 +25,7 @@ public class T9 {
         result = result.substring(0, result.length() - 1);
         return result;
     }
-    
+
     private String decode(String word, String[] part, String[] dict) {
         List<String> variants = getVariants(word, part, dict);
         for (String variant : variants) {
@@ -35,7 +37,7 @@ public class T9 {
         }
         return "";
     }
-    
+
     private List<String> getVariants(String word, String[] part, String[] dict) {
         List<String> result = new ArrayList<String>();
         if (word.length() == 0) {
@@ -43,7 +45,7 @@ public class T9 {
             return result;
         }
         List<String> variants = getVariants(word.substring(1), part, dict);
-        int number = Integer.valueOf("" + word.charAt(0)) - 1;
+        int number = Integer.parseInt("" + word.charAt(0)) - 1;
         for (int i = 0; i < part[number].length(); i++) {
             for (String variant : variants) {
                 result.add(part[number].charAt(i) + variant);

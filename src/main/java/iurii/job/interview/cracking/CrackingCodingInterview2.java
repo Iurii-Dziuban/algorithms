@@ -7,6 +7,7 @@ import java.util.Set;
 
 /**
  * LinkedLists
+ *
  * @author Iurii
  */
 public class CrackingCodingInterview2 {
@@ -16,29 +17,46 @@ public class CrackingCodingInterview2 {
      */
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
-        list.add(1);list.add(2);list.add(2);list.add(2);list.add(2);
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        list.add(2);
+        list.add(2);
         removeDuplicates2(list);
         System.out.println(list);
-        
+
         LinkedList<Integer> list1 = new LinkedList<Integer>();
-        list1.add(1);list1.add(2);list1.add(3);list1.add(4);list1.add(5);
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        list1.add(4);
+        list1.add(5);
         System.out.println(nthElementToEnd(list1, 2));
-        
+
         LinkedList<Integer> list2 = new LinkedList<Integer>();
-        list2.add(1);list2.add(2);list2.add(3);list2.add(4);list2.add(5);
+        list2.add(1);
+        list2.add(2);
+        list2.add(3);
+        list2.add(4);
+        list2.add(5);
         deleteMedian(list2);
         System.out.println(list2);
-        
+
         LinkedList<Integer> add1 = new LinkedList<Integer>();
-        add1.add(3);add1.add(1);add1.add(5);
+        add1.add(3);
+        add1.add(1);
+        add1.add(5);
         LinkedList<Integer> add2 = new LinkedList<Integer>();
-        add2.add(5);add2.add(9);add2.add(2);
+        add2.add(5);
+        add2.add(9);
+        add2.add(2);
         System.out.println(sumUp(add1, add2));
     }
-    
+
     /**
      * 2.1 remove duplicates of unsorted list. Using HashTable we can check if duplicate in O(1) time.
      * Algorithm is O(n)
+     *
      * @param list
      */
     public static void removeDuplicates(LinkedList<Integer> list) {
@@ -52,9 +70,10 @@ public class CrackingCodingInterview2 {
             set.add(el);
         }
     }
-    
+
     /**
      * 2.1 remove duplicates of unsorted list. Algorithm is O(n^2). Memory O(1).
+     *
      * @param list
      */
     public static void removeDuplicates2(LinkedList<Integer> list) {
@@ -77,10 +96,11 @@ public class CrackingCodingInterview2 {
             }
         }
     }
-    
+
     /**
-     * 2.2 Find n-th element in single linked list. O(n) time. 2 pointers. 
+     * 2.2 Find n-th element in single linked list. O(n) time. 2 pointers.
      * p1-p2 = n elements. increase pointers by 1.
+     *
      * @param list
      */
     public static int nthElementToEnd(LinkedList<Integer> list, int n) {
@@ -98,10 +118,11 @@ public class CrackingCodingInterview2 {
         }
         return pointer2.next();
     }
-    
+
     /**
-     * 2.3 Find and delete median in single linked list. O(n) time. 2 pointers. 
+     * 2.3 Find and delete median in single linked list. O(n) time. 2 pointers.
      * Increase one pointer by 2 and second by 1.
+     *
      * @param list
      */
     public static void deleteMedian(LinkedList<Integer> list) {
@@ -117,7 +138,7 @@ public class CrackingCodingInterview2 {
             }
         }
     }
-    
+
     /**
      * 2.4 Sum up two numbers. Each number as Linked list of digit. Return as Linked list. O(n) time.
      */
@@ -134,7 +155,7 @@ public class CrackingCodingInterview2 {
             if (pointer2.hasNext()) {
                 p2 = pointer2.next();
             }
-            int sum = p1+p2+caryOver;
+            int sum = p1 + p2 + caryOver;
             caryOver = sum / 10;
             result.add(sum % 10);
         }
@@ -143,8 +164,8 @@ public class CrackingCodingInterview2 {
         }
         return result;
     }
-    
-    
+
+
     /**
      * 2.5 Given corrupted linked list which contains circle. Find first element of circle.
      * Use 2 pointers with 2x and 1x speed. When they are equal start from beginning and make 1x steps until equal.

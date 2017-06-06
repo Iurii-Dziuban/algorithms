@@ -1,8 +1,8 @@
 package iurii.job.interview.graph.breadth_first_search;
 
-import java.util.Stack;
-
 import iurii.job.interview.graph.structure.UnorderedGraph;
+
+import java.util.Stack;
 
 public class Main {
 
@@ -24,7 +24,7 @@ public class Main {
         while (!pathTo.isEmpty()) {
             System.out.println(pathTo.pop() + " ");
         }
-        
+
         UnorderedGraph graph2 = new UnorderedGraph(13);
         graph2.addEdge(0, 1);
         graph2.addEdge(0, 2);
@@ -39,7 +39,7 @@ public class Main {
         graph2.addEdge(9, 11);
         graph2.addEdge(9, 12);
         graph2.addEdge(11, 12);
-        
+
         ConnectivityGroups cg = new ConnectivityGroups(graph2);
         System.out.println(cg.connected(0, 3));
         System.out.println(cg.connected(0, 7));

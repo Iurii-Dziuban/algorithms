@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class AlgorithmsWeekThree {
 
     private static final int VERTICES_COUNT = 200;
-    
-    private static int minCut= 100000;
-    
+
+    private static int minCut = 100000;
+
     public static synchronized void setMin(int i) {
         if (minCut > i) {
             minCut = i;
@@ -20,7 +20,7 @@ public class AlgorithmsWeekThree {
     /**
      * @param args
      * @throws FileNotFoundException
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
         final int[][] matrix = new int[VERTICES_COUNT][VERTICES_COUNT];
@@ -35,14 +35,14 @@ public class AlgorithmsWeekThree {
         sc.close();
         Thread[] threads = new Thread[210000];
         for (int i = 0; i < 210000; i++) {
-            threads[i] = new Thread(){
+            threads[i] = new Thread() {
                 public void run() {
                     ThreadMethod(matrix);
                 }
             };
             threads[i].run();
-            long curProc = Math.round((i /210000.0) *100);
-            System.out.println(""+curProc +"%");
+            long curProc = Math.round((i / 210000.0) * 100);
+            System.out.println("" + curProc + "%");
         }
         for (int i = 0; i < threads.length; i++) {
             threads[i].join();
@@ -65,14 +65,14 @@ public class AlgorithmsWeekThree {
             do {
                 i = random.nextInt(VERTICES_COUNT);
                 j = random.nextInt(VERTICES_COUNT);
-            } while(threadMatrix[i][j] <= 0);
+            } while (threadMatrix[i][j] <= 0);
 
             /* fuse the two vertices i and j */
-            threadMatrix[i][j] = 0; 
+            threadMatrix[i][j] = 0;
             threadMatrix[j][i] = 0;
 
             /* modify other matrix elements according to the vertices that are fused */
-            for (int k=0; k < VERTICES_COUNT; k++){
+            for (int k = 0; k < VERTICES_COUNT; k++) {
                 threadMatrix[i][k] = threadMatrix[i][k] + threadMatrix[j][k];
                 threadMatrix[k][i] = threadMatrix[i][k];
                 threadMatrix[j][k] = threadMatrix[k][j] = 0;
@@ -80,7 +80,7 @@ public class AlgorithmsWeekThree {
         }
         /* get the mincut value */
         int col = 0;
-        for (int k=0; k < VERTICES_COUNT; k++){
+        for (int k = 0; k < VERTICES_COUNT; k++) {
             col = k;
             if (threadMatrix[i][k] > 0) break;
         }

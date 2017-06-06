@@ -18,12 +18,12 @@ public class CrackingCodingInterview1 {
         System.out.println(reverseString("AaBbCcfhdjr"));
         System.out.println(removeDuplicates("AaBbCcfhdAjr".toCharArray()));
         System.out.println(removeDuplicates2("AaBbCcfhdAjr".toCharArray()));
-        System.out.println(areAnagrams("AaBbCcfhdAjr", "AaBbACcfhdjr" ));
-        System.out.println(areAnagrams("AaBbCcfhdBjr", "AaBbCcfhdjrA" ));
-        System.out.println(areAnagrams2("AaBbCcfhdAjr", "AaBbACcfhdjr" ));
-        System.out.println(areAnagrams2("AaBbCcfhdBjr", "AaBbCcfhdjrA" ));
+        System.out.println(areAnagrams("AaBbCcfhdAjr", "AaBbACcfhdjr"));
+        System.out.println(areAnagrams("AaBbCcfhdBjr", "AaBbCcfhdjrA"));
+        System.out.println(areAnagrams2("AaBbCcfhdAjr", "AaBbACcfhdjr"));
+        System.out.println(areAnagrams2("AaBbCcfhdBjr", "AaBbCcfhdjrA"));
         System.out.println(replaceSpaces("Aa Bb Cc f hdBj r".toCharArray()));
-        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
         rotateMatrix(matrix);
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
@@ -31,8 +31,8 @@ public class CrackingCodingInterview1 {
             }
             System.out.println();
         }
-        
-        int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
+
+        int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         rotateMatrix(matrix1);
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1.length; j++) {
@@ -40,8 +40,8 @@ public class CrackingCodingInterview1 {
             }
             System.out.println();
         }
-        
-        int[][] matrix2 = {{1,2,3},{4,0,6},{7,8,9}};
+
+        int[][] matrix2 = {{1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
         setZeros(matrix2);
         for (int i = 0; i < matrix2.length; i++) {
             for (int j = 0; j < matrix2.length; j++) {
@@ -50,9 +50,9 @@ public class CrackingCodingInterview1 {
             System.out.println();
         }
         System.out.println(isRotation("hello", "elloh"));
-        
+
     }
-    
+
     /**
      * 1.1 Are all characters in String unique. O(n^2). space O(0).
      */
@@ -66,7 +66,7 @@ public class CrackingCodingInterview1 {
         }
         return true;
     }
-    
+
     /**
      * 1.1 Are all characters in String unique. O(n). space O(n)
      */
@@ -81,10 +81,10 @@ public class CrackingCodingInterview1 {
         }
         return true;
     }
-    
-    
+
+
     // 1.2 is C++ style question about reverse String. O(n). space O(n). We cannot save space in java.
-    
+
     /**
      * 1.2 Reverse String.
      */
@@ -95,10 +95,10 @@ public class CrackingCodingInterview1 {
         }
         return result;
     }
-    
+
     /**
      * 1.3 Remove duplicate characters from String. O(n) with additional memory of constant size.
-     * Ask if array of constant size is Ok. 
+     * Ask if array of constant size is Ok.
      */
     public static char[] removeDuplicates(char[] string) {
         if (string == null) {
@@ -107,7 +107,7 @@ public class CrackingCodingInterview1 {
         int index = 0;
         boolean[] hit = new boolean[256];
         for (int i = 0; i < string.length; i++) {
-            if(!hit[string[i]]) {
+            if (!hit[string[i]]) {
                 hit[string[i]] = true;
                 string[index++] = string[i];
             }
@@ -117,10 +117,10 @@ public class CrackingCodingInterview1 {
         }
         return string;
     }
-    
+
     /**
      * 1.3 Remove duplicate characters from String. O(n^2) without additional memory.
-     * Ask if array of constant size is Ok. 
+     * Ask if array of constant size is Ok.
      */
     public static char[] removeDuplicates2(char[] string) {
         if (string == null) {
@@ -144,9 +144,9 @@ public class CrackingCodingInterview1 {
         }
         return string;
     }
-    
+
     /**
-     * 1.4 If two strings are anagrams. Use sorting. O(n*log(n)) time 
+     * 1.4 If two strings are anagrams. Use sorting. O(n*log(n)) time
      */
     public static boolean areAnagrams(String s1, String s2) {
         if (s1 == null || s2 == null || s1.length() != s2.length()) {
@@ -155,16 +155,16 @@ public class CrackingCodingInterview1 {
         char[] s1CharArray = s1.toCharArray();
         Arrays.sort(s1CharArray);
         String sortedS1 = new String(s1CharArray);
-        
+
         char[] s2CharArray = s2.toCharArray();
         Arrays.sort(s2CharArray);
         String sortedS2 = new String(s2CharArray);
-        
+
         return sortedS1.equals(sortedS2);
     }
-    
+
     /**
-     * 1.4 If two strings are anagrams. O(n) time. array of constant size. 
+     * 1.4 If two strings are anagrams. O(n) time. array of constant size.
      */
     public static boolean areAnagrams2(String s1, String s2) {
         if (s1 == null || s2 == null || s1.length() != s2.length()) {
@@ -182,9 +182,9 @@ public class CrackingCodingInterview1 {
         }
         return true;
     }
-    
+
     /**
-     * 1.5 Replace spaces with %20. O(n) time algorithm. First of all count spaces and new length. 
+     * 1.5 Replace spaces with %20. O(n) time algorithm. First of all count spaces and new length.
      */
     public static char[] replaceSpaces(char[] string) {
         int spacesCount = 0;
@@ -195,7 +195,7 @@ public class CrackingCodingInterview1 {
         }
         int newSize = string.length + 2 * spacesCount;
         char[] newString = new char[newSize];
-        int index = 0; 
+        int index = 0;
         for (char character : string) {
             if (character == ' ') {
                 newString[index++] = '%';
@@ -207,23 +207,23 @@ public class CrackingCodingInterview1 {
         }
         return newString;
     }
-    
+
     /**
      * 1.6 Rotate NxN matrix on 90 degrees. For rotation making 4 exchanges
      */
     public static void rotateMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length / 2; i++) {
-            int iterNumber = matrix.length - 2*i - 1;
+            int iterNumber = matrix.length - 2 * i - 1;
             for (int j = 0; j < iterNumber; j++) {
-                int buffer = matrix[matrix.length-i-j-1][i];
-                matrix[matrix.length-i-j-1][i] = matrix[i][i+j];
-                matrix[i][i+j] = matrix[i+j][matrix.length - i -1];
-                matrix[i+j][matrix.length - i -1] =  matrix[matrix.length-i-1][matrix.length-i-j-1];
-                matrix[matrix.length-i-1][matrix.length-i-j-1] = buffer;
+                int buffer = matrix[matrix.length - i - j - 1][i];
+                matrix[matrix.length - i - j - 1][i] = matrix[i][i + j];
+                matrix[i][i + j] = matrix[i + j][matrix.length - i - 1];
+                matrix[i + j][matrix.length - i - 1] = matrix[matrix.length - i - 1][matrix.length - i - j - 1];
+                matrix[matrix.length - i - 1][matrix.length - i - j - 1] = buffer;
             }
         }
     }
-    
+
     /**
      * 1.7 Set row and column of matrix into 0 if it contains 0
      */
@@ -246,17 +246,18 @@ public class CrackingCodingInterview1 {
             }
         }
     }
-    
+
     /**
      * 1.8 Using only one call to SubString check if rotation is a rotation of s
-     * @param s 
-     * @param rotation 
+     *
+     * @param s
+     * @param rotation
      * @return
      */
     public static boolean isRotation(String s, String rotation) {
         if (s == null || rotation == null || s.length() == rotation.length()) {
             return false;
         }
-        return (rotation+rotation).contains(s);
+        return (rotation + rotation).contains(s);
     }
 }

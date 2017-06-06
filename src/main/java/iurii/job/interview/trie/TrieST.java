@@ -13,9 +13,9 @@ public class TrieST<Value> {
         private Node[] next = new Node[R];
     }
 
-   /****************************************************
-    * Is the key in the symbol table?
-    ****************************************************/
+    /****************************************************
+     * Is the key in the symbol table?
+     ****************************************************/
     public boolean contains(String key) {
         return get(key) != null;
     }
@@ -37,12 +37,12 @@ public class TrieST<Value> {
             return x;
         }
         char c = key.charAt(d);
-        return get(x.next[c], key, d+1);
+        return get(x.next[c], key, d + 1);
     }
 
-   /****************************************************
-    * Insert key-value pair into the symbol table.
-    ****************************************************/
+    /****************************************************
+     * Insert key-value pair into the symbol table.
+     ****************************************************/
     public void put(String key, Value val) {
         root = put(root, key, val, 0);
     }
@@ -56,7 +56,7 @@ public class TrieST<Value> {
             return x;
         }
         char c = key.charAt(d);
-        x.next[c] = put(x.next[c], key, val, d+1);
+        x.next[c] = put(x.next[c], key, val, d + 1);
         return x;
     }
 
@@ -79,7 +79,7 @@ public class TrieST<Value> {
             return length;
         }
         char c = query.charAt(d);
-        return longestPrefixOf(x.next[c], query, d+1, length);
+        return longestPrefixOf(x.next[c], query, d + 1, length);
     }
 
 
@@ -112,7 +112,7 @@ public class TrieST<Value> {
         collect(root, "", pat, q);
         return q;
     }
- 
+
     public void collect(Node x, String prefix, String pat, Queue<String> q) {
         if (x == null) {
             return;
@@ -143,7 +143,7 @@ public class TrieST<Value> {
             x.val = null;
         } else {
             char c = key.charAt(d);
-            x.next[c] = delete(x.next[c], key, d+1);
+            x.next[c] = delete(x.next[c], key, d + 1);
         }
         if (x.val != null) {
             return x;

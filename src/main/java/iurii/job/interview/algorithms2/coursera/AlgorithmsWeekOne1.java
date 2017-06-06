@@ -10,14 +10,14 @@ import java.util.Scanner;
 
 /**
  * Scheduling
- * @author Iurii
  *
+ * @author Iurii
  */
 public class AlgorithmsWeekOne1 {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/jobs.txt"));
@@ -46,16 +46,16 @@ public class AlgorithmsWeekOne1 {
             total += time * t.getWeight();
         }
         System.out.println(total);
-        
+
         // w/l decreasing
         Collections.sort(tasks, new Comparator<Task>() {
 
             @Override
             public int compare(Task o1, Task o2) {
-                if (o1.getWeight()*1.0/o1.getLength() == o2.getWeight() *1.0/o2.getLength()) {
+                if (o1.getWeight() * 1.0 / o1.getLength() == o2.getWeight() * 1.0 / o2.getLength()) {
                     return 0;
                 } else {
-                    return o1.getWeight()*1.0/o1.getLength() < o2.getWeight()*1.0/o2.getLength() ? 1 : -1;
+                    return o1.getWeight() * 1.0 / o1.getLength() < o2.getWeight() * 1.0 / o2.getLength() ? 1 : -1;
                 }
             }
         });
@@ -66,7 +66,7 @@ public class AlgorithmsWeekOne1 {
             total += time * t.getWeight();
         }
         System.out.println(total);
-        
+
     }
 
 }

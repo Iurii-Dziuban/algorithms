@@ -2,19 +2,19 @@ package iurii.job.interview.amazon;
 
 /**
  * Compare ip addresses networks. Amazon test.
- *
+ * <p>
  * There are two ip addresses followed by / and number of bits called "subnet mask"
- *
+ * <p>
  * Check if first subnet address is equal / subset / superset or disjoint to second subnet address.
- *
+ * <p>
  * Note:
  * Regarding input data:
- *   assuming that both input values are correct valid values and no validation is needed.
- *
+ * assuming that both input values are correct valid values and no validation is needed.
+ * <p>
  * info about CIDR notation
  * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
- * @author Iurii
  *
+ * @author Iurii
  */
 public class CIDRComparator {
 
@@ -25,12 +25,12 @@ public class CIDRComparator {
 
     /**
      * Test method
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {
         CIDRComparator comparator = new CIDRComparator();
-        System.out.println(comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16")); 
+        System.out.println(comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16"));
         System.out.println(comparator.compareCIDR("1.2.3.4/24", "1.2.3.4/16"));
         System.out.println(comparator.compareCIDR("172.84.26.128/16", "172.84.26.255/24"));
         System.out.println(comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25"));
@@ -120,7 +120,7 @@ public class CIDRComparator {
             int xorResult = unpackByte(firstSubnetIp[i]) ^ unpackByte(secondSubnetIp[i]);
             if (prefixLength < NUMBER_OF_BYTE_BITS) {
                 short compare = (short) (MAX_UNSIGNED_BYTE >> prefixLength);
-                return (xorResult < compare);
+                return xorResult < compare;
             } else {
                 prefixLength -= NUMBER_OF_BYTE_BITS;
                 if (xorResult != 0) {

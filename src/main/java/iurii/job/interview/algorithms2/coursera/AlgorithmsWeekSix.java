@@ -17,9 +17,9 @@ public class AlgorithmsWeekSix {
         boolean isSCC = false;
         if (isSCC) {
             for (int i = 1; i < 7; i++) {
-                Scanner sc = new Scanner(new File("src/main/resources/2sat" + i +".txt"));        
+                Scanner sc = new Scanner(new File("src/main/resources/2sat" + i + ".txt"));
                 int variableCount = sc.nextInt();
-                OrderedGraph orderedGraph = new OrderedGraph(variableCount*2); 
+                OrderedGraph orderedGraph = new OrderedGraph(variableCount * 2);
                 while (sc.hasNextInt()) {
                     int firstVar = convert(sc.nextInt(), variableCount);
                     int secondVar = convert(sc.nextInt(), variableCount);
@@ -28,13 +28,13 @@ public class AlgorithmsWeekSix {
                 }
                 sc.close();
                 Scc2SAT ssc2SAT = new Scc2SAT(orderedGraph);
-                System.out.println(ssc2SAT.getResult());    
+                System.out.println(ssc2SAT.getResult());
             }
         }
         boolean isPapadimitrou = true;
         if (isPapadimitrou) {
             for (int i = 1; i < 7; i++) {
-                Scanner sc = new Scanner(new File("src/main/resources/2sat" + i +".txt"));        
+                Scanner sc = new Scanner(new File("src/main/resources/2sat" + i + ".txt"));
                 int variableCount = sc.nextInt();
                 int[][] clauses = new int[variableCount][2];
                 int index = 0;
@@ -45,11 +45,11 @@ public class AlgorithmsWeekSix {
                 }
                 sc.close();
                 Papadimitrou papadimitrou = new Papadimitrou(clauses);
-                System.out.println(papadimitrou.getResult());    
+                System.out.println(papadimitrou.getResult());
             }
         }
     }
-    
+
     private static int convert(int index, int variableCount) {
         if (index < 0) {
             return variableCount * 2 - Math.abs(index);
@@ -57,8 +57,8 @@ public class AlgorithmsWeekSix {
             return index - 1;
         }
     }
-    
-    private static int not (int index, int variableCount) {
+
+    private static int not(int index, int variableCount) {
         return variableCount * 2 - 1 - index;
     }
 

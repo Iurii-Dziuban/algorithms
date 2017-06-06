@@ -10,17 +10,18 @@ public class AlgorithmsWeekFive {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"));
+        Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
         OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
         while (sc.hasNext()) {
             String nextLine = sc.nextLine();
             String[] groups = nextLine.split("\t");
             for (int i = 1; i < groups.length; i++) {
                 String[] values = groups[i].split(",");
-                graph.addEdge(Integer.valueOf(groups[0]) - 1, Integer.valueOf(values[0]) - 1, Integer.valueOf(values[1]));
+                graph.addEdge(Integer.parseInt(groups[0]) - 1,
+                        Integer.parseInt(values[0]) - 1, Integer.parseInt(values[1]));
             }
         }
         sc.close();

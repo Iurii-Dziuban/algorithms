@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Prima {
-    
+
     private final List<DirectedEdge> minimumSpaningTree = new ArrayList<DirectedEdge>();
     private final boolean[] connected;
-    
+
     public Prima(UnorderedWeightedGraph graph) {
         PriorityQueue<DirectedEdge> queue = new PriorityQueue<DirectedEdge>(10, new DirectedEdgeComparator());
         int edgesNumber = graph.verticesCount() - 1;
@@ -28,12 +28,12 @@ public class Prima {
                 connected[edge.to()] = true;
                 Iterable<DirectedEdge> adj = graph.adj(edge.to());
                 for (DirectedEdge adjEdge : adj) {
-                    queue.add(adjEdge);    
+                    queue.add(adjEdge);
                 }
             }
         }
     }
-    
+
     public List<DirectedEdge> minimumSpaningTree() {
         return minimumSpaningTree;
     }

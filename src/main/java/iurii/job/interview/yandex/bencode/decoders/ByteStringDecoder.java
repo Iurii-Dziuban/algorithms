@@ -15,7 +15,7 @@ public class ByteStringDecoder implements Decoder<ByteString> {
     public ByteString decode(Iterator<Character> iterator, String beginning) {
         String size = beginning;
         char character;
-        while (iterator.hasNext() && (character = iterator.next()) != ':' && character != -1) {
+        while (iterator.hasNext() && (character = iterator.next()) != ':') {
             switch (character) {
                 case '0':
                 case '1':

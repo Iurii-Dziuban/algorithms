@@ -11,7 +11,7 @@ public class AlgorithmsWeekSix2 {
 
     /**
      * @param args
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/Median.txt"));

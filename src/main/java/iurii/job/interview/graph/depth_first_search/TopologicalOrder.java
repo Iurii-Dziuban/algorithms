@@ -1,10 +1,10 @@
 package iurii.job.interview.graph.depth_first_search;
 
+import iurii.job.interview.graph.structure.OrderedGraph;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
-
-import iurii.job.interview.graph.structure.OrderedGraph;
 
 public class TopologicalOrder {
     private final boolean[] marked;
@@ -46,8 +46,8 @@ public class TopologicalOrder {
             }
         }
     }
-    
-    
+
+
     public Stack<Integer> topologicalOrder() {
         return topologicalOrder;
     }

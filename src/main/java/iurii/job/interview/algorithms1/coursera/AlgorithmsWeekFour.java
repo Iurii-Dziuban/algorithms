@@ -44,15 +44,15 @@ public class AlgorithmsWeekFour {
         }
         Set<Entry<Integer, List<Integer>>> entrySet = groupVertexMap.entrySet();
         List<Integer> sizes = new ArrayList<Integer>();
-        for (Entry<Integer, List<Integer>> entry: entrySet) {
+        for (Entry<Integer, List<Integer>> entry : entrySet) {
             sizes.add(entry.getValue().size());
         }
         Collections.sort(sizes);
-        System.out.println(sizes.get(sizes.size()-1));
-        System.out.println(sizes.get(sizes.size()-2));
-        System.out.println(sizes.get(sizes.size()-3));
-        System.out.println(sizes.get(sizes.size()-4));
-        System.out.println(sizes.get(sizes.size()-5));
+        System.out.println(sizes.get(sizes.size() - 1));
+        System.out.println(sizes.get(sizes.size() - 2));
+        System.out.println(sizes.get(sizes.size() - 3));
+        System.out.println(sizes.get(sizes.size() - 4));
+        System.out.println(sizes.get(sizes.size() - 5));
     }
 
 }

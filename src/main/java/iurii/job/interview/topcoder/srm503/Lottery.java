@@ -117,8 +117,8 @@ public class Lottery {
             String[] nameAndParameters = rule.split(":");
             String[] params = nameAndParameters[1].substring(1).split(" ");
             String name = nameAndParameters[0];
-            int choices = Integer.valueOf(params[0]);
-            int blanks = Integer.valueOf(params[1]);
+            int choices = Integer.parseInt(params[0]);
+            int blanks = Integer.parseInt(params[1]);
             boolean sorted = retrieveBoolean(params[2]);
             boolean unique = retrieveBoolean(params[3]);
             double validTicketCount = 0;

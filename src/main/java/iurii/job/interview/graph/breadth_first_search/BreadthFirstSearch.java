@@ -7,9 +7,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * 
  * @author Jacky
- * 
  */
 public class BreadthFirstSearch {
     private final int source;

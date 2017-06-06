@@ -12,21 +12,21 @@ import java.util.Stack;
  * 2) For each clause (u OR v), add the edges ~u -> v and ~v -> u to the inference graph G.
  * 3) Process the strongly connected components S of G in reverse topological order as follows: If S is marked, do nothing. If S = ~S (i.e., a variable and its complement belong to the same SCC), then stop, the instance is unsatisfiable. Otherwise, mark S true and ~S false.
  * 4) We get a satisfying assignment by assigning to each variable the truth value of the component containing it.
- *
  */
 public class Scc2SAT {
-    
+
     private int[] connectivityGroups;
     private boolean[] marked;
+
     //added
-    private boolean[] solution;
+    private final boolean[] solution;
     private boolean isSolutionExists = true;
 
     public Scc2SAT(OrderedGraph graph) {
         OrderedGraph reverse = graph.reverse();
         TopologicalOrder tp = new TopologicalOrder(reverse);
         marked = new boolean[graph.verticesCount()];
-        solution = new boolean[graph.verticesCount()/2];
+        solution = new boolean[graph.verticesCount() / 2];
         connectivityGroups = new int[graph.verticesCount()];
         for (int i = 0; i < connectivityGroups.length; i++) {
             connectivityGroups[i] = Integer.MAX_VALUE;
@@ -63,7 +63,7 @@ public class Scc2SAT {
                 if (!marked[w]) {
                     elements.push(w);
                     // added
-                    if (connectivityGroups[graph.verticesCount()-1-w] == index) {
+                    if (connectivityGroups[graph.verticesCount() - 1 - w] == index) {
                         isSolutionExists = false;
                         return;
                     }
@@ -79,10 +79,13 @@ public class Scc2SAT {
     public boolean connected(int v, int w) {
         return connectivityGroups[v] == connectivityGroups[w];
     }
-    
+
     //added
     public String getResult() {
         return isSolutionExists ? "satisfiable" : "unsatisfiable";
     }
 
+    public boolean[] getSolution() {
+        return solution;
+    }
 }

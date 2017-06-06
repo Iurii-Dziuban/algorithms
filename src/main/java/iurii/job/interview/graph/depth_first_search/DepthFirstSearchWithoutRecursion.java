@@ -1,15 +1,14 @@
 package iurii.job.interview.graph.depth_first_search;
 
+import iurii.job.interview.graph.structure.UnorderedGraph;
+
 import java.util.Iterator;
 import java.util.Stack;
 
-import iurii.job.interview.graph.structure.UnorderedGraph;
-
 /**
  * DepthFirstSearch with circle dependences
- * 
+ *
  * @author Jacky
- * 
  */
 public class DepthFirstSearchWithoutRecursion {
 

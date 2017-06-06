@@ -7,7 +7,7 @@ public class FordFulkerson {
     private boolean[] marked;     // marked[v] = true iff s->v path in residual graph
     private FlowEdge[] edgeTo;    // edgeTo[v] = last edge on shortest residual s->v path
     private double value;         // current value of max flow
-  
+
     // max flow in flow network G from s to t
     public FordFulkerson(FlowNetwork G, int s, int t) {
         if (s < 0 || s >= G.V()) {
@@ -35,7 +35,7 @@ public class FordFulkerson {
 
             // augment flow
             for (int v = t; v != s; v = edgeTo[v].other(v)) {
-                edgeTo[v].addResidualFlowTo(v, bottle); 
+                edgeTo[v].addResidualFlowTo(v, bottle);
             }
 
             value += bottle;
@@ -46,12 +46,12 @@ public class FordFulkerson {
     }
 
     // return value of max flow
-    public double value()  {
+    public double value() {
         return value;
     }
 
     // is v in the s side of the min s-t cut?
-    public boolean inCut(int v)  {
+    public boolean inCut(int v) {
         return marked[v];
     }
 
@@ -73,12 +73,10 @@ public class FordFulkerson {
                 int w = e.other(v);
 
                 // if residual capacity from v to w
-                if (e.residualCapacityTo(w) > 0) {
-                    if (!marked[w]) {
-                        edgeTo[w] = e;
-                        marked[w] = true;
-                        q.add(w);
-                    }
+                if (e.residualCapacityTo(w) > 0 && !marked[w]) {
+                    edgeTo[w] = e;
+                    marked[w] = true;
+                    q.add(w);
                 }
             }
         }
@@ -88,13 +86,12 @@ public class FordFulkerson {
     }
 
 
-
     // return excess flow at vertex v
     private double excess(FlowNetwork G, int v) {
         double excess = 0.0;
         for (FlowEdge e : G.adj(v)) {
             if (v == e.from()) excess -= e.flow();
-            else               excess += e.flow();
+            else excess += e.flow();
         }
         return excess;
     }
@@ -135,7 +132,6 @@ public class FordFulkerson {
     }
 
 
-
     // check optimality conditions
     private boolean check(FlowNetwork G, int s, int t) {
 
@@ -159,8 +155,9 @@ public class FordFulkerson {
         double mincutValue = 0.0;
         for (int v = 0; v < G.V(); v++) {
             for (FlowEdge e : G.adj(v)) {
-                if ((v == e.from()) && inCut(e.from()) && !inCut(e.to()))
+                if (v == e.from() && inCut(e.from()) && !inCut(e.to())) {
                     mincutValue += e.capacity();
+                }
             }
         }
 
