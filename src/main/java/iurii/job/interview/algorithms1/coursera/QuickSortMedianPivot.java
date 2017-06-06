@@ -25,11 +25,11 @@ public class QuickSortMedianPivot {
 		// first pivot
 		int pivotIndex = -1;
 		int medianIndex = (end+start) / 2;
-		if ((array[medianIndex]> array[start] && array[medianIndex]<array[end]) || 
-				(array[medianIndex]>array[end] && array[medianIndex]<array[start])) {
+		if (array[medianIndex] > array[start] && array[medianIndex] < array[end] ||
+				array[medianIndex] > array[end] && array[medianIndex] < array[start]) {
 			pivotIndex = medianIndex;
-		} else if ((array[start]> array[medianIndex] && array[start]<array[end]) || 
-				(array[start]>array[end] && array[start]<array[medianIndex])) {
+		} else if (array[start] > array[medianIndex] && array[start] < array[end] ||
+				array[start] > array[end] && array[start] < array[medianIndex]) {
 			pivotIndex = start;
 		} else {
 			pivotIndex = end;

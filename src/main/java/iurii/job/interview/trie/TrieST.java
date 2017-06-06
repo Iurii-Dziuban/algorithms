@@ -23,13 +23,19 @@ public class TrieST<Value> {
     @SuppressWarnings("unchecked")
     public Value get(String key) {
         Node x = get(root, key, 0);
-        if (x == null) return null;
+        if (x == null) {
+            return null;
+        }
         return (Value) x.val;
     }
 
     private Node get(Node x, String key, int d) {
-        if (x == null) return null;
-        if (d == key.length()) return x;
+        if (x == null) {
+            return null;
+        }
+        if (d == key.length()) {
+            return x;
+        }
         char c = key.charAt(d);
         return get(x.next[c], key, d+1);
     }
@@ -42,7 +48,9 @@ public class TrieST<Value> {
     }
 
     private Node put(Node x, String key, Value val, int d) {
-        if (x == null) x = new Node();
+        if (x == null) {
+            x = new Node();
+        }
         if (d == key.length()) {
             x.val = val;
             return x;
@@ -61,9 +69,15 @@ public class TrieST<Value> {
     // find the key in the subtrie rooted at x that is the longest
     // prefix of the query string, starting at the dth character
     private int longestPrefixOf(Node x, String query, int d, int length) {
-        if (x == null) return length;
-        if (x.val != null) length = d;
-        if (d == query.length()) return length;
+        if (x == null) {
+            return length;
+        }
+        if (x.val != null) {
+            length = d;
+        }
+        if (d == query.length()) {
+            return length;
+        }
         char c = query.charAt(d);
         return longestPrefixOf(x.next[c], query, d+1, length);
     }
@@ -81,10 +95,15 @@ public class TrieST<Value> {
     }
 
     private void collect(Node x, String key, Queue<String> queue) {
-        if (x == null) return;
-        if (x.val != null) queue.add(key);
-        for (int c = 0; c < R; c++)
+        if (x == null) {
+            return;
+        }
+        if (x.val != null) {
+            queue.add(key);
+        }
+        for (int c = 0; c < R; c++) {
             collect(x.next[c], key + (char) c, queue);
+        }
     }
 
 
@@ -95,13 +114,21 @@ public class TrieST<Value> {
     }
  
     public void collect(Node x, String prefix, String pat, Queue<String> q) {
-        if (x == null) return;
-        if (prefix.length() == pat.length() && x.val != null) q.add(prefix);
-        if (prefix.length() == pat.length()) return;
+        if (x == null) {
+            return;
+        }
+        if (prefix.length() == pat.length() && x.val != null) {
+            q.add(prefix);
+        }
+        if (prefix.length() == pat.length()) {
+            return;
+        }
         char next = pat.charAt(prefix.length());
-        for (int c = 0; c < R; c++)
-            if (next == '.' || next == c)
+        for (int c = 0; c < R; c++) {
+            if (next == '.' || next == c) {
                 collect(x.next[c], prefix + (char) c, pat, q);
+            }
+        }
     }
 
     public void delete(String key) {
@@ -109,16 +136,23 @@ public class TrieST<Value> {
     }
 
     private Node delete(Node x, String key, int d) {
-        if (x == null) return null;
-        if (d == key.length()) x.val = null;
-        else {
+        if (x == null) {
+            return null;
+        }
+        if (d == key.length()) {
+            x.val = null;
+        } else {
             char c = key.charAt(d);
             x.next[c] = delete(x.next[c], key, d+1);
         }
-        if (x.val != null) return x;
-        for (int c = 0; c < R; c++)
-            if (x.next[c] != null)
+        if (x.val != null) {
+            return x;
+        }
+        for (int c = 0; c < R; c++) {
+            if (x.next[c] != null) {
                 return x;
+            }
+        }
         return null;
     }
 

@@ -56,7 +56,7 @@ public class ByteString implements Comparable<ByteString> {
     // less than < return -1
     // equal =  return 0
     private static int compare(int first, int second) {
-        return first > second ? 1 : ((first == second) ? 0 : -1);
+        return first > second ? 1 : (first == second) ? 0 : -1;
     }
 
     public byte[] getByteStringInternal() {

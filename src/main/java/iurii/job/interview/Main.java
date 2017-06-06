@@ -45,7 +45,7 @@ public class Main {
 		Utilities.println(SelectionSort.sort(new int[]{9,3,6,1,4,2,5,7,8}));
 		Utilities.println(InsertSort.sort(new int[]{9,3,6,1,4,2,5,7,8}));
 		Utilities.println(BubbleSort.sort(new int[]{9,3,6,1,4,2,5,7,8}));
-		System.out.println((BinarySearch.binarySearch(InsertSort.sort(new int[]{9,3,6,1,4,2,5,7,8}),4)));
+		System.out.println(BinarySearch.binarySearch(InsertSort.sort(new int[]{9,3,6,1,4,2,5,7,8}),4));
 		
 		Utilities.println(QuickSort.sort(new int[]{9,3,6,1,4,2,5,7,8}));
 		System.out.println(RandomizedSelection.select(new int[]{9,6,1,4,5,7,8}, 4));

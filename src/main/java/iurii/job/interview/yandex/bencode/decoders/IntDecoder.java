@@ -1,7 +1,5 @@
 package iurii.job.interview.yandex.bencode.decoders;
 
-import iurii.job.interview.yandex.bencode.utils.CharacterIterator;
-
 import java.util.Iterator;
 
 /**
@@ -14,7 +12,7 @@ public class IntDecoder implements Decoder<Integer> {
     public Integer decode(Iterator<Character> iterator, String s) {
         String intValue = "";
         char character;
-        while (iterator.hasNext() && ((character = iterator.next()) != 'e')) {
+        while (iterator.hasNext() && (character = iterator.next()) != 'e') {
             switch (character) {
                 case '-':
                     if (!intValue.isEmpty()) {

@@ -11,7 +11,7 @@ public class Crypto {
      */
     public static void main(String[] args) {
         for (int i = 0; i < 1000; i++) {
-            if ((i*7 % 23) == 1) {
+            if (i*7 % 23 == 1) {
                 System.out.println(i);
                 System.out.println((i*7-1)/23);
                 break;

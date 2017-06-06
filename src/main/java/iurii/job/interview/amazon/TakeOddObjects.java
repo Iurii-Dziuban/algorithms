@@ -96,7 +96,7 @@ public class TakeOddObjects {
         return  oddObjects;
     }
 
-    // Approach 3. LinkedHashMap and ArrayList. Concreate type
+    // Approach 3. LinkedHashMap and ArrayList. Concrete type
 
     /**
      * Good.
@@ -114,6 +114,10 @@ public class TakeOddObjects {
             return new ArrayList<T>();
         }
         Map<T, Integer> countMap = new LinkedHashMap<>();
+        return fillSortedMapAndGetListOfOddObjects(list, countMap);
+    }
+
+    private <T> List<T> fillSortedMapAndGetListOfOddObjects(List<T> list, Map<T, Integer> countMap) {
         fillCountMap(list, countMap);
 
         return countMap.entrySet().stream().filter(entry -> entry.getValue() % 2 == 1)
@@ -144,10 +148,8 @@ public class TakeOddObjects {
         Set<T> countSet = new LinkedHashSet<T>();
         Set<T> duplicatedSet = new HashSet<T>();
         for (T obj : list) {
-            if (!countSet.add(obj)) {
-                if (!duplicatedSet.add(obj)) {
-                    duplicatedSet.remove(obj);
-                }
+            if (!countSet.add(obj) && !duplicatedSet.add(obj)) {
+                duplicatedSet.remove(obj);
             }
         }
         countSet.removeAll(duplicatedSet);
@@ -172,23 +174,8 @@ public class TakeOddObjects {
             return new ArrayList<T>();
         }
         Map<T, Integer> countMap = new TreeMap<>();
-        fillCountMap(list, countMap);
 
-        return countMap.entrySet().stream().filter(entry -> entry.getValue() % 2 == 1)
-                .map(entry -> entry.getKey())
-                .collect(Collectors.toList());
-    }
-
-    private <T> Map<T, Integer> fillCountMap(List<T> list, Map<T, Integer> countMap) {
-        for (T obj : list) {
-            Integer count = countMap.get(obj);
-            if (count == null) {
-                countMap.put(obj, 1);
-            } else {
-                countMap.put(obj, count + 1);
-            }
-        }
-        return countMap;
+        return fillSortedMapAndGetListOfOddObjects(list, countMap);
     }
 
     // Approach 6. TreeMap and ArrayList from it. Concreate type. Provided comparator
@@ -209,10 +196,18 @@ public class TakeOddObjects {
             return new ArrayList<T>();
         }
         Map<T, Integer> countMap = new TreeMap<>(comparator);
-        fillCountMap(list, countMap);
+        return fillSortedMapAndGetListOfOddObjects(list, countMap);
+    }
 
-        return countMap.entrySet().stream().filter(entry -> entry.getValue() % 2 == 1)
-                .map(entry -> entry.getKey())
-                .collect(Collectors.toList());
+    private <T> Map<T, Integer> fillCountMap(List<T> list, Map<T, Integer> countMap) {
+        for (T obj : list) {
+            Integer count = countMap.get(obj);
+            if (count == null) {
+                countMap.put(obj, 1);
+            } else {
+                countMap.put(obj, count + 1);
+            }
+        }
+        return countMap;
     }
 }

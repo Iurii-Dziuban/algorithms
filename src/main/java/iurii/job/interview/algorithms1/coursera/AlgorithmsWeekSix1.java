@@ -28,7 +28,7 @@ public class AlgorithmsWeekSix1 {
         for (int i = -10000; i <= 10000; i++) {
             System.out.println(i);
             for (long value : list) {
-                if (map.containsKey(i - value) && (i - value != value)) {
+                if (map.containsKey(i - value) && i - value != value) {
                     count++;
                     break;
                 }

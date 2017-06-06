@@ -32,7 +32,7 @@ public class BellmanFord {
 			//System.out.println("vertex" + i);
 			while (!prevDirectedEdges.isEmpty()) {
 				DirectedEdge top = prevDirectedEdges.poll();
-				if (edgeTo[top.to()] == -1 || ((distTo[top.from()] + top.weight()) < distTo[top.to()])) {
+				if (edgeTo[top.to()] == -1 || (distTo[top.from()] + top.weight() < distTo[top.to()])) {
 					edgeTo[top.to()] = top.from();
 					distTo[top.to()] = distTo[top.from()] + top.weight();
 					addEdges(graph, top.to(), nextDirectedEdges);
@@ -43,7 +43,7 @@ public class BellmanFord {
 		// cycle check
 		while (!prevDirectedEdges.isEmpty()) {
 			DirectedEdge top = prevDirectedEdges.poll();
-			if (edgeTo[top.to()] == -1 || ((distTo[top.from()] + top.weight()) < distTo[top.to()])) {
+			if (edgeTo[top.to()] == -1 || (distTo[top.from()] + top.weight() < distTo[top.to()])) {
 				isNegativeCycle = true;
 				break;
 			}
