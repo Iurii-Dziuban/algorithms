@@ -1,6 +1,6 @@
 package iurii.job.interview.booking_com;
 
-import iurii.job.interview.utils.Pair;
+import iurii.job.interview.utils.pair.Pair;
 import org.junit.Test;
 
 import java.util.ArrayList;

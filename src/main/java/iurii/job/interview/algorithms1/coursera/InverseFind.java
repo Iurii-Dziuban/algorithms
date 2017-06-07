@@ -1,6 +1,6 @@
 package iurii.job.interview.algorithms1.coursera;
 
-import iurii.job.interview.utils.Pair;
+import iurii.job.interview.utils.pair.Pair;
 
 import java.util.ArrayList;
 import java.util.Arrays;

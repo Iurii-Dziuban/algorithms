@@ -1,7 +1,7 @@
 package iurii.job.interview.amazon;
 
-import iurii.job.interview.utils.Pair;
-import iurii.job.interview.utils.PairUtils;
+import iurii.job.interview.utils.pair.Pair;
+import iurii.job.interview.utils.pair.PairUtils;
 
 import java.util.List;
 

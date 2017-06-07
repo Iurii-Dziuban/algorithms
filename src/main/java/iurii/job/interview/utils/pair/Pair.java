@@ -1,4 +1,4 @@
-package iurii.job.interview.utils;
+package iurii.job.interview.utils.pair;
 
 /**
  * Created by iurii.dziuban on 06/06/2017.

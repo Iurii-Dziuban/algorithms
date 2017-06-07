@@ -1,4 +1,4 @@
-package iurii.job.interview.utils;
+package iurii.job.interview.utils.pair;
 
 import java.util.List;
 

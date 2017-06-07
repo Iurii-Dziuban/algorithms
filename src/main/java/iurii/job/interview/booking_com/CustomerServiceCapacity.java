@@ -1,7 +1,7 @@
 package iurii.job.interview.booking_com;
 
 import iurii.job.interview.amazon.ProcessorsForTasks;
-import iurii.job.interview.utils.Pair;
+import iurii.job.interview.utils.pair.Pair;
 
 import java.util.List;
 
