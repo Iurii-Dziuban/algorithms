@@ -28,3 +28,4 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 # Booking.com
 - CustomerServiceCapacity (CustomerServiceCapacityTest) - find minimum additional number of employers needed to handle all the calls.
 - Polygons (PolygonsTest) - 4 sided polygons. Determine type of the polygon and count different types.
+- DeltaEncoding (DeltaEncodingTest) - encode list of number with list, each next value is different between current and previous number. If difference is more than some value (e.x. one byte) use escape value.
