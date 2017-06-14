@@ -29,3 +29,4 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - CustomerServiceCapacity (CustomerServiceCapacityTest) - find minimum additional number of employers needed to handle all the calls.
 - Polygons (PolygonsTest) - 4 sided polygons. Determine type of the polygon and count different types.
 - DeltaEncoding (DeltaEncodingTest) - encode list of number with list, each next value is different between current and previous number. If difference is more than some value (e.x. one byte) use escape value.
+- SortHotelsList (SortHotelsListTest) - standard map-reduce example. In Big data world can be done by Spark/Hadoop. In java best approach to continue with Stream API and probably use parallelStream for better performance. Be careful not to design solution with adding stream values into collection. Slows down the solution. Better to have the whole pipeline and aggregation function in the end
