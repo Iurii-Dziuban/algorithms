@@ -21,6 +21,7 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - CIDRComparator (CIDRComparatorTest) - There are two subnet addresses. Find out the relation: Subset, Superset, Equal, Disjoint . More info : https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 - BalancedParenthensies (BalancedParenthensiesTest) - Check if parenthesies are balanced in a string or not. Note: Tests basic knowledge of Stack.
 - ProcessorsForTasks (ProcessorsForTasksTest) - find minimum number of processors for tasks
+- CountNegativeIntegersInRowColumnWiseSortedMatrix (CountNegativeIntegersInRowColumnWiseSortedMatrixTest) - mock amazon interview question
 
 # Yandex tasks
 - Bencode (BencodeTest) - implementation of Bencode protocol for encoding/decoding data. Widely used in torrents. More info: https://en.wikipedia.org/wiki/Bencode
