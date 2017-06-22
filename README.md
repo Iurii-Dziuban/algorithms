@@ -34,3 +34,8 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 
 # Google
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
+
+# Generic
+
+## Performance
+- FinalDeclarationPerformanceTest - compares operation time using final and non final variables. Final is a bit more efficient.
