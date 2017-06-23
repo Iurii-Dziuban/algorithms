@@ -2,8 +2,6 @@ package iurii.job.interview.generic.performance;
 
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * Created by iurii.dziuban on 21/06/2017.
  *
@@ -33,7 +31,6 @@ public class FinalDeclarationPerformanceTest {
         }
         tElapsed = System.currentTimeMillis() - tStart;
         System.out.println("Method with finals took " + tElapsed + " ms");
-        assertThat(tElapsed).isLessThan(10);
     }
 
     @Test
@@ -44,6 +41,5 @@ public class FinalDeclarationPerformanceTest {
             testNonFinal();
         tElapsed = System.currentTimeMillis() - tStart;
         System.out.println("Method without finals took " + tElapsed + " ms");
-        assertThat(tElapsed).isGreaterThan(30);
     }
 }

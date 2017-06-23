@@ -35,6 +35,9 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 # Google
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
 
+# Leetcode.com
+LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram
+
 # Generic
 
 ## Performance
