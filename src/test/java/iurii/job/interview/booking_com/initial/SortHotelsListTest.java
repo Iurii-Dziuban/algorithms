@@ -1,4 +1,4 @@
-package iurii.job.interview.booking_com;
+package iurii.job.interview.booking_com.initial;
 
 import org.assertj.core.util.Sets;
 import org.junit.Test;

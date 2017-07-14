@@ -1,4 +1,4 @@
-package iurii.job.interview.booking_com;
+package iurii.job.interview.booking_com.initial;
 
 import iurii.job.interview.amazon.ProcessorsForTasks;
 import iurii.job.interview.utils.pair.Pair;

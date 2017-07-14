@@ -1,4 +1,4 @@
-package iurii.job.interview.booking_com;
+package iurii.job.interview.booking_com.initial;
 
 import java.util.ArrayList;
 import java.util.List;
