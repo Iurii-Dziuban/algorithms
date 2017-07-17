@@ -3,6 +3,8 @@ package iurii.job.interview.amazon;
 import iurii.job.interview.utils.pair.Pair;
 import iurii.job.interview.utils.pair.PairUtils;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -25,12 +27,15 @@ import java.util.List;
  * <p>
  * Answer 1
  * <p>
- * NOTE!!!! Same task as booking.com CustomerServiceCapacity . difference in naming, solution the same
+ * NOTE!!!!
+ * 1) Same task as booking.com CustomerServiceCapacity. Difference in naming, solution the same
+ * 2) Same task as booking.com FindMaxGuestDayService. Difference in naming input data
  * Created by iurii.dziuban on 06/06/2017.
  */
 public class ProcessorsForTasks {
 
-    public int findTotalNumberOfProcessorsNeeded(List<Pair> pairs) {
+    /** Solution based on timeline  O(n + timeline)*/
+    public int findTotalNumberOfProcessorsNeededWithTimeline(List<Pair> pairs) {
         int min = PairUtils.findMin(pairs);
         int max = PairUtils.findMax(pairs);
         int[] timeline = new int[max - min + 1];
@@ -47,5 +52,35 @@ public class ProcessorsForTasks {
             }
         }
         return needed;
+    }
+
+    /** Solution based on sorting O(n log n)*/
+    public int findTotalNumberOfProcessorsNeededWithSorting(List<Pair> pairs) {
+        ArrayList<Integer> positiveInsAndNegativeOuts = new ArrayList<>();
+        for(Pair pair : pairs) {
+            positiveInsAndNegativeOuts.add(pair.getFirst());
+            positiveInsAndNegativeOuts.add(- pair.getSecond());
+        }
+        int maxNumber = 0;
+        int currentNumberOfProcessors = 0;
+        positiveInsAndNegativeOuts.sort(new ChecksComparator());
+        for(int value : positiveInsAndNegativeOuts) {
+            currentNumberOfProcessors += value > 0 ? 1 : - 1;
+            if (currentNumberOfProcessors > maxNumber) {
+                maxNumber = currentNumberOfProcessors;
+            }
+        }
+        return maxNumber;
+    }
+
+    public static class ChecksComparator implements Comparator<Integer> {
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            int difference = Math.abs(o1) - Math.abs(o2);
+            if (difference == 0) {
+                return o2 - o1;
+            }
+            return difference;
+        }
     }
 }

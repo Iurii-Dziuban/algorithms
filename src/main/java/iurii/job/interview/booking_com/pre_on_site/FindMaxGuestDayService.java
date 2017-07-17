@@ -2,12 +2,13 @@ package iurii.job.interview.booking_com.pre_on_site;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.TreeMap;
 
 /**
  * Created by iurii.dziuban on 14/07/2017.
+ *  * NOTE!!!!
+ * 1) Same task as booking.com CustomerServiceCapacity. Difference in naming, solution the same
+ * 2) Same task as amazon ProcessorsForTasks. Difference in naming input data
  */
 public class FindMaxGuestDayService {
 

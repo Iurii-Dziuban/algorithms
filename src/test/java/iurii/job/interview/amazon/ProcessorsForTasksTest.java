@@ -21,7 +21,7 @@ public class ProcessorsForTasksTest {
         pairs.add(new Pair(1481122000, 1481122040));
         pairs.add(new Pair(1481122030, 1481122035));
 
-        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeeded(pairs)).isEqualTo(2);
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithTimeline(pairs)).isEqualTo(2);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ProcessorsForTasksTest {
         pairs.add(new Pair(1481122020, 1481122040));
         pairs.add(new Pair(1481122040, 1481122050));
 
-        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeeded(pairs)).isEqualTo(1);
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithTimeline(pairs)).isEqualTo(1);
     }
 
     @Test
@@ -41,6 +41,36 @@ public class ProcessorsForTasksTest {
         pairs.add(new Pair(1481122030, 1481122045));
         pairs.add(new Pair(1481122050, 1481122070));
 
-        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeeded(pairs)).isEqualTo(1);
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithTimeline(pairs)).isEqualTo(1);
+    }
+
+    @Test
+    public void testSimpleWithSorting() {
+        List<Pair> pairs = new ArrayList<>();
+        pairs.add(new Pair(1481122000, 1481122020));
+        pairs.add(new Pair(1481122000, 1481122040));
+        pairs.add(new Pair(1481122030, 1481122035));
+
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithSorting(pairs)).isEqualTo(2);
+    }
+
+    @Test
+    public void testOneWithSorting() {
+        List<Pair> pairs = new ArrayList<>();
+        pairs.add(new Pair(1481122000, 1481122020));
+        pairs.add(new Pair(1481122020, 1481122040));
+        pairs.add(new Pair(1481122040, 1481122050));
+
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithSorting(pairs)).isEqualTo(1);
+    }
+
+    @Test
+    public void testNegativeWithSorting() {
+        List<Pair> pairs = new ArrayList<>();
+        pairs.add(new Pair(1481122000, 1481122025));
+        pairs.add(new Pair(1481122030, 1481122045));
+        pairs.add(new Pair(1481122050, 1481122070));
+
+        assertThat(processorsForTasks.findTotalNumberOfProcessorsNeededWithSorting(pairs)).isEqualTo(1);
     }
 }

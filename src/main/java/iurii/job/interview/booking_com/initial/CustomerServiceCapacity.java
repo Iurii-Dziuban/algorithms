@@ -40,7 +40,7 @@ public class CustomerServiceCapacity {
     private ProcessorsForTasks processorsForTasks = new ProcessorsForTasks();
 
     public int findNeededNumberOfEmployers(int x, List<Pair> pairs) {
-        int additionalNumber = processorsForTasks.findTotalNumberOfProcessorsNeeded(pairs) - x;
+        int additionalNumber = processorsForTasks.findTotalNumberOfProcessorsNeededWithTimeline(pairs) - x;
         return additionalNumber >= 0 ? additionalNumber : 0;
     }
 }
