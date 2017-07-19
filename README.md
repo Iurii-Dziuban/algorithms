@@ -41,6 +41,7 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - DeltaEncoding (DeltaEncodingTest) - encode list of number with list, each next value is different between current and previous number. If difference is more than some value (e.x. one byte) use escape value.
 - SortHotelsList (SortHotelsListTest) - standard map-reduce example. In Big data world can be done by Spark/Hadoop. In java best approach to continue with Stream API and probably use parallelStream for better performance. Be careful not to design solution with adding stream values into collection. Slows down the solution. Better to have the whole pipeline and aggregation function in the end
 - FindMaxGuestDayService (FindMaxGuestDayServiceTest) - similar to CustomerServiceCapacity and ProcessorsForTasks.
+- PathsFromRoot (PathsFromRootTest) - Binary tree. Find paths from root with specific sum value.
 
 # Google tasks
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
