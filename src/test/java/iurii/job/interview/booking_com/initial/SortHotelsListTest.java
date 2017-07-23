@@ -31,6 +31,7 @@ public class SortHotelsListTest {
 
         List<SortHotelsList.HotelRating> hotelRatings = new SortHotelsList().getSortedHotelIdNumberOfWords(words, hotels);
 
+        System.out.println(hotelRatings);
         assertThat(hotelRatings).size().isEqualTo(2);
         assertThat(hotelRatings.get(0).getId()).isEqualTo(1);
         assertThat(hotelRatings.get(0).getCount()).isEqualTo(6);
@@ -56,6 +57,7 @@ public class SortHotelsListTest {
 
         List<SortHotelsList.HotelRating> hotelRatings = new SortHotelsList().getSortedHotelIdNumberOfWords(words, hotels);
 
+        System.out.println(hotelRatings);
         assertThat(hotelRatings).size().isEqualTo(2);
         assertThat(hotelRatings.get(0).getId()).isEqualTo(1);
         assertThat(hotelRatings.get(0).getCount()).isEqualTo(6);
@@ -80,6 +82,8 @@ public class SortHotelsListTest {
         hotels.add(new SortHotelsList.Hotel(2, reviewsForHotel2));
 
         List<SortHotelsList.HotelRating> hotelRatings = new SortHotelsList().getSortedHotelIdNumberOfWords(words, hotels);
+
+        System.out.println(hotelRatings);
         assertThat(hotelRatings).size().isEqualTo(2);
         assertThat(hotelRatings.get(0).getId()).isEqualTo(2);
         assertThat(hotelRatings.get(0).getCount()).isEqualTo(7);

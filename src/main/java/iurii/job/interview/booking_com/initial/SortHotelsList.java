@@ -24,8 +24,9 @@ import java.util.stream.Collectors;
  * - Words match should be case insensitive
  * - Dots and commas should be ignored
  * - If the word appears in the review twice, it should be counted twice
- * - If two hotels have the same number of words they should be sorted by ID
+ * - If two hotels have the same number of words they should be sorted by ID asc otherwise Count desc
  * - Consider revisiting time complexity
+ *
  * Created by iurii.dziuban on 07/06/2017.
  */
 public class SortHotelsList {
@@ -43,7 +44,7 @@ public class SortHotelsList {
      * Collecting stream object in the middle can drive to more CPU and memory overhead.
      */
     public List<HotelRating> getSortedHotelIdNumberOfWords(Set<String> wordsLowercase, List<Hotel> hotelReviews) {
-        List<HotelRating> hotelRatingList = hotelReviews.parallelStream()
+        return hotelReviews.parallelStream()
                 .map(hotel -> {
                     long wordsMatchedCount = hotel.getReviews()
                             .parallelStream()
@@ -53,7 +54,6 @@ public class SortHotelsList {
                             .count();
                     return new HotelRating(hotel.getId(), wordsMatchedCount);
                 }).sorted().collect(Collectors.toList());
-        return hotelRatingList;
     }
 
     // input data structure
@@ -96,9 +96,8 @@ public class SortHotelsList {
         @Override
         public int compareTo(HotelRating o) {
             // assume null not possible
-            int countDifference = count - o.count > 0 ? -1 : 1;
-            if (countDifference != 0) {
-                return countDifference;
+            if (o.count - count != 0) {
+                return o.count - count > 0 ? 1 : -1;
             }
             return id - o.id;
         }
