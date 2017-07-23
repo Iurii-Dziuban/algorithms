@@ -21,11 +21,14 @@ import java.util.concurrent.ConcurrentHashMap;
  * 4) Basic solution: values are sorted. Enhanced: values are not sorted. Parallel: values are not sorted array is two big and should be split into chunks which are processed in parallel.
  *
  * Basic solution for sorted array two have two pointers in the array in the beginning to the first and last elements, check their sum with required sum and depending on what is bigger to move one of the pointers until they meet. Solution is linear.
+ *
  * Enhanced: is to use data structure Set and to put supplementary numbers of which are processed and to look up if the supplement already in the set. Time is linear, look up in the hash set is O(1)
+ *
  * Parallel: There is no implementation of ConcurrentHashSet in java.
  *   As it is pointed out on https://stackoverflow.com/questions/6992608/why-there-is-no-concurrenthashset-against-concurrenthashmap
  *   It can be created using guava or Collections.synchronizedSet() but it won`t give the best performance as the one derived from ConcurrentHashMap
  *   ConcurrentHashMap.newKeySet()
+ *
  * Created by iurii.dziuban on 14/06/2017.
  */
 public class TwoPairParticularSum {
@@ -52,7 +55,7 @@ public class TwoPairParticularSum {
         return false;
     }
 
-    public boolean enhancedSolutionIsPairExistsElementsSorted(int[] numbers, int sum) {
+    public boolean enhancedSolutionWithSetIsPairExists(int[] numbers, int sum) {
         // preconditions
         if (numbers == null) {
             return false;
@@ -67,14 +70,14 @@ public class TwoPairParticularSum {
         return false;
     }
 
-    public boolean parallelSolutionIsPairExistsElementsSorted(int[] numbers, int sum) {
+    // Set should be passed concurrent "ConcurrentHashMap.newKeySet()"
+    public boolean parallelSolutionOnChunkIsPairExists(int[] chunk, int sum, Set<Integer> complements) {
         // preconditions
-        if (numbers == null) {
+        if (chunk == null) {
             return false;
         }
-        Set<Integer> complements = ConcurrentHashMap.newKeySet();
-        // use Threads and run on chunks
-        for (int number : numbers) {
+        // use Threads and run on chunks. Concurrent Hash Set should be one for all threads
+        for (int number : chunk) {
             if (complements.contains(number)) {
                 return true;
             }

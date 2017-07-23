@@ -13,7 +13,7 @@ public class ByteStringDecoder implements Decoder<ByteString> {
 
     @Override
     public ByteString decode(Iterator<Character> iterator, String beginning) {
-        String size = beginning;
+        StringBuilder size = new StringBuilder(beginning);
         char character;
         while (iterator.hasNext() && (character = iterator.next()) != ':') {
             switch (character) {
@@ -29,7 +29,7 @@ public class ByteStringDecoder implements Decoder<ByteString> {
                 case '9': if (size.charAt(0) == '0') {
                               throw new NumberFormatException("Starting 0 is not allowed in size of string");
                           }
-                          size += character;
+                          size.append(character);
                           break;
                 default: throw new NumberFormatException("Illegal character'" + character +"' should not appear in size of string");
             }
@@ -37,7 +37,7 @@ public class ByteStringDecoder implements Decoder<ByteString> {
         if (!iterator.hasNext()) {
             throw new IllegalStateException("Unexpected end of Bencode data");
         }
-        int length = Integer.parseInt(size);
+        int length = Integer.parseInt(size.toString());
         byte[] byteString = new byte[length];
         for (int i = 0; i < length; i++) {
             if (!iterator.hasNext()) {

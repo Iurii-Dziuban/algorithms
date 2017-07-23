@@ -10,12 +10,12 @@ public class IntDecoder implements Decoder<Integer> {
 
     @Override
     public Integer decode(Iterator<Character> iterator, String s) {
-        String intValue = "";
+        StringBuilder intValue = new StringBuilder();
         char character;
         while (iterator.hasNext() && (character = iterator.next()) != 'e') {
             switch (character) {
                 case '-':
-                    if (!intValue.isEmpty()) {
+                    if (intValue.length() != 0) {
                         throw new NumberFormatException("Illegal character'" + character + "' inside int value");
                     }
                 case '0':
@@ -28,18 +28,18 @@ public class IntDecoder implements Decoder<Integer> {
                 case '7':
                 case '8':
                 case '9':
-                    if (!intValue.isEmpty() && intValue.charAt(0) == '0') {
+                    if (intValue.length() != 0 && intValue.charAt(0) == '0') {
                         throw new NumberFormatException("Starting 0 is not allowed in int");
                     }
-                    intValue += character;
+                    intValue.append(character);
                     break;
                 default:
                     throw new NumberFormatException("Illegal character'" + character + "' inside int value");
             }
         }
-        if (!iterator.hasNext() || intValue.isEmpty()) {
+        if (!iterator.hasNext() || intValue.length() == 0) {
             throw new NumberFormatException("Unexpected end of Bencode data in expected integer value");
         }
-        return Integer.parseInt(intValue);
+        return Integer.parseInt(intValue.toString());
     }
 }
