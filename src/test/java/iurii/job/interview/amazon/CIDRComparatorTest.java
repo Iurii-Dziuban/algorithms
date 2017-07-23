@@ -54,6 +54,11 @@ public class CIDRComparatorTest {
 
     @Test
     public void testDisjointTwoMasksAreDifferent() {
+        assertThat(comparator.compareCIDR("1.2.3.4/24", "1.1.3.4/16"))
+                .isEqualTo(CIDRComparator.CIDRComparatorResult.Disjoint);
+        assertThat(comparator.compareCIDR2("1.2.3.4/24", "1.1.3.4/16"))
+                .isEqualTo(CIDRComparator.CIDRComparatorResult.Disjoint);
+
         assertThat(comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25"))
                 .isEqualTo(CIDRComparator.CIDRComparatorResult.Disjoint);
         assertThat(comparator.compareCIDR2("197.54.16.128/25", "197.54.16.127/25"))

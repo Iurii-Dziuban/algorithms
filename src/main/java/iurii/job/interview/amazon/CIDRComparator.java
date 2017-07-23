@@ -14,35 +14,57 @@ package iurii.job.interview.amazon;
  * info about CIDR notation
  * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
  *
+ * Two common solutions: byte[] and long comparisons
+ * Prefer long instead of byte[] -> less code and more readable.
+ * But potentially byte[] solution can be extended to be used in IPv6 and long not.
  * @author Iurii
  */
 public class CIDRComparator {
 
-    public static final long _2_POWER_32 = 4294967296L;
-    public static final int MAX_UNSIGNED_BYTE = 256;
-    public static final int NUMBER_OF_BYTE_BITS = 8;
-    public static final int MAX_SIGNED_BYTE = 127;
+    private static final long _2_POWER_32 = 4294967296L;
+    private static final int MAX_UNSIGNED_BYTE = 256;
+    private static final int NUMBER_OF_BYTE_BITS = 8;
 
     /**
      * Test method
-     *
-     * @param args
      */
     public static void main(String[] args) {
         CIDRComparator comparator = new CIDRComparator();
         System.out.println(comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16"));
+        assert comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16") == CIDRComparatorResult.Equals;
         System.out.println(comparator.compareCIDR("1.2.3.4/24", "1.2.3.4/16"));
+        assert comparator.compareCIDR("1.2.3.4/24", "1.2.3.4/16") == CIDRComparatorResult.Subset;
         System.out.println(comparator.compareCIDR("172.84.26.128/16", "172.84.26.255/24"));
+        assert comparator.compareCIDR("172.84.26.128/16", "172.84.26.255/24") == CIDRComparatorResult.Superset;
         System.out.println(comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25"));
+        assert comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25") == CIDRComparatorResult.Disjoint;
         System.out.println(comparator.compareCIDR("197.54.16.128/32", "197.54.16.128/32"));
+        assert comparator.compareCIDR("197.54.16.128/32", "197.54.16.128/32") == CIDRComparatorResult.Equals;
     }
 
     public enum CIDRComparatorResult {
         Equals, Subset, Superset, Disjoint
     }
 
-    // --------- first solution --------------
-    // based on converting to byte array and comparing byte by byte
+    // common method
+    private CIDRComparatorResult getCidrComparatorResult(byte firstSubnetLength, byte secondSubnetLength, boolean arePrefixesEqualInLong) {
+        if (arePrefixesEqualInLong) {
+            if (firstSubnetLength == secondSubnetLength) {
+                return CIDRComparatorResult.Equals;
+            } else {
+                if (firstSubnetLength > secondSubnetLength) {
+                    return CIDRComparatorResult.Subset;
+                } else {
+                    return CIDRComparatorResult.Superset;
+                }
+            }
+        } else {
+            return CIDRComparatorResult.Disjoint;
+        }
+    }
+
+    // --------- First solution ----------------------------------------------------------
+    // Based on converting to byte array and comparing byte by byte
     // not so elegant, short and readable but more efficient from memory and time consumption
     // Note: assuming values are valid (if needed can be preprocessed)
     public CIDRComparatorResult compareCIDR(String firstSubnet, String secondSubnet) {
@@ -63,45 +85,6 @@ public class CIDRComparator {
         return getCidrComparatorResult(firstSubnetLength, secondSubnetLength, arePrefixesEqual);
     }
 
-    // --------- second solution --------------
-    // based on converting and comparing whole ips based on masked using long as storage (or unsigned int)
-    // more elegant and readable than byte array. a bit slower, because of overhead to convert to long
-    // Note: assuming values are valid (if needed can be preprocessed)
-    public CIDRComparatorResult compareCIDR2(String firstSubnet, String secondSubnet) {
-        String[] firstSubnetIpAndSuffix = firstSubnet.split("/");
-        String[] firstSubnetIp = firstSubnetIpAndSuffix[0].split("\\.");
-        long firstSubnetIpInLong = ipToLong(firstSubnetIp);
-
-        String[] secondSubnetIpAndSuffix = secondSubnet.split("/");
-        String[] secondSubnetIp = secondSubnetIpAndSuffix[0].split("\\.");
-        long secondSubnetIpInLong = ipToLong(secondSubnetIp);
-
-        byte firstSubnetLength = Byte.parseByte(firstSubnetIpAndSuffix[1]);
-        byte secondSubnetLength = Byte.parseByte(secondSubnetIpAndSuffix[1]);
-        byte shorterSubnetLength = (byte) Math.min(firstSubnetLength, secondSubnetLength);
-
-        boolean arePrefixesEqualInLong = arePrefixEqual(shorterSubnetLength, firstSubnetIpInLong, secondSubnetIpInLong);
-
-        return getCidrComparatorResult(firstSubnetLength, secondSubnetLength, arePrefixesEqualInLong);
-    }
-
-    private CIDRComparatorResult getCidrComparatorResult(byte firstSubnetLength, byte secondSubnetLength, boolean arePrefixesEqualInLong) {
-        if (arePrefixesEqualInLong) {
-            if (firstSubnetLength == secondSubnetLength) {
-                return CIDRComparatorResult.Equals;
-            } else {
-                if (firstSubnetLength > secondSubnetLength) {
-                    return CIDRComparatorResult.Subset;
-                } else {
-                    return CIDRComparatorResult.Superset;
-                }
-            }
-        } else {
-            return CIDRComparatorResult.Disjoint;
-        }
-    }
-
-    // --------- first solution --------------
     // Note: using short, because Byte in java from -128 to 127 and we need from 0 to 255
     // and it is complex to organize unsigned logic: xor, comparison, shift with signed types
     private byte[] ipInBytes(String[] ip) {
@@ -131,19 +114,42 @@ public class CIDRComparator {
         return true;
     }
 
+    // get unsigned byte (positive)
     private int unpackByte(byte byteToUnpack) {
         return byteToUnpack < 0
                 ? (byteToUnpack + MAX_UNSIGNED_BYTE) : byteToUnpack;
     }
 
+    // save positive byte into 8 bits of java signed byte
     private byte packByte(int byteToPack) {
         return (byte) byteToPack;
     }
 
+    // --------- Second solution ---------------------------------------------------
+    // based on converting and comparing whole ips based on masked using long as storage (or unsigned int)
+    // more elegant and readable than byte array. a bit slower, because of overhead to convert to long
+    // Note: assuming values are valid (if needed can be preprocessed)
+    public CIDRComparatorResult compareCIDR2(String firstSubnet, String secondSubnet) {
+        String[] firstSubnetIpAndSuffix = firstSubnet.split("/");
+        String[] firstSubnetIp = firstSubnetIpAndSuffix[0].split("\\.");
+        long firstSubnetIpInLong = ipToLong(firstSubnetIp);
 
-    // --------- second solution --------------
-    // Note: no unsigned int in Java, so long is taken. It is complex to organize unsigned logic with signed logic
-    // comparison, xor and shift
+        String[] secondSubnetIpAndSuffix = secondSubnet.split("/");
+        String[] secondSubnetIp = secondSubnetIpAndSuffix[0].split("\\.");
+        long secondSubnetIpInLong = ipToLong(secondSubnetIp);
+
+        byte firstSubnetLength = Byte.parseByte(firstSubnetIpAndSuffix[1]);
+        byte secondSubnetLength = Byte.parseByte(secondSubnetIpAndSuffix[1]);
+        byte shorterSubnetLength = (byte) Math.min(firstSubnetLength, secondSubnetLength);
+
+        boolean arePrefixesEqualInLong = arePrefixEqual(shorterSubnetLength, firstSubnetIpInLong, secondSubnetIpInLong);
+
+        return getCidrComparatorResult(firstSubnetLength, secondSubnetLength, arePrefixesEqualInLong);
+    }
+
+    // Note: no unsigned int in Java, so long is taken.
+    // (It is complex to organize unsigned logic with signed logic
+    // comparison, xor and shift)
     private long ipToLong(String[] ip) {
         long ipInLong = 0;
         for (String value : ip) {
@@ -156,9 +162,10 @@ public class CIDRComparator {
         return ipInLong;
     }
 
-    // Improvement not to use byte arrays. more readable and straight forward
-    // Note: no unsigned int in Java, so long is taken. It is complex to organize unsigned logic with signed logic
-    // comparison, xor and shift
+    // Improvement not to use byte arrays but long. more readable and straight forward
+    // Note: no unsigned int in Java, so long is taken.
+    // (It is complex to organize unsigned logic with signed logic
+    // comparison, xor and shift)
     private boolean arePrefixEqual(byte prefixLength, long firstSubnetIp, long secondSubnetIp) {
         long xorResult = firstSubnetIp ^ secondSubnetIp;
         long compare = _2_POWER_32 >> prefixLength;

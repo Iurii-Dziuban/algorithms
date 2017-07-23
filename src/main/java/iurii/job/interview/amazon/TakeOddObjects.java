@@ -29,6 +29,7 @@ public class TakeOddObjects {
 
     // Potentially Map quicker than Set
     // , but in case small amount of duplicates Set solution can be good
+    // Note: order might be important
 
     // Approach 1. HashMap and ArrayList. General Type
 
@@ -50,12 +51,7 @@ public class TakeOddObjects {
         }
         Map<Object, Integer> countMap = new HashMap<>();
         for (Object obj : list) {
-            Integer count = countMap.get(obj);
-            if (count == null) {
-                countMap.put(obj, 1);
-            } else {
-                countMap.put(obj, count + 1);
-            }
+            countMap.merge(obj, 1, (oldValue, value) -> value + oldValue);
         }
         List<Object> oddObjects = new ArrayList<>();
         for (Map.Entry<Object, Integer> entry : countMap.entrySet()) {
@@ -120,7 +116,7 @@ public class TakeOddObjects {
         fillCountMap(list, countMap);
 
         return countMap.entrySet().stream().filter(entry -> entry.getValue() % 2 == 1)
-                .map(entry -> entry.getKey())
+                .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
     }
 
@@ -177,7 +173,7 @@ public class TakeOddObjects {
         return fillSortedMapAndGetListOfOddObjects(list, countMap);
     }
 
-    // Approach 6. TreeMap and ArrayList from it. Concreate type. Provided comparator
+    // Approach 6. TreeMap and ArrayList from it. Exact type. Provided comparator
 
     /**
      * Good.
@@ -198,15 +194,9 @@ public class TakeOddObjects {
         return fillSortedMapAndGetListOfOddObjects(list, countMap);
     }
 
-    private <T> Map<T, Integer> fillCountMap(List<T> list, Map<T, Integer> countMap) {
+    private <T> void fillCountMap(List<T> list, Map<T, Integer> countMap) {
         for (T obj : list) {
-            Integer count = countMap.get(obj);
-            if (count == null) {
-                countMap.put(obj, 1);
-            } else {
-                countMap.put(obj, count + 1);
-            }
+            countMap.merge(obj, 1, (oldValue, value) -> value + oldValue);
         }
-        return countMap;
     }
 }

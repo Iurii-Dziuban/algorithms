@@ -30,11 +30,18 @@ import java.util.List;
  * NOTE!!!!
  * 1) Same task as booking.com CustomerServiceCapacity. Difference in naming, solution the same
  * 2) Same task as booking.com FindMaxGuestDayService. Difference in naming input data
+ *
+ * Suggestions when each solution to use:
+ * 1) Timeline if timeline is relatively smaller than number of time series.
+ * 2) Sorting solution if timeline is relatively bigger than number of time series
+ *
  * Created by iurii.dziuban on 06/06/2017.
  */
 public class ProcessorsForTasks {
 
-    /** Solution based on timeline  O(n + timeline)*/
+    /** Solution based on timeline  O(n + timeline)
+     *  Adding or extracting 1 at the specific time point on timeline
+     */
     public int findTotalNumberOfProcessorsNeededWithTimeline(List<Pair> pairs) {
         int min = PairUtils.findMin(pairs);
         int max = PairUtils.findMax(pairs);
@@ -54,7 +61,9 @@ public class ProcessorsForTasks {
         return needed;
     }
 
-    /** Solution based on sorting O(n log n)*/
+    /** Solution based on sorting O(n log n)
+     *  By sorting ins and outs in the order they happen (based on Math.abs logic)
+     */
     public int findTotalNumberOfProcessorsNeededWithSorting(List<Pair> pairs) {
         ArrayList<Integer> positiveInsAndNegativeOuts = new ArrayList<>();
         for(Pair pair : pairs) {

@@ -20,5 +20,6 @@ public class BalancedParenthensiesTest {
     public void testNotBalanced() {
         assertThat(balancedParenthensies.areParenthensiesBalanced("{(a},b)")).isFalse();
         assertThat(balancedParenthensies.areParenthensiesBalanced("{)(a,b}")).isFalse();
+        assertThat(balancedParenthensies.areParenthensiesBalanced(")(a,b)")).isFalse();
     }
 }

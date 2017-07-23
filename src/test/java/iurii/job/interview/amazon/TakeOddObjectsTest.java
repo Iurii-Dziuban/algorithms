@@ -27,6 +27,8 @@ public class TakeOddObjectsTest {
                 .isEmpty();
         assertThat(takeOddObjects.takeOddTreeMapAndArrayListFromItOrderByDefaultComparator(null))
                 .isEmpty();
+        assertThat(takeOddObjects.takeOddTreeMapAndArrayListFromItOrderByComparator(null, new NullIntegerComparator()))
+                .isEmpty();
     }
 
     /**
@@ -37,7 +39,7 @@ public class TakeOddObjectsTest {
         List<Object> inputList = Arrays.asList(2, 3, 1, 2, 4, 0, 5, 5, 5, 4, null);
         List<Object> objects = takeOddObjects.takeOddHashMapAndArrayListNoOrderingOrSortingNotTypeSafed(inputList);
 
-        assertThat(objects).containsExactly(0, null, 1,3,5);
+        assertThat(objects).containsExactly(null, 0, 1, 3, 5);
     }
 
     /**
@@ -48,7 +50,7 @@ public class TakeOddObjectsTest {
         List<Integer> inputList = Arrays.asList(2, 3, 1, 2, 4, 0, 5, 5, 5, 4, null);
         List<Integer> objects = takeOddObjects.takeOddHashMapAndArrayListNoOrderingTypeSafe(inputList);
 
-        assertThat(objects).containsExactly(0, null, 1,3,5);
+        assertThat(objects).containsExactly(null, 0, 1, 3, 5);
     }
 
 
@@ -92,7 +94,7 @@ public class TakeOddObjectsTest {
     public void testTakeOddTreeMapAndArrayListFromItOrderByComparator() {
         List<Integer> inputList = Arrays.asList(2, 3, 1, 2, 4, 0, 5, 5, 5, 4, null);
         List<Integer> objects = takeOddObjects.takeOddTreeMapAndArrayListFromItOrderByComparator(inputList,
-                new NullIntegerComparator()::compare);
+                new NullIntegerComparator());
 
         assertThat(objects).containsExactly(null, 0, 1, 3, 5);
     }
