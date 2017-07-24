@@ -53,3 +53,16 @@ LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest 
 
 ## Performance
 - FinalDeclarationPerformanceTest - compares operation time using final and non final variables. Final is a bit more efficient.
+
+## Farm project
+Application with usage of regex, error handling, working with files (resources), Reflection API, Threads and Concurrency.
+- package `iurii.job.interview.generic.listener.farm`.
+Console application: `iurii.job.interview.generic.listener.farm.main.Main -f=animals.properties -l=history.log`
+`animals.properties` - property file to configure existing Animal classes. Extensible to have less/more classes and change names.
+`history.log` - file with logs from the application
+Basic console commands:
+`farm stat` - statistics of the application
+`farm close`- exit the application
+`cat|cow|pig|horse <name> [period]` - create an animal with the name and period of actions (default 5 sec and not less than 5 sec.)
+`eat|sleep|die|walk|grow <name>` - force animal with specific name to do action
+Simulation logic for animal the following: **eat**, **sleep**, **walk**, **grow** have equal chances to happen and **die** has 10 times less chance of any other command to happen.

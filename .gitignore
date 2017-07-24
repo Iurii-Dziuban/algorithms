@@ -6,3 +6,4 @@ csv
 .idea/**
 db/
 *.iml
+history.log
