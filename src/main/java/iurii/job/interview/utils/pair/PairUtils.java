@@ -6,8 +6,6 @@ import java.util.List;
  * Created by iurii.dziuban on 06/06/2017.
  */
 public class PairUtils {
-    private PairUtils() {
-    }
 
     public static int findMin(List<Pair> pairs) {
         int min = Integer.MAX_VALUE;

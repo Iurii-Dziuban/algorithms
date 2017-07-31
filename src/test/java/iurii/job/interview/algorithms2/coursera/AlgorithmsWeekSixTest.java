@@ -29,7 +29,10 @@ public class AlgorithmsWeekSixTest {
             }
             sc.close();
             Scc2SAT ssc2SAT = new Scc2SAT(orderedGraph);
-            System.out.println(ssc2SAT.getResult());
+            System.out.println("Result = " + ssc2SAT.getResult());
+            System.out.println("4 and 5 connected = " + ssc2SAT.connected(4, 5));
+            System.out.println("Solution = " + ssc2SAT.getSolution());
+            System.out.println("GroupNumber 6 = " + ssc2SAT.groupNumber(6));
         }
         //  isPapadimitrou
         /*for (int i = 1; i < 7; i++) {

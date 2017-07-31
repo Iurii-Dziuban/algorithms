@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Solution for Traveling Salesman Problem takes about 10 minutes to solve. needs 1024M memory
  */
-public class AlgorithmsWeekFiveTest {
+public class AlgorithmsWeekFive {
 
     @Test
     public void main() throws FileNotFoundException {
