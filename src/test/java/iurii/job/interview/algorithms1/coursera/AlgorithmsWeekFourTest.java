@@ -2,6 +2,7 @@ package iurii.job.interview.algorithms1.coursera;
 
 import iurii.job.interview.graph.depth_first_search.StrongConnectedComponents;
 import iurii.job.interview.graph.structure.OrderedGraph;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,15 +15,14 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
-public class AlgorithmsWeekFour {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class AlgorithmsWeekFourTest {
 
     private static final int VERTICES_COUNT = 875714;
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/SCC.txt"));
         OrderedGraph graph = new OrderedGraph(VERTICES_COUNT);
         while (sc.hasNext()) {
@@ -48,11 +48,11 @@ public class AlgorithmsWeekFour {
             sizes.add(entry.getValue().size());
         }
         Collections.sort(sizes);
-        System.out.println(sizes.get(sizes.size() - 1));
-        System.out.println(sizes.get(sizes.size() - 2));
-        System.out.println(sizes.get(sizes.size() - 3));
-        System.out.println(sizes.get(sizes.size() - 4));
-        System.out.println(sizes.get(sizes.size() - 5));
+        assertThat(sizes.get(sizes.size() - 1)).isEqualTo(434821);
+        assertThat(sizes.get(sizes.size() - 2)).isEqualTo(968);
+        assertThat(sizes.get(sizes.size() - 3)).isEqualTo(459);
+        assertThat(sizes.get(sizes.size() - 4)).isEqualTo(313);
+        assertThat(sizes.get(sizes.size() - 5)).isEqualTo(211);
     }
 
 }

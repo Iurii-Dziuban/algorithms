@@ -44,9 +44,7 @@ public class QuickUnionWeighted {
     public void union(int i, int j) {
         int rootI = root(i);
         int rootJ = root(j);
-        if (rootI == rootJ) {
-            return;
-        } else {
+        if (rootI != rootJ) {
             if (weight[rootI] < weight[rootJ]) {
                 vertices[rootI] = rootJ;
                 weight[rootI] = Math.max(weight[rootI] - 1, rootJ) + 1;

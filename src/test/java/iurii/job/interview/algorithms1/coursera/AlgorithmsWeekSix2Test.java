@@ -2,18 +2,19 @@ package iurii.job.interview.algorithms1.coursera;
 
 import iurii.job.interview.datastructure.heap.MaxArrayHeap;
 import iurii.job.interview.datastructure.heap.MinArrayHeap;
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class AlgorithmsWeekSix2 {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+public class AlgorithmsWeekSix2Test {
+
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/Median.txt"));
         MaxArrayHeap<Long> maxHeap = new MaxArrayHeap<Long>(Long.class);
         MinArrayHeap<Long> minHeap = new MinArrayHeap<Long>(Long.class);
@@ -44,7 +45,7 @@ public class AlgorithmsWeekSix2 {
             result += maxHeap.peek();
             result %= 10000;
         }
-        System.out.println(result);
+        assertThat(result).isEqualTo(1213);
         sc.close();
     }
 

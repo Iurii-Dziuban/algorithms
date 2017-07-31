@@ -1,7 +1,6 @@
 package iurii.job.interview.topcoder.srm503;
 /**
  * Problem Statement
-    
 You have some raspberry jam and a slice of plain toast. 
 You're going to create a slice of breathtaking raspberry toast 
 by applying some of the jam to the toast. Each application will apply L layers of raspberry jam, 
@@ -12,7 +11,6 @@ Return the minimum number of applications required to turn a slice of plain toas
 into a slice of breathtaking raspberry toast.
 
 Definition
-    
 Class:
 ToastXRaspberry
 Method:
@@ -25,7 +23,6 @@ Method signature:
 int apply(int upper_limit, int layer_count)
 (be sure your method is public)
 Limits
-    
 Time limit (s):
 2.000
 Memory limit (MB):
@@ -38,21 +35,18 @@ layer_count will be between 1 and 1000, inclusive.
 Examples
 0)
 
-    
 4
 13
 Returns: 4
-One possible way is to apply 4, 4, 3, then 2 layers of jam.
+One possible way is to apply 4, 4, 3, then 2 layers of jam.
 1)
 
-    
 8
 5
 Returns: 1
-A single application is sufficient.
+A single application is sufficient.
 2)
 
-    
 73
 265
 Returns: 4

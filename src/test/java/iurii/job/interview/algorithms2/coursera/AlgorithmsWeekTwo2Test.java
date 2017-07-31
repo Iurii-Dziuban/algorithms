@@ -1,6 +1,8 @@
 package iurii.job.interview.algorithms2.coursera;
 
 import iurii.job.interview.graph.structure.UnorderedWeightedGraph;
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,16 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Clustering with Hamming code
  */
-public class AlgorithmsWeekTwo2 {
+public class AlgorithmsWeekTwo2Test {
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/clustering_big.txt"));
         int vertexCount = sc.nextInt();
         int bitCount = sc.nextInt();
@@ -40,9 +41,9 @@ public class AlgorithmsWeekTwo2 {
                     graph.addEdge(i, j, distance);
                 }
             }
-            System.out.println(i + " vertex is done");
+            //System.out.println(i + " vertex is done");
         }
         KruskalClustering2 kruskalClustering = new KruskalClustering2(graph);
-        System.out.println(kruskalClustering.clusterNumber());
+        assertThat(kruskalClustering.clusterNumber()).isEqualTo(6118);
     }
 }

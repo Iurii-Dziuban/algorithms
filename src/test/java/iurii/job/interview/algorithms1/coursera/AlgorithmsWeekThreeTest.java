@@ -1,11 +1,16 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class AlgorithmsWeekThree {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class AlgorithmsWeekThreeTest {
 
     private static final int VERTICES_COUNT = 200;
 
@@ -17,12 +22,9 @@ public class AlgorithmsWeekThree {
         }
     }
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     * @throws InterruptedException
-     */
-    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+    @Test
+    @Ignore
+    public void main() throws FileNotFoundException, InterruptedException {
         final int[][] matrix = new int[VERTICES_COUNT][VERTICES_COUNT];
         Scanner sc = new Scanner(new File("src/main/resources/kargerMinCut.txt"));
         for (int i = 0; i < VERTICES_COUNT; i++) {
@@ -35,19 +37,15 @@ public class AlgorithmsWeekThree {
         sc.close();
         Thread[] threads = new Thread[210000];
         for (int i = 0; i < 210000; i++) {
-            threads[i] = new Thread() {
-                public void run() {
-                    ThreadMethod(matrix);
-                }
-            };
+            threads[i] = new Thread(() -> ThreadMethod(matrix));
             threads[i].run();
             long curProc = Math.round((i / 210000.0) * 100);
             System.out.println("" + curProc + "%");
         }
-        for (int i = 0; i < threads.length; i++) {
-            threads[i].join();
+        for (Thread thread : threads) {
+            thread.join();
         }
-        System.out.println(minCut);
+        assertThat(minCut).isEqualTo(17);
     }
 
     private static void ThreadMethod(int[][] matrix) {

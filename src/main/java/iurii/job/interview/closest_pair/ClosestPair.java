@@ -21,18 +21,16 @@ public class ClosestPair {
             int right = n / 2 + n % 2;
             Pair[] xL = new Pair[left];
             Pair[] xR = new Pair[right];
-            for (int i = 0; i < left; i++)
-                xL[i] = pX[i];
-            for (int i = 0; i < right; i++)
-                xR[i] = pX[i + left];
+            System.arraycopy(pX, 0, xL, 0, left);
+            System.arraycopy(pX, 0 + left, xR, 0, right);
             int xM = pX[n / 2].getX();
             List<Pair> yLList = new ArrayList<Pair>();
             List<Pair> yRList = new ArrayList<Pair>();
-            for (int i = 0; i < pY.length; i++) {
-                if (pY[i].getX() <= xM) {
-                    yLList.add(pY[i]);
+            for (Pair aPY1 : pY) {
+                if (aPY1.getX() <= xM) {
+                    yLList.add(aPY1);
                 } else {
-                    yRList.add(pY[i]);
+                    yRList.add(aPY1);
                 }
             }
             Pair[] Pleftmin = findClosest(xL, yLList.toArray(new Pair[yLList.size()]));
@@ -47,9 +45,9 @@ public class ClosestPair {
                 dmin = distance(Pleftmin[0], Pleftmin[1]);
             }
             List<Pair> yS = new ArrayList<Pair>();
-            for (int i = 0; i < pY.length; i++) {
-                if (Math.abs(xM - pY[i].getX()) < dmin) {
-                    yS.add(pY[i]);
+            for (Pair aPY : pY) {
+                if (Math.abs(xM - aPY.getX()) < dmin) {
+                    yS.add(aPY);
                 }
             }
             closest = dmin;
@@ -104,8 +102,6 @@ public class ClosestPair {
         double distance = Double.MAX_VALUE;
         for (int i = 0; i < ps.length; i++) {
             for (int j = 0; j < i; j++) {
-                if (i == j)
-                    continue;
                 Pair ptemp1 = ps[i];
                 Pair ptemp2 = ps[j];
                 if (ptemp1.equals(ptemp2))
@@ -120,8 +116,7 @@ public class ClosestPair {
                 }
             }
         }
-        Pair[] points = new Pair[]{p1, p2};
-        return points;
+        return new Pair[]{p1, p2};
     }
 
     private static double distance(Pair pair1, Pair pair2) {

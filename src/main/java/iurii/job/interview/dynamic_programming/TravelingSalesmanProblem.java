@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class TravelingSalesmanProblem {
 
-    // will for for number of cities <=31 each bit - city present or absent
+    // Will for number of cities <=31 each bit - city present or absent
     public TravelingSalesmanProblem(float[][] edgeMatrix) {
         int CITIES_COUNT_25 = 0x2000000;
 

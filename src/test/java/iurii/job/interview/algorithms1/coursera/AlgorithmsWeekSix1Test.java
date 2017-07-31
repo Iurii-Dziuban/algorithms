@@ -1,5 +1,8 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -8,13 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class AlgorithmsWeekSix1 {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+public class AlgorithmsWeekSix1Test {
+
+    @Test
+    @Ignore
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/algo1-programming_prob-2sum.txt"));
         List<Long> list = new ArrayList<Long>();
         Map<Long, Long> map = new HashMap<Long, Long>();
@@ -34,7 +37,7 @@ public class AlgorithmsWeekSix1 {
                 }
             }
         }
-        System.out.println(count);
+        assertThat(count).isEqualTo(427);
     }
 
 }

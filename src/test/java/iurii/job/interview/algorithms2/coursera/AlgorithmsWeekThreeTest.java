@@ -1,17 +1,23 @@
 package iurii.job.interview.algorithms2.coursera;
 
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Solving Knapsack problem
  */
-public class AlgorithmsWeekThree {
+public class AlgorithmsWeekThreeTest {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc1 = new Scanner(new File("src/main/resources/knapsack1.txt"));
         int capacity1 = sc1.nextInt();
         List<KnapsackItem> items1 = new ArrayList<KnapsackItem>(sc1.nextInt());
@@ -20,7 +26,7 @@ public class AlgorithmsWeekThree {
         }
         sc1.close();
         KnapsackProblem knapsackProblem1 = new KnapsackProblem(capacity1, items1);
-        System.out.println(knapsackProblem1.getMaxValue());
+        assertThat(knapsackProblem1.getMaxValue()).isEqualTo(2493893);
 
         Scanner sc2 = new Scanner(new File("src/main/resources/knapsack_big.txt"));
         int capacity2 = sc2.nextInt();
@@ -30,7 +36,7 @@ public class AlgorithmsWeekThree {
         }
         sc2.close();
         KnapsackProblem knapsackProblem2 = new KnapsackProblem(capacity2, items2);
-        System.out.println(knapsackProblem2.getMaxValue());
+        assertThat(knapsackProblem2.getMaxValue()).isEqualTo(4243395);
     }
 
 }

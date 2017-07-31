@@ -1,21 +1,21 @@
 package iurii.job.interview.algorithms2.coursera;
 
 import iurii.job.interview.graph.structure.UnorderedWeightedGraph;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Clustering with Kruskal
  */
-public class AlgorithmsWeekTwo1 {
+public class AlgorithmsWeekTwo1Test {
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/clustering1.txt"));
         int vertexCount = sc.nextInt();
         UnorderedWeightedGraph graph = new UnorderedWeightedGraph(vertexCount);
@@ -24,6 +24,6 @@ public class AlgorithmsWeekTwo1 {
         }
         sc.close();
         KruskalClustering kruskalClustering = new KruskalClustering(graph, 4);
-        System.out.println(kruskalClustering.minSpacing());
+        assertThat(kruskalClustering.minSpacing()).isEqualTo(106);
     }
 }

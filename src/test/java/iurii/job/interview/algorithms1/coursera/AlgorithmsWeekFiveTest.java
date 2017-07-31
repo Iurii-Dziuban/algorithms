@@ -1,18 +1,18 @@
 package iurii.job.interview.algorithms1.coursera;
 
 import iurii.job.interview.graph.structure.OrderedWeightedGraph;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class AlgorithmsWeekFive {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+public class AlgorithmsWeekFiveTest {
+
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
         OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
         while (sc.hasNext()) {
@@ -26,16 +26,16 @@ public class AlgorithmsWeekFive {
         }
         sc.close();
         Dejkstra dejkstra = new Dejkstra(graph, 0);
-        System.out.print(dejkstra.pathLength(6) + " ");
-        System.out.print(dejkstra.pathLength(36) + " ");
-        System.out.print(dejkstra.pathLength(58) + " ");
-        System.out.print(dejkstra.pathLength(81) + " ");
-        System.out.print(dejkstra.pathLength(98) + " ");
-        System.out.print(dejkstra.pathLength(114) + " ");
-        System.out.print(dejkstra.pathLength(132) + " ");
-        System.out.print(dejkstra.pathLength(164) + " ");
-        System.out.print(dejkstra.pathLength(187) + " ");
-        System.out.print(dejkstra.pathLength(196) + " ");
+        assertThat(dejkstra.pathLength(6)).isEqualTo(2599);
+        assertThat(dejkstra.pathLength(36)).isEqualTo(2610);
+        assertThat(dejkstra.pathLength(58)).isEqualTo(2947);
+        assertThat(dejkstra.pathLength(81)).isEqualTo(2052);
+        assertThat(dejkstra.pathLength(98)).isEqualTo(2367);
+        assertThat(dejkstra.pathLength(114)).isEqualTo(2399);
+        assertThat(dejkstra.pathLength(132)).isEqualTo(2029);
+        assertThat(dejkstra.pathLength(164)).isEqualTo(2442);
+        assertThat(dejkstra.pathLength(187)).isEqualTo(2505);
+        assertThat(dejkstra.pathLength(196)).isEqualTo(3068);
     }
 
 }

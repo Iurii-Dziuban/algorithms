@@ -1,18 +1,19 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AlgorithmsWeekTwo {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+public class AlgorithmsWeekTwoTest {
+
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/QuickSort.txt"));
         List<Integer> array = new ArrayList<Integer>();
         while (sc.hasNextInt()) {
@@ -32,9 +33,9 @@ public class AlgorithmsWeekTwo {
             intArray[i] = array.get(i);
         }
         QuickSortMedianPivot.sort(intArray);
-        System.out.println(QuickSortFirstPivot.comparisonNumber);
-        System.out.println(QuickSortLastPivot.comparisonNumber);
-        System.out.println(QuickSortMedianPivot.comparisonNumber);
+        assertThat(QuickSortFirstPivot.comparisonNumber).isEqualTo(162085);
+        assertThat(QuickSortLastPivot.comparisonNumber).isEqualTo(164123);
+        assertThat(QuickSortMedianPivot.comparisonNumber).isEqualTo(138382);
     }
 
 }

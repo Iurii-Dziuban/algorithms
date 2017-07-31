@@ -1,18 +1,18 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AlgorithmsWeekOne {
+public class AlgorithmsWeekOneTest {
 
-    /**
-     * @param args
-     * @throws FileNotFoundException
-     */
-    public static void main(String[] args) throws FileNotFoundException {
+    @Test
+    public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/IntegerArray.txt"));
         List<Integer> array = new ArrayList<Integer>();
         while (sc.hasNextInt()) {
@@ -24,7 +24,7 @@ public class AlgorithmsWeekOne {
             intArray[i] = array.get(i);
         }
         InverseFind.mergesort(intArray);
-        System.out.println(InverseFind.count);
+        Assertions.assertThat(InverseFind.count).isEqualTo(2407905288L);
 
     }
 
