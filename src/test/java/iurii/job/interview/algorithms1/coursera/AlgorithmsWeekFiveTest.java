@@ -1,5 +1,6 @@
 package iurii.job.interview.algorithms1.coursera;
 
+import iurii.job.interview.algorithms2.coursera.BellmanFord;
 import iurii.job.interview.graph.structure.OrderedWeightedGraph;
 import org.junit.Test;
 
@@ -36,6 +37,25 @@ public class AlgorithmsWeekFiveTest {
         assertThat(dejkstra.pathLength(164)).isEqualTo(2442);
         assertThat(dejkstra.pathLength(187)).isEqualTo(2505);
         assertThat(dejkstra.pathLength(196)).isEqualTo(3068);
+    }
+
+    @Test
+    public void bellmanFord() throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
+        OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
+        while (sc.hasNext()) {
+            String nextLine = sc.nextLine();
+            String[] groups = nextLine.split("\t");
+            for (int i = 1; i < groups.length; i++) {
+                String[] values = groups[i].split(",");
+                graph.addEdge(Integer.parseInt(groups[0]) - 1,
+                        Integer.parseInt(values[0]) - 1, Integer.parseInt(values[1]));
+            }
+        }
+        sc.close();
+
+        BellmanFord bellmanFord = new BellmanFord(graph, 145);
+        assertThat(bellmanFord.minDistance()).isEqualTo(0);
     }
 
 }

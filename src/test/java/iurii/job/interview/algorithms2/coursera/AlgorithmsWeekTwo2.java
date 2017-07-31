@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Clustering with Hamming code
  */
-public class AlgorithmsWeekTwo2Test {
+public class AlgorithmsWeekTwo2 {
 
     @Test
     public void main() throws FileNotFoundException {

@@ -31,7 +31,7 @@ public class AlgorithmsWeekFourTest {
             List<Integer> minDistances = new ArrayList<Integer>(vertexCount);
             boolean hasNegativeCycle = false;
             for (int i = 0; i < vertexCount; i++) {
-                System.out.println("index = " + i );
+                //System.out.println("index = " + i );
                 BellmanFord bellmanFord = new BellmanFord(graph, i);
                 if (bellmanFord.minDistance() == null) {
                     hasNegativeCycle = true;
