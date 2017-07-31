@@ -2,6 +2,7 @@ package iurii.job.interview.algorithms1.coursera;
 
 import iurii.job.interview.graph.depth_first_search.StrongConnectedComponents;
 import iurii.job.interview.graph.structure.OrderedGraph;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -22,6 +23,7 @@ public class AlgorithmsWeekFourTest {
     private static final int VERTICES_COUNT = 875714;
 
     @Test
+    @Ignore
     public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/SCC.txt"));
         OrderedGraph graph = new OrderedGraph(VERTICES_COUNT);
