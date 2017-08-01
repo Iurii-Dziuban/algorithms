@@ -13,47 +13,6 @@ import java.util.Set;
 public class CrackingCodingInterview2 {
 
     /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        list.add(1);
-        list.add(2);
-        list.add(2);
-        list.add(2);
-        list.add(2);
-        removeDuplicates2(list);
-        System.out.println(list);
-
-        LinkedList<Integer> list1 = new LinkedList<Integer>();
-        list1.add(1);
-        list1.add(2);
-        list1.add(3);
-        list1.add(4);
-        list1.add(5);
-        System.out.println(nthElementToEnd(list1, 2));
-
-        LinkedList<Integer> list2 = new LinkedList<Integer>();
-        list2.add(1);
-        list2.add(2);
-        list2.add(3);
-        list2.add(4);
-        list2.add(5);
-        deleteMedian(list2);
-        System.out.println(list2);
-
-        LinkedList<Integer> add1 = new LinkedList<Integer>();
-        add1.add(3);
-        add1.add(1);
-        add1.add(5);
-        LinkedList<Integer> add2 = new LinkedList<Integer>();
-        add2.add(5);
-        add2.add(9);
-        add2.add(2);
-        System.out.println(sumUp(add1, add2));
-    }
-
-    /**
      * 2.1 remove duplicates of unsorted list. Using HashTable we can check if duplicate in O(1) time.
      * Algorithm is O(n)
      *

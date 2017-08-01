@@ -8,32 +8,6 @@ import java.util.Stack;
  * Stacks and Queues
  */
 public class CrackingCodingInterview3 {
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        int n = 5;
-        Tower[] towers = new Tower[3];
-        for (int i = 0; i < 3; i++) towers[i] = new Tower(i);
-        for (int i = n - 1; i >= 0; i--) towers[0].add(i);
-        towers[0].moveDisks(n, towers[2], towers[1]);
-
-        Stack<Integer> stack = new Stack<Integer>();
-        stack.add(4);
-        stack.add(5);
-        stack.add(3);
-        stack.add(1);
-        stack.add(2);
-        stack.add(0);
-        Stack<Integer> sortedStack = sort(stack);
-        System.out.println(sortedStack);
-        while (!sortedStack.isEmpty()) {
-            System.out.print(sortedStack.pop() + " ");
-        }
-        System.out.println();
-    }
-
     /**
      * 3.1 implement 3 stacks using one array.
      * This can be done in two ways.
@@ -60,10 +34,10 @@ public class CrackingCodingInterview3 {
         }
 
         public int pop(int stackNumber) {
-            if (array.length / 3 * stackNumber < head[stackNumber] - 1) {
+            if (array.length / 3 * stackNumber > head[stackNumber] - 1) {
                 throw new IllegalStateException();
             }
-            return array[head[stackNumber]--];
+            return array[--head[stackNumber]];
         }
     }
 
@@ -99,7 +73,7 @@ public class CrackingCodingInterview3 {
             return popValue;
         }
 
-        private Integer min() {
+        public Integer min() {
             if (minStack.isEmpty()) {
                 return Integer.MAX_VALUE;
             } else {

@@ -3,7 +3,7 @@ package iurii.job.interview.cracking;
 /**
  * Java.
  */
-public class CrackingCodingInterview14 {
+public interface CrackingCodingInterview14 {
 
     /**
      * 14.1 in terms of inheritance what is the result of making constructor private ?

@@ -34,19 +34,10 @@ public class Main {
         System.out.println(MultiplyNumbers.multiply(1234, 5678));
         System.out.println(1234 * 5678);
 
-        ClosestPair.Pair[] pairs = new ClosestPair.Pair[]{new ClosestPair.Pair(0, 0), new ClosestPair.Pair(0, 5), new ClosestPair.Pair(2, 0), new ClosestPair.Pair(5, 0), new ClosestPair.Pair(5, 5), new ClosestPair.Pair(3, 5), new ClosestPair.Pair(100, 100), new ClosestPair.Pair(3, 1)};
-
-        ClosestPair.Pair[] brute = ClosestPair.shortestBruteForce(pairs);
-        System.out.println(brute[0]);
-        System.out.println(brute[1]);
-        ClosestPair.Pair[] nlogn = ClosestPair.closestPair(pairs);
-        System.out.println(nlogn[0]);
-        System.out.println(nlogn[1]);
 
         Utilities.println(SelectionSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}));
         Utilities.println(InsertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}));
         Utilities.println(BubbleSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}));
-        System.out.println(BinarySearch.binarySearch(InsertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}), 4));
 
         Utilities.println(QuickSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}));
         System.out.println(RandomizedSelection.select(new int[]{9, 6, 1, 4, 5, 7, 8}, 4));

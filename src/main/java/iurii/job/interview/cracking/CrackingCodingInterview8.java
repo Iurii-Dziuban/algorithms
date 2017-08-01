@@ -2,7 +2,6 @@ package iurii.job.interview.cracking;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 
@@ -12,21 +11,6 @@ import java.util.Queue;
  * @author Iurii
  */
 public class CrackingCodingInterview8 {
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        System.out.println(findFibonacci(3));
-        System.out.println(findFibonacci(4));
-        System.out.println(findFibonacci(5));
-        System.out.println();
-        System.out.println(pathsNumber(2));
-        System.out.println(pathsNumber(3));
-
-        System.out.println(allSubsets(Arrays.asList(0, 1, 2, 3)));
-        System.out.println(allSubsets2(Arrays.asList(0, 1, 2, 3)));
-    }
 
     /**
      * 8.1 Write N-th Fibonacci Number

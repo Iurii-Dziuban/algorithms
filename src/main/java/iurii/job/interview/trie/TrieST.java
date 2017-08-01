@@ -155,14 +155,4 @@ public class TrieST<Value> {
         }
         return null;
     }
-
-
-    // test client
-    public static void main(String[] args) {
-        TrieST<Integer> st = new TrieST<Integer>();
-        st.put("hello", 5);
-        st.put("hell", 4);
-        st.put("he", 3);
-        System.out.println(st.get("hell"));
-    }
 }

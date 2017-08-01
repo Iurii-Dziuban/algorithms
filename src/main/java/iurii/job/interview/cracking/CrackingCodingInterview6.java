@@ -9,21 +9,6 @@ import java.util.List;
 public class CrackingCodingInterview6 {
 
     /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        System.out.println(floorToThrow(1));
-        System.out.println(floorToThrow(2));
-        System.out.println(floorToThrow(3));
-
-        System.out.println(squareCount(101));
-        System.out.println();
-        for (int i = 1; i <= 100; i++) {
-            System.out.println(findFloorAndReturnThrows(100, i).size());
-        }
-    }
-
-    /**
      * 6.1 Add arithmetic operators to make it true 3 1 3 6 = 8
      * Hint: you should think what two numbers can make 8.
      * One of the ways is 4 * 2. We can make 4 by 3 + 1 . To make 2 we should *3 / 6.

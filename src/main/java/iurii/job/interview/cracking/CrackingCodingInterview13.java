@@ -3,7 +3,7 @@ package iurii.job.interview.cracking;
 /**
  * Only stub. It contains only C++ questions;
  */
-public class CrackingCodingInterview13 {
+public interface CrackingCodingInterview13 {
     /**
      * 13.1 Write method to write only 10 last Strings from file. 
      * Answer:

@@ -3,8 +3,6 @@ package iurii.job.interview.sorting;
 import java.util.List;
 
 public final class Utilities {
-    private Utilities() {
-    }
 
     public static void println(int[] array) {
         for (int i = 0; i < array.length; i++) {
