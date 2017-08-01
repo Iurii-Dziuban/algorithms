@@ -24,8 +24,6 @@ public class Main {
         System.out.println(knapsackProblem.getMaxValue());
         System.out.println(knapsackProblem.getIndexes());
         System.out.println(knapsackProblem.getElements());
-
-        //TwoKnapsackProblem twoKnapsacks = new TwoKnapsackProblem(7, 7, knapsackItems);
     }
 
 }
