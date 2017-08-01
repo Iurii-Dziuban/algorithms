@@ -11,7 +11,7 @@ package iurii.job.interview.multiplication;
  */
 public class MultiplyNumbers {
 
-    public static int multiply(int x, int y) {
+    public int multiply(int x, int y) {
         int xLength = String.valueOf(x).length();
         int yLength = String.valueOf(y).length();
         if (xLength / 2 == 0 && yLength / 2 == 0) {
@@ -30,7 +30,7 @@ public class MultiplyNumbers {
         }
     }
 
-    private static int tenIn(int number) {
+    private int tenIn(int number) {
         int res = 1;
         for (int i = 0; i < number; i++) {
             res *= 10;

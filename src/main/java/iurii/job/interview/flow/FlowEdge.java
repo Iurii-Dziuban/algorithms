@@ -7,7 +7,9 @@ public class FlowEdge {
     private double flow;             // flow
 
     public FlowEdge(int v, int w, double capacity) {
-        if (capacity < 0) throw new IllegalArgumentException("Negative edge capacity");
+        if (capacity < 0) {
+            throw new IllegalArgumentException("Negative edge capacity");
+        }
         this.v = v;
         this.w = w;
         this.capacity = capacity;
@@ -15,7 +17,9 @@ public class FlowEdge {
     }
 
     public FlowEdge(int v, int w, double capacity, double flow) {
-        if (capacity < 0) throw new IllegalArgumentException("Negative edge capacity");
+        if (capacity < 0) {
+            throw new IllegalArgumentException("Negative edge capacity");
+        }
         this.v = v;
         this.w = w;
         this.capacity = capacity;
@@ -49,21 +53,35 @@ public class FlowEdge {
 
 
     public int other(int vertex) {
-        if (vertex == v) return w;
-        else if (vertex == w) return v;
-        else throw new IllegalArgumentException("Illegal endpoint");
+        if (vertex == v) {
+            return w;
+        }
+        if (vertex == w) {
+            return v;
+        }
+        throw new IllegalArgumentException("Illegal endpoint");
     }
 
     public double residualCapacityTo(int vertex) {
-        if (vertex == v) return flow;              // backward edge
-        else if (vertex == w) return capacity - flow;   // forward edge
-        else throw new IllegalArgumentException("Illegal endpoint");
+        if (vertex == v){
+            return flow;              // backward edge
+        }
+        if (vertex == w) {
+            return capacity - flow;   // forward edge
+        }
+        throw new IllegalArgumentException("Illegal endpoint");
     }
 
     public void addResidualFlowTo(int vertex, double delta) {
-        if (vertex == v) flow -= delta;           // backward edge
-        else if (vertex == w) flow += delta;           // forward edge
-        else throw new IllegalArgumentException("Illegal endpoint");
+        if (vertex == v) {
+            flow -= delta;           // backward edge
+        } else {
+            if (vertex == w) {
+                flow += delta;           // forward edge
+            } else {
+                throw new IllegalArgumentException("Illegal endpoint");
+            }
+        }
     }
 
 

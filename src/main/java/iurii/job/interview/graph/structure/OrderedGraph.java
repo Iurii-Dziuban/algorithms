@@ -1,5 +1,7 @@
 package iurii.job.interview.graph.structure;
 
+import java.util.List;
+
 /**
  * Graph representation using Adjacency List.
  * It is better than (Adjacency Matrix and List of edges)
@@ -16,8 +18,8 @@ public class OrderedGraph extends UnorderedGraph {
 
     public int edgeCount() {
         int edgeCount = 0;
-        for (int i = 0; i < adj.length; i++) {
-            edgeCount += adj[i].size();
+        for (List<Integer> anAdj : adj) {
+            edgeCount += anAdj.size();
         }
         return edgeCount;
     }

@@ -3,7 +3,8 @@ package iurii.job.interview.sorting.insertion;
 import java.util.Arrays;
 
 public class InsertSort {
-    public static int[] sort(int[] array) {
+
+    public int[] sort(int[] array) {
         int[] res = Arrays.copyOf(array, array.length);
         for (int i = 1; i < res.length; i++) {
             int cur = res[i];

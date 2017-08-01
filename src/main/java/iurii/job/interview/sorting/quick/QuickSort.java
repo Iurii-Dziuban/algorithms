@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public class QuickSort {
 
-    public static int[] sort(int[] array) {
+    public int[] sort(int[] array) {
         return sort(array, 0, array.length - 1);
     }
 
-    private static int[] sort(int[] array, int start, int end) {
+    private int[] sort(int[] array, int start, int end) {
         if (start > end) {
             return array;
         }
@@ -21,7 +21,7 @@ public class QuickSort {
         return array;
     }
 
-    private static int pivot(int[] array, int start, int end) {
+    protected int pivot(int[] array, int start, int end) {
         // random pivot
         Random rand = new Random();
         int pivotIndex = rand.nextInt(end - start + 1) + start;
@@ -36,8 +36,8 @@ public class QuickSort {
             if (array[j] < pivot) {
                 int swap = array[i];
                 array[i] = array[j];
-                array[j] = swap;
                 i++;
+                array[j] = swap;
             }
         }
         // final swap

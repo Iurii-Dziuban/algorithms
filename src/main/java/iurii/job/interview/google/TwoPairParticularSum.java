@@ -2,7 +2,6 @@ package iurii.job.interview.google;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Example of Mock interview for Google

@@ -9,17 +9,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class BalancedParenthensiesTest {
 
-    private BalancedParenthensies balancedParenthensies = new BalancedParenthensies();
+    private BalancedParentheses balancedParenthensies = new BalancedParentheses();
 
     @Test
     public void testBalanced() {
-        assertThat(balancedParenthensies.areParenthensiesBalanced("{(a,b)}")).isTrue();
+        assertThat(balancedParenthensies.areParenthesesBalanced("{(a,b)}")).isTrue();
     }
 
     @Test
     public void testNotBalanced() {
-        assertThat(balancedParenthensies.areParenthensiesBalanced("{(a},b)")).isFalse();
-        assertThat(balancedParenthensies.areParenthensiesBalanced("{)(a,b}")).isFalse();
-        assertThat(balancedParenthensies.areParenthensiesBalanced(")(a,b)")).isFalse();
+        assertThat(balancedParenthensies.areParenthesesBalanced("{(a},b)")).isFalse();
+        assertThat(balancedParenthensies.areParenthesesBalanced("{)(a,b}")).isFalse();
+        assertThat(balancedParenthensies.areParenthesesBalanced(")(a,b)")).isFalse();
     }
 }

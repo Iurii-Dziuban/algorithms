@@ -2,7 +2,7 @@ package iurii.job.interview.sorting.bubble;
 
 public class BubbleSort {
 
-    public static int[] sort(int[] array) {
+    public int[] sort(int[] array) {
         boolean flag = true;
         while (flag) {
             flag = false;

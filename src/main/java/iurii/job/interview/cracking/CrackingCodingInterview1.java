@@ -203,15 +203,8 @@ public class CrackingCodingInterview1 {
 
     /**
      * 1.8 Using only one call to SubString check if rotation is a rotation of s
-     *
-     * @param s
-     * @param rotation
-     * @return
      */
     public static boolean isRotation(String s, String rotation) {
-        if (s == null || rotation == null || s.length() != rotation.length()) {
-            return false;
-        }
-        return (rotation + rotation).contains(s);
+        return s != null && rotation != null && s.length() == rotation.length() && (rotation + rotation).contains(s);
     }
 }

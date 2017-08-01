@@ -39,7 +39,7 @@ public class DirectedEdge implements Comparable<DirectedEdge> {
 
     @Override
     public int compareTo(DirectedEdge o) {
-        if (this == null || o == null) {
+        if (o == null) {
             return -1;
         }
         return weight - o.weight;

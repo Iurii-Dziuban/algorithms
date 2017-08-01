@@ -11,7 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BinarySearchTest {
     @Test
     public void test() {
-        assertThat(BinarySearch.binarySearch(InsertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}), 4)).isEqualTo(4);
-        assertThat(BinarySearch.binarySearch(InsertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}), 10)).isNull();
+        InsertSort insertSort = new InsertSort();
+        BinarySearch binarySearch = new BinarySearch();
+        assertThat(binarySearch.binarySearch(insertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}), 4)).isEqualTo(4);
+        assertThat(binarySearch.binarySearch(insertSort.sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8}), 10)).isNull();
     }
 }

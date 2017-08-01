@@ -18,7 +18,7 @@ public class GreedyScheduling {
         for (int i = 0; i < tasks.length; i++) {
             tasks[i] = new Task(weights[i], lengths[i]);
         }
-        QuickSort.sort(tasks);
+        new QuickSort().sort(tasks);
         for (int i = 0; i < tasks.length; i++) {
             System.out.println(i + ") " + tasks[i]);
         }

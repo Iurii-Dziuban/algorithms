@@ -13,17 +13,17 @@ import java.util.Stack;
  * and on closing bracket check the latest bracket type.
  * Created by iurii.dziuban on 02/06/2017.
  */
-public class BalancedParenthensies {
+public class BalancedParentheses {
 
     private Map<Character, Character> oppositeBrackets = new HashMap<>();
 
-    public BalancedParenthensies() {
+    public BalancedParentheses() {
         oppositeBrackets.put(']', '[');
         oppositeBrackets.put(')', '(');
         oppositeBrackets.put('}', '{');
     }
 
-    public boolean areParenthensiesBalanced(String s) {
+    public boolean areParenthesesBalanced(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '[' || c == '(' || c == '{') {
@@ -34,7 +34,7 @@ public class BalancedParenthensies {
                     if (stack.isEmpty()) {
                         return false;
                     }
-                    if (stack.pop() != oppositeBracket) {
+                    if (!oppositeBracket.equals(stack.pop())) {
                         return false;
                     }
                 }

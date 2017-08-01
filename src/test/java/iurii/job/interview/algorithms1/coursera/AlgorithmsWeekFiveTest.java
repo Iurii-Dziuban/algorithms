@@ -1,12 +1,14 @@
 package iurii.job.interview.algorithms1.coursera;
 
 import iurii.job.interview.algorithms2.coursera.BellmanFord;
+import iurii.job.interview.graph.structure.DirectedEdge;
 import iurii.job.interview.graph.structure.OrderedWeightedGraph;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Stack;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,17 +18,10 @@ public class AlgorithmsWeekFiveTest {
     public void main() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
         OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
-        while (sc.hasNext()) {
-            String nextLine = sc.nextLine();
-            String[] groups = nextLine.split("\t");
-            for (int i = 1; i < groups.length; i++) {
-                String[] values = groups[i].split(",");
-                graph.addEdge(Integer.parseInt(groups[0]) - 1,
-                        Integer.parseInt(values[0]) - 1, Integer.parseInt(values[1]));
-            }
-        }
+        readGraph(sc, graph);
         sc.close();
         Dejkstra dejkstra = new Dejkstra(graph, 0);
+        System.out.println(dejkstra.pathTo(17));
         assertThat(dejkstra.pathLength(6)).isEqualTo(2599);
         assertThat(dejkstra.pathLength(36)).isEqualTo(2610);
         assertThat(dejkstra.pathLength(58)).isEqualTo(2947);
@@ -39,10 +34,7 @@ public class AlgorithmsWeekFiveTest {
         assertThat(dejkstra.pathLength(196)).isEqualTo(3068);
     }
 
-    @Test
-    public void bellmanFord() throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
-        OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
+    private void readGraph(Scanner sc, OrderedWeightedGraph graph) {
         while (sc.hasNext()) {
             String nextLine = sc.nextLine();
             String[] groups = nextLine.split("\t");
@@ -52,6 +44,13 @@ public class AlgorithmsWeekFiveTest {
                         Integer.parseInt(values[0]) - 1, Integer.parseInt(values[1]));
             }
         }
+    }
+
+    @Test
+    public void bellmanFord() throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("src/main/resources/dijkstraData.txt"), "UTF-8");
+        OrderedWeightedGraph graph = new OrderedWeightedGraph(200);
+        readGraph(sc, graph);
         sc.close();
 
         BellmanFord bellmanFord = new BellmanFord(graph, 145);

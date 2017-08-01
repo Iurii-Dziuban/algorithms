@@ -1,6 +1,5 @@
 package iurii.job.interview.algorithms1.coursera;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.io.File;
@@ -8,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AlgorithmsWeekOneTest {
 
@@ -23,8 +24,9 @@ public class AlgorithmsWeekOneTest {
         for (int i = 0; i < intArray.length; i++) {
             intArray[i] = array.get(i);
         }
-        InverseFind.mergesort(intArray);
-        Assertions.assertThat(InverseFind.count).isEqualTo(2407905288L);
+        InverseFind inverseFind = new InverseFind();
+        inverseFind.mergeSort(intArray);
+        assertThat(inverseFind.count).isEqualTo(2407905288L);
 
     }
 

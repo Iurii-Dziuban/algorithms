@@ -2,6 +2,7 @@ package iurii.job.interview.graph.structure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Graph representation using Adjacency List.
@@ -17,7 +18,7 @@ public class OrderedWeightedGraph implements EdgeWeightedGraph {
         this.v = v;
         adj = (List<DirectedEdge>[]) new ArrayList[v];
         for (int i = 0; i < adj.length; i++) {
-            adj[i] = new ArrayList<DirectedEdge>();
+            adj[i] = new ArrayList<>();
         }
     }
 
@@ -34,11 +35,7 @@ public class OrderedWeightedGraph implements EdgeWeightedGraph {
     }
 
     public int edgeCount() {
-        int edgeCount = 0;
-        for (int i = 0; i < adj.length; i++) {
-            edgeCount += adj[i].size();
-        }
-        return edgeCount;
+        return Stream.of(adj).map(List::size).reduce(0, Integer::sum);
     }
 
     @Override

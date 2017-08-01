@@ -18,5 +18,12 @@ public class TrieStTest {
         assertThat(st.get("hell")).isEqualTo(4);
         assertThat(st.get("hello")).isEqualTo(5);
         assertThat(st.get("he")).isEqualTo(3);
+        assertThat(st.contains("he")).isTrue();
+        assertThat(st.contains("hel")).isFalse();
+        assertThat(st.keysWithPrefix("hel")).containsExactly("hell", "hello");
+        assertThat(st.keys()).containsExactly("he", "hell", "hello");
+        assertThat(st.keysThatMatch("hello")).containsExactly("hello");
+        assertThat(st.longestPrefixOf("hel")).isEqualTo("he");
+        st.delete("hello");
     }
 }

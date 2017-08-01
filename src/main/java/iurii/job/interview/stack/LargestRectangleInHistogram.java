@@ -32,7 +32,7 @@ public class LargestRectangleInHistogram {
         // check negative heights
         if (Arrays.stream(heights).filter(value -> value < 0).count() != 0) {
             throw new IllegalArgumentException("array should not contain negative heights");
-        };
+        }
         // adding 0 in the end to handle end in the cycle (not after)
         heights = Arrays.copyOf(heights, heights.length + 1);
         Stack<Integer> positionsStack = new Stack<>();
@@ -40,7 +40,7 @@ public class LargestRectangleInHistogram {
         int index = 0;
         int maxSquare = 0;
         for (int value : heights) {
-            if ((value > 0) && (heightsStack.isEmpty() || heightsStack.peek() < value)) {
+            if (value > 0 && (heightsStack.isEmpty() || heightsStack.peek() < value)) {
                 heightsStack.add(value);
                 positionsStack.add(index);
             } else {
@@ -97,7 +97,7 @@ public class LargestRectangleInHistogram {
                 heights.clear();
                 positions.clear();
             }
-            if ((value != 0) && (heights.isEmpty() || Math.abs(heights.peek()) < Math.abs(value))) {
+            if (value != 0 && (heights.isEmpty() || Math.abs(heights.peek()) < Math.abs(value))) {
                 // adding new value and putting sign
                 heights.add(value);
                 positions.add(index);

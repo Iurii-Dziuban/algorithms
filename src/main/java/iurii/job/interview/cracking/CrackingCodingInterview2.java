@@ -18,7 +18,7 @@ public class CrackingCodingInterview2 {
      *
      * @param list
      */
-    public static void removeDuplicates(LinkedList<Integer> list) {
+    public void removeDuplicates(LinkedList<Integer> list) {
         Set<Integer> set = new HashSet<Integer>();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -35,7 +35,7 @@ public class CrackingCodingInterview2 {
      *
      * @param list
      */
-    public static void removeDuplicates2(LinkedList<Integer> list) {
+    public void removeDuplicates2(LinkedList<Integer> list) {
         Iterator<Integer> iterator = list.iterator();
         int index = 0;
         while (iterator.hasNext()) {
@@ -62,7 +62,7 @@ public class CrackingCodingInterview2 {
      *
      * @param list
      */
-    public static int nthElementToEnd(LinkedList<Integer> list, int n) {
+    public int nthElementToEnd(LinkedList<Integer> list, int n) {
         if (list.size() <= n) {
             return -1;
         }
@@ -84,7 +84,7 @@ public class CrackingCodingInterview2 {
      *
      * @param list
      */
-    public static void deleteMedian(LinkedList<Integer> list) {
+    public void deleteMedian(LinkedList<Integer> list) {
         Iterator<Integer> pointer1 = list.iterator();
         Iterator<Integer> pointer2 = list.iterator();
         while (pointer1.hasNext()) {
@@ -101,7 +101,7 @@ public class CrackingCodingInterview2 {
     /**
      * 2.4 Sum up two numbers. Each number as Linked list of digit. Return as Linked list. O(n) time.
      */
-    public static LinkedList<Integer> sumUp(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+    public LinkedList<Integer> sumUp(LinkedList<Integer> list1, LinkedList<Integer> list2) {
         Iterator<Integer> pointer1 = list1.iterator();
         Iterator<Integer> pointer2 = list2.iterator();
         LinkedList<Integer> result = new LinkedList<Integer>();
@@ -130,7 +130,7 @@ public class CrackingCodingInterview2 {
      * Use 2 pointers with 2x and 1x speed. When they are equal start from beginning and make 1x steps until equal.
      * Another way is to use Hash Set to find equal elements while making steps.
      */
-    public static int findFirstCirleElement(LinkedList<Integer> list) {
+    public int findFirstCirleElement(LinkedList<Integer> list) {
         return 0;
     }
 

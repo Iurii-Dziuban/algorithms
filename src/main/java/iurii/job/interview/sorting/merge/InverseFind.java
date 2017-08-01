@@ -1,5 +1,7 @@
 package iurii.job.interview.sorting.merge;
 
+import iurii.job.interview.utils.pair.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,21 +14,21 @@ import java.util.List;
  */
 public class InverseFind {
 
-    public static long count = 0;
-    public static List<Pair> list = new ArrayList<Pair>();
+    public long count = 0;
+    public final List<Pair> list = new ArrayList<Pair>();
 
-    public static int[] mergesort(int[] array) {
+    public int[] mergeSort(int[] array) {
         int dividePointer = array.length / 2;
         if (dividePointer > 0) {
-            int[] firstHalf = mergesort(Arrays.copyOfRange(array, 0, dividePointer));
-            int[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, array.length));
+            int[] firstHalf = mergeSort(Arrays.copyOfRange(array, 0, dividePointer));
+            int[] secondHalf = mergeSort(Arrays.copyOfRange(array, dividePointer, array.length));
             return merge(firstHalf, secondHalf);
         } else {
             return array;
         }
     }
 
-    public static int[] merge(int[] firstHalf, int[] secondHalf) {
+    public int[] merge(int[] firstHalf, int[] secondHalf) {
         int totalLength = firstHalf.length + secondHalf.length;
         int[] result = new int[totalLength];
         int i = 0;
@@ -43,30 +45,6 @@ public class InverseFind {
             }
         }
         return result;
-    }
-
-    public static class Pair {
-        private final int first;
-        private final int second;
-
-        public Pair(int first, int second) {
-            super();
-            this.first = first;
-            this.second = second;
-        }
-
-        public int getFirst() {
-            return first;
-        }
-
-        public int getSecond() {
-            return second;
-        }
-
-        public String toString() {
-            return "[" + first + "," + second + "]";
-        }
-
     }
 
 }

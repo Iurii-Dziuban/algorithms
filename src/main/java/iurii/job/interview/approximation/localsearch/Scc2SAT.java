@@ -8,9 +8,12 @@ import java.util.Iterator;
 import java.util.Stack;
 
 /**
- * 1) Create the inference graph G such that for each variable xi in the 2-SAT instance, xi and ~xi are vertices of the inference graph. xi and ~xi are complements of each other.
+ * 1) Create the inference graph G such that for each variable xi in the 2-SAT instance, xi and ~xi are vertices of
+ * the inference graph. xi and ~xi are complements of each other.
  * 2) For each clause (u OR v), add the edges ~u -> v and ~v -> u to the inference graph G.
- * 3) Process the strongly connected components S of G in reverse topological order as follows: If S is marked, do nothing. If S = ~S (i.e., a variable and its complement belong to the same SCC), then stop, the instance is unsatisfiable. Otherwise, mark S true and ~S false.
+ * 3) Process the strongly connected components S of G in reverse topological order as follows: If S is marked, do nothing.
+ * If S = ~S (i.e., a variable and its complement belong to the same SCC), then stop, the instance is unsatisfiable.
+ * Otherwise, mark S true and ~S false.
  * 4) We get a satisfying assignment by assigning to each variable the truth value of the component containing it.
  */
 public class Scc2SAT {

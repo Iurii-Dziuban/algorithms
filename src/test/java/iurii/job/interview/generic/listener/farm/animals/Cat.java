@@ -4,6 +4,7 @@ import iurii.job.interview.generic.listener.farm.main.Animal;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Random;
 
@@ -11,9 +12,7 @@ public class Cat implements Animal {
     private String name;
     private int periodAction = 5;
     private int ready = 5;
-
-    public Cat() {
-    }
+    private final DateFormat df = new SimpleDateFormat("HH:mm:ss");
 
     Cat(String name) {
         this.name = name;
@@ -25,23 +24,7 @@ public class Cat implements Animal {
 
     @Override
     public String die() {
-        DateFormat df = new SimpleDateFormat("HH:mm:ss");
-        return df.format(new Date()) + "-" + name + " died";
-    }
-
-    @Override
-    public String doSomething() {
-        Random rand = new Random();
-        int chooseNumber = rand.nextInt(41);
-        if (chooseNumber == 0)
-            return this.die();
-        else if ((0 < chooseNumber) && (chooseNumber < 11))
-            return this.eat();
-        else if ((10 < chooseNumber) && (chooseNumber < 21))
-            return this.grow();
-        else if ((20 < chooseNumber) && (chooseNumber < 31))
-            return this.sleep();
-        else return this.walk();
+        return df.format(LocalDate.now()) + "-" + name + " died";
     }
 
     @Override

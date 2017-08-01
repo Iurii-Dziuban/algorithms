@@ -1,16 +1,9 @@
 package iurii.job.interview.cracking;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.util.LinkedList;
 
-import static iurii.job.interview.cracking.CrackingCodingInterview2.deleteMedian;
-import static iurii.job.interview.cracking.CrackingCodingInterview2.findFirstCirleElement;
-import static iurii.job.interview.cracking.CrackingCodingInterview2.nthElementToEnd;
-import static iurii.job.interview.cracking.CrackingCodingInterview2.removeDuplicates;
-import static iurii.job.interview.cracking.CrackingCodingInterview2.removeDuplicates2;
-import static iurii.job.interview.cracking.CrackingCodingInterview2.sumUp;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -20,10 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CrackingCodingInterview2Test {
 
-    @Test
-    public void creation(){
-        new CrackingCodingInterview2();
-    }
+    CrackingCodingInterview2 cci2 = new CrackingCodingInterview2();
 
     @Test
     public void removeDuplicatesTest() {
@@ -33,7 +23,7 @@ public class CrackingCodingInterview2Test {
         list.add(2);
         list.add(2);
         list.add(2);
-        removeDuplicates(list);
+        cci2.removeDuplicates(list);
         assertThat(list).containsExactly(1,2);
     }
 
@@ -45,7 +35,7 @@ public class CrackingCodingInterview2Test {
         list.add(2);
         list.add(2);
         list.add(2);
-        removeDuplicates2(list);
+        cci2.removeDuplicates2(list);
         assertThat(list).containsExactly(1,2);
     }
 
@@ -57,8 +47,8 @@ public class CrackingCodingInterview2Test {
         list1.add(3);
         list1.add(4);
         list1.add(5);
-        assertThat(nthElementToEnd(list1, 2)).isEqualTo(3);
-        assertThat(nthElementToEnd(list1, 7)).isEqualTo(-1);
+        assertThat(cci2.nthElementToEnd(list1, 2)).isEqualTo(3);
+        assertThat(cci2.nthElementToEnd(list1, 7)).isEqualTo(-1);
     }
 
     @Test
@@ -69,7 +59,7 @@ public class CrackingCodingInterview2Test {
         list2.add(3);
         list2.add(4);
         list2.add(5);
-        deleteMedian(list2);
+        cci2.deleteMedian(list2);
         assertThat(list2).containsExactly(1,2,4,5);
     }
 
@@ -83,7 +73,7 @@ public class CrackingCodingInterview2Test {
         add2.add(5);
         add2.add(9);
         add2.add(2);
-        assertThat(sumUp(add1, add2)).containsExactly(8,0,8);
+        assertThat(cci2.sumUp(add1, add2)).containsExactly(8,0,8);
 
         LinkedList<Integer> add11 = new LinkedList<Integer>();
         add11.add(3);
@@ -93,7 +83,7 @@ public class CrackingCodingInterview2Test {
         add22.add(5);
         add22.add(9);
         add22.add(4);
-        assertThat(sumUp(add11, add22)).containsExactly(8,0,0,1);
+        assertThat(cci2.sumUp(add11, add22)).containsExactly(8,0,0,1);
     }
 
     // Modify
@@ -103,6 +93,6 @@ public class CrackingCodingInterview2Test {
         add1.add(3);
         add1.add(1);
         add1.add(5);
-        assertThat(findFirstCirleElement(add1)).isEqualTo(0);
+        assertThat(cci2.findFirstCirleElement(add1)).isEqualTo(0);
     }
 }

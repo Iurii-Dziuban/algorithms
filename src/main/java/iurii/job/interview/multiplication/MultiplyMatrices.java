@@ -13,7 +13,7 @@ package iurii.job.interview.multiplication;
  */
 public class MultiplyMatrices {
 
-    public static int[][] multiply(int[][] first, int[][] second) {
+    public int[][] multiply(int[][] first, int[][] second) {
         if (first.length == 1 && second.length == 1) {
             return new int[][]{{first[0][0] * second[0][0]}};
         } else {
@@ -25,38 +25,8 @@ public class MultiplyMatrices {
             int[][] second2 = new int[first.length / 2][first.length / 2];
             int[][] second3 = new int[first.length / 2][first.length / 2];
             int[][] second4 = new int[first.length / 2][first.length / 2];
-            for (int i = 0; i < first.length; i++) {
-                for (int j = 0; j < first.length; j++) {
-                    if (i < first.length / 2 && j < first.length / 2) {
-                        first1[i][j] = first[i][j];
-                    }
-                    if (i < first.length / 2 && j >= first.length / 2) {
-                        first2[i][j - first.length / 2] = first[i][j];
-                    }
-                    if (i >= first.length / 2 && j < first.length / 2) {
-                        first3[i - first.length / 2][j] = first[i][j];
-                    }
-                    if (i >= first.length / 2 && j >= first.length / 2) {
-                        first4[i - first.length / 2][j - first.length / 2] = first[i][j];
-                    }
-                }
-            }
-            for (int i = 0; i < second.length; i++) {
-                for (int j = 0; j < second.length; j++) {
-                    if (i < second.length / 2 && j < second.length / 2) {
-                        second1[i][j] = second[i][j];
-                    }
-                    if (i < second.length / 2 && j >= second.length / 2) {
-                        second2[i][j - second.length / 2] = second[i][j];
-                    }
-                    if (i >= second.length / 2 && j < second.length / 2) {
-                        second3[i - second.length / 2][j] = second[i][j];
-                    }
-                    if (i >= second.length / 2 && j >= second.length / 2) {
-                        second4[i - second.length / 2][j - second.length / 2] = second[i][j];
-                    }
-                }
-            }
+            parts(first, first1, first2, first3, first4);
+            parts(second, second1, second2, second3, second4);
             int[][] m1 = multiply(add(first1, first4, true), add(second1, second4, true));
             int[][] m2 = multiply(add(first3, first4, true), second1);
             int[][] m3 = multiply(first1, add(second2, second4, false));
@@ -91,7 +61,26 @@ public class MultiplyMatrices {
         }
     }
 
-    public static int[][] add(int[][] matrix1, int[][] matrix2, boolean withPlus) {
+    private void parts(int[][] second, int[][] second1, int[][] second2, int[][] second3, int[][] second4) {
+        for (int i = 0; i < second.length; i++) {
+            for (int j = 0; j < second.length; j++) {
+                if (i < second.length / 2 && j < second.length / 2) {
+                    second1[i][j] = second[i][j];
+                }
+                if (i < second.length / 2 && j >= second.length / 2) {
+                    second2[i][j - second.length / 2] = second[i][j];
+                }
+                if (i >= second.length / 2 && j < second.length / 2) {
+                    second3[i - second.length / 2][j] = second[i][j];
+                }
+                if (i >= second.length / 2 && j >= second.length / 2) {
+                    second4[i - second.length / 2][j - second.length / 2] = second[i][j];
+                }
+            }
+        }
+    }
+
+    public int[][] add(int[][] matrix1, int[][] matrix2, boolean withPlus) {
         int[][] matrix = new int[matrix2.length][matrix2.length];
         for (int i = 0; i < matrix2.length; i++) {
             for (int j = 0; j < matrix2.length; j++) {
@@ -105,7 +94,7 @@ public class MultiplyMatrices {
         return matrix;
     }
 
-    public static int[][] bruteforce(int[][] first, int[][] second) {
+    public int[][] bruteForce(int[][] first, int[][] second) {
         int[][] result = new int[first.length][second[0].length];
         for (int i = 0; i < first.length; i++) {
             for (int j = 0; j < second[0].length; j++) {

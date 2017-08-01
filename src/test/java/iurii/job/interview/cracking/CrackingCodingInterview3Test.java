@@ -20,8 +20,12 @@ public class CrackingCodingInterview3Test {
     public void towerTest() {
         int n = 5;
         CrackingCodingInterview3.Tower[] towers = new CrackingCodingInterview3.Tower[3];
-        for (int i = 0; i < 3; i++) towers[i] = new CrackingCodingInterview3.Tower(i);
-        for (int i = n - 1; i >= 0; i--) towers[0].add(i);
+        for (int i = 0; i < 3; i++) {
+            towers[i] = new CrackingCodingInterview3.Tower(i);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            towers[0].add(i);
+        }
         towers[0].moveDisks(n, towers[2], towers[1]);
         assertThat(towers[0].index()).isEqualTo(0);
     }

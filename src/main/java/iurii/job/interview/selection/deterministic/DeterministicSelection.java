@@ -2,47 +2,41 @@ package iurii.job.interview.selection.deterministic;
 
 import iurii.job.interview.sorting.merge.MergeSort;
 
-
 public class DeterministicSelection {
-    public static int select(int[] array, int index) {
+    public int select(int[] array, int index) {
         return select(array, 0, array.length - 1, index);
     }
 
-    private static int select(int[] array, int start, int end, int index) {
+    private int select(int[] array, int start, int end, int index) {
         if (end - start < 10) {
-            int[] sortedArray = MergeSort.mergesort(array, start, end);
+            int[] sortedArray = new MergeSort().mergeSort(array, start, end);
             for (int i = 0; i < sortedArray.length; i++) {
                 array[start + i] = sortedArray[i];
             }
             return array[index];
         }
         int pivot = pivot(array, start, end);
-        if (pivot == index) {
-            return array[index];
-        } else {
-            if (pivot < index) {
-                return select(array, pivot + 1, end, index);
-            } else {
-                return select(array, start, pivot - 1, index);
-            }
-        }
+        return pivot == index
+                ? array[index]
+                : pivot < index ?
+                 select(array, pivot + 1, end, index) :
+                 select(array, start, pivot - 1, index);
     }
 
-    private static int pivot(int[] array, int start, int end) {
+    private int pivot(int[] array, int start, int end) {
         // deterministic pivot
         int count = end - start / 5;
         for (int i = 0; i < count - 1; i++) {
             int start1 = start + 5 * i;
             int end1 = start + 5 * (i + 1);
-            int[] sortedArray = MergeSort.mergesort(array, start1, end1);
+            int[] sortedArray = new MergeSort().mergeSort(array, start1, end1);
             for (int j = 0; j < sortedArray.length; j++) {
                 array[start1 + j] = sortedArray[j];
             }
         }
 
         int start1 = start + 5 * (count - 1);
-        int end1 = end;
-        int[] sortedArray = MergeSort.mergesort(array, start1, end1);
+        int[] sortedArray = new MergeSort().mergeSort(array, start1, end);
         for (int j = 0; j < sortedArray.length; j++) {
             array[start1 + j] = sortedArray[j];
         }
@@ -56,19 +50,18 @@ public class DeterministicSelection {
         int swapFirst = array[start];
         array[start] = array[pivotIndex];
         array[pivotIndex] = swapFirst;
-        int i = start + 1;
+        int index = start + 1;
         // swap for <p & >p border
         for (int j = start + 1; j <= end; j++) {
             if (array[j] < pivot) {
-                int swap = array[i];
-                array[i] = array[j];
+                int swap = array[index];
+                array[index++] = array[j];
                 array[j] = swap;
-                i++;
             }
         }
         // final swap
-        array[start] = array[i - 1];
-        array[i - 1] = pivot;
-        return i - 1;
+        array[start] = array[index - 1];
+        array[index - 1] = pivot;
+        return index - 1;
     }
 }

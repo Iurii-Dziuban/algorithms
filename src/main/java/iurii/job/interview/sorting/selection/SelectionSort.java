@@ -3,7 +3,7 @@ package iurii.job.interview.sorting.selection;
 import java.util.Arrays;
 
 public class SelectionSort {
-    public static int[] sort(int[] array) {
+    public int[] sort(int[] array) {
         int[] res = Arrays.copyOf(array, array.length);
         for (int i = 0; i < res.length - 1; i++) {
             int min = Integer.MAX_VALUE;

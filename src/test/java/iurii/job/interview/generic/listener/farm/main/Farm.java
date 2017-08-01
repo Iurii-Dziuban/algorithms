@@ -74,44 +74,49 @@ public class Farm extends Thread {
 	public synchronized void executeCommand(Command com)
 			throws CommandFormatException {
 		if (com.getCommandName().equals("farm")) {
-			if (com.getStringFormat().split(" ").length != 2)
+			if (com.getStringFormat().split(" ").length != 2) {
 				throw new CommandFormatException();
-			if (com.getAnimalName().equals("stat")) {
-				System.out.println(com.getStringFormat());
-				System.out.println("Number of alive Animals="
-						+ aliveAnimals.size());
-				System.out.println("Types");
-				TreeSet<String> typesOfAnimals = new TreeSet<String>();
-				for (Animal an : aliveAnimals) {
-					for (String s : classProperties.stringPropertyNames()) {
-						if (an.getClass().getName().equals(
-								classProperties.getProperty(s))) {
-							typesOfAnimals.add(s);
+			}
+			switch (com.getAnimalName()) {
+				case "stat":
+					System.out.println(com.getStringFormat());
+					System.out.println("Number of alive Animals="
+							+ aliveAnimals.size());
+					System.out.println("Types");
+					TreeSet<String> typesOfAnimals = new TreeSet<String>();
+					for (Animal an : aliveAnimals) {
+						for (String s : classProperties.stringPropertyNames()) {
+							if (an.getClass().getName().equals(
+									classProperties.getProperty(s))) {
+								typesOfAnimals.add(s);
+							}
 						}
 					}
-				}
-				for (String type : typesOfAnimals) {
-					System.out.println(type);
-				}
-				System.out.println("Number of dead Animals="
-						+ deadAnimals.size());
-				System.out.println("Types");
-				typesOfAnimals = new TreeSet<String>();
-				for (Animal an : deadAnimals) {
-					for (String s : classProperties.stringPropertyNames()) {
-						if (an.getClass().getName().equals(
-								classProperties.getProperty(s))) {
-							typesOfAnimals.add(s);
+					for (String type : typesOfAnimals) {
+						System.out.println(type);
+					}
+					System.out.println("Number of dead Animals="
+							+ deadAnimals.size());
+					System.out.println("Types");
+					typesOfAnimals = new TreeSet<String>();
+					for (Animal an : deadAnimals) {
+						for (String s : classProperties.stringPropertyNames()) {
+							if (an.getClass().getName().equals(
+									classProperties.getProperty(s))) {
+								typesOfAnimals.add(s);
+							}
 						}
 					}
-				}
-				for (String type : typesOfAnimals) {
-					System.out.println(type);
-				}
-			} else if (com.getAnimalName().equals("close")) {
-				isEnd = true;
-			} else
-				throw new CommandFormatException();
+					for (String type : typesOfAnimals) {
+						System.out.println(type);
+					}
+					break;
+				case "close":
+					isEnd = true;
+					break;
+				default:
+					throw new CommandFormatException();
+			}
 		} else if (com.getCommandName().equals("eat")) {
 			try {
 				if (com.getStringFormat().split(" ").length != 2)
@@ -272,9 +277,7 @@ public class Farm extends Thread {
 
 				} else
 					throw new AnimalNameException();
-			} catch (InstantiationException e) {
-				System.out.println("No such type of animal");
-			} catch (IllegalAccessException e) {
+			} catch (InstantiationException | IllegalAccessException e) {
 				System.out.println("No such type of animal");
 			} catch (ClassNotFoundException e) {
 				System.out.println("No such type animal");
@@ -285,5 +288,4 @@ public class Farm extends Thread {
 			throw new CommandFormatException();
 		}
 	}
-
 }

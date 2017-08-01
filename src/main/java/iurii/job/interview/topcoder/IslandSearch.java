@@ -1,5 +1,7 @@
 package iurii.job.interview.topcoder;
 
+import iurii.job.interview.utils.pair.Pair;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +20,12 @@ import java.util.Queue;
 public class IslandSearch {
 
     public static void main(String[] args) {
-        int n = Integer.valueOf(args[0]);
+        int n = Integer.parseInt(args[0]);
         int arg_index = 1;
         int[][] islandMatrix = new int[n + 2][n + 2];
         for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j < n + 1; j++) {
-                islandMatrix[i][j] = Integer.valueOf(args[arg_index++]);
+                islandMatrix[i][j] = Integer.parseInt(args[arg_index++]);
             }
         }
 
@@ -48,29 +50,6 @@ public class IslandSearch {
 
     }
 
-    /**
-     * Deprecated
-     */
-    /*private static int expandIslandReturnSquare(int[][] islandMatrix, int i,
-            int j) {
-        if (islandMatrix[i][j] == 1) {
-            int sum = 0;
-            islandMatrix[i][j] = 0;
-            // up, down left, right
-            sum += expandIslandReturnSquare(islandMatrix, i + 1, j);
-            sum += expandIslandReturnSquare(islandMatrix, i, j + 1);
-            sum += expandIslandReturnSquare(islandMatrix, i - 1, j);
-            sum += expandIslandReturnSquare(islandMatrix, i, j - 1);
-            // south-west, south-east, north-west, north-east
-            sum += expandIslandReturnSquare(islandMatrix, i + 1, j + 1);
-            sum += expandIslandReturnSquare(islandMatrix, i + 1, j - 1);
-            sum += expandIslandReturnSquare(islandMatrix, i - 1, j + 1);
-            sum += expandIslandReturnSquare(islandMatrix, i - 1, j - 1);
-            return 1 + sum;
-        } else {
-            return 0;
-        }
-    }*/
     private static int expandIslandReturnSquareWithoutRecursionBFS(
             int[][] islandMatrix, int i, int j) {
         if (islandMatrix[i][j] == 0) {
@@ -81,8 +60,8 @@ public class IslandSearch {
         int sum = 0;
         while (!queue.isEmpty()) {
             Pair element = queue.poll();
-            int curI = element.getX();
-            int curJ = element.getY();
+            int curI = element.getFirst();
+            int curJ = element.getSecond();
             if (islandMatrix[curI][curJ] != 0) {
                 sum += 1;
                 islandMatrix[curI][curJ] = 0;
@@ -107,24 +86,4 @@ public class IslandSearch {
             queue.add(new Pair(curI, curJ));
         }
     }
-
-    private static class Pair {
-        private final int x;
-        private final int y;
-
-        public Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-    }
-
 }

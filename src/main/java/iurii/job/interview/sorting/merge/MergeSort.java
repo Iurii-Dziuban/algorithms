@@ -8,31 +8,21 @@ import java.util.Arrays;
  *
  * @author Jacky
  */
-public class MergeSort {
+public class MergeSort extends InverseFind {
 
-    public static int[] mergesort(int[] array) {
-        int dividePointer = array.length / 2;
-        if (dividePointer > 0) {
-            int[] firstHalf = mergesort(Arrays.copyOfRange(array, 0, dividePointer));
-            int[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, array.length));
-            return merge(firstHalf, secondHalf);
-        } else {
-            return array;
-        }
-    }
-
-    public static int[] mergesort(int[] array, int start, int end) {
+    public int[] mergeSort(int[] array, int start, int end) {
         int dividePointer = (end + start) / 2;
         if (dividePointer > 0) {
-            int[] firstHalf = mergesort(Arrays.copyOfRange(array, start, dividePointer));
-            int[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, end));
+            int[] firstHalf = mergeSort(Arrays.copyOfRange(array, start, dividePointer));
+            int[] secondHalf = mergeSort(Arrays.copyOfRange(array, dividePointer, end));
             return merge(firstHalf, secondHalf);
         } else {
             return array;
         }
     }
 
-    public static int[] merge(int[] firstHalf, int[] secondHalf) {
+    @Override
+    public int[] merge(int[] firstHalf, int[] secondHalf) {
         int totalLength = firstHalf.length + secondHalf.length;
         int[] result = new int[totalLength];
         int i = 0;

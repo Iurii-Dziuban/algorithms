@@ -19,21 +19,6 @@ public class Horse implements Animal {
     }
 
     @Override
-    public String doSomething() {
-        Random rand = new Random();
-        int chooseNumber = rand.nextInt(41);
-        if (chooseNumber == 0)
-            return this.die();
-        else if ((0 < chooseNumber) && (chooseNumber < 11))
-            return this.eat();
-        else if ((10 < chooseNumber) && (chooseNumber < 21))
-            return this.grow();
-        else if ((20 < chooseNumber) && (chooseNumber < 31))
-            return this.sleep();
-        else return this.walk();
-    }
-
-    @Override
     public String eat() {
         ready = periodAction;
         DateFormat df = new SimpleDateFormat("HH:mm:ss");

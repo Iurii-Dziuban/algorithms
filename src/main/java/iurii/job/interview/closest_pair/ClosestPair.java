@@ -7,8 +7,8 @@ import java.util.List;
 public class ClosestPair {
 
     public static Pair[] closestPair(Pair[] ps) {
-        Pair[] pX = mergesort(ps, true);
-        Pair[] pY = mergesort(ps, false);
+        Pair[] pX = mergeSort(ps, true);
+        Pair[] pY = mergeSort(ps, false);
         return findClosest(pX, pY);
     }
 
@@ -67,11 +67,11 @@ public class ClosestPair {
     }
 
     // Merge sort
-    public static Pair[] mergesort(Pair[] array, boolean isX) {
+    public static Pair[] mergeSort(Pair[] array, boolean isX) {
         int dividePointer = array.length / 2;
         if (dividePointer > 0) {
-            Pair[] firstHalf = mergesort(Arrays.copyOfRange(array, 0, dividePointer), isX);
-            Pair[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, array.length), isX);
+            Pair[] firstHalf = mergeSort(Arrays.copyOfRange(array, 0, dividePointer), isX);
+            Pair[] secondHalf = mergeSort(Arrays.copyOfRange(array, dividePointer, array.length), isX);
             return merge(firstHalf, secondHalf, isX);
         } else {
             return array;
@@ -84,7 +84,10 @@ public class ClosestPair {
         int i = 0;
         int j = 0;
         for (int index = 0; index < totalLength; index++) {
-            if (i == firstHalf.length || j < secondHalf.length && (isX ? firstHalf[i].getX() > secondHalf[j].getX() : firstHalf[i].getY() > secondHalf[j].getY())) {
+            if (i == firstHalf.length
+                    || j < secondHalf.length
+                    && (isX ? firstHalf[i].getX() > secondHalf[j].getX()
+                            : firstHalf[i].getY() > secondHalf[j].getY())) {
                 result[index] = secondHalf[j++];
             } else {
                 result[index] = firstHalf[i++];
@@ -104,8 +107,9 @@ public class ClosestPair {
             for (int j = 0; j < i; j++) {
                 Pair ptemp1 = ps[i];
                 Pair ptemp2 = ps[j];
-                if (ptemp1.equals(ptemp2))
+                if (ptemp1.equals(ptemp2)) {
                     continue;
+                }
 
                 double newDistance = distance(ptemp1, ptemp2);
                 if (newDistance < distance) {
@@ -120,7 +124,8 @@ public class ClosestPair {
     }
 
     private static double distance(Pair pair1, Pair pair2) {
-        return Math.sqrt((pair1.getX() - pair2.getX()) * (pair1.getX() - pair2.getX()) + (pair1.getY() - pair2.getY()) * (pair1.getY() - pair2.getY()));
+        return Math.sqrt((pair1.getX() - pair2.getX()) * (pair1.getX() - pair2.getX())
+                + (pair1.getY() - pair2.getY()) * (pair1.getY() - pair2.getY()));
     }
 
     public static class Pair {
@@ -147,8 +152,12 @@ public class ClosestPair {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
             Pair pair = (Pair) o;
 

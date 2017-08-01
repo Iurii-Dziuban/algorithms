@@ -3,26 +3,26 @@ package iurii.job.interview.greedyscheduling;
 import java.util.Random;
 
 /**
- * Quick sort implementation with extra memory space(log n) & with random pivot.
+ * Quick sort implementation with extra memory space(log n) & with random findPivot.
  */
 public class QuickSort {
 
-    public static Task[] sort(Task[] array) {
+    public Task[] sort(Task[] array) {
         return sort(array, 0, array.length - 1);
     }
 
-    private static Task[] sort(Task[] array, int start, int end) {
+    private Task[] sort(Task[] array, int start, int end) {
         if (start > end) {
             return array;
         }
-        int pivot = pivot(array, start, end);
+        int pivot = findPivot(array, start, end);
         sort(array, start, pivot - 1);
         sort(array, pivot + 1, end);
         return array;
     }
 
-    private static int pivot(Task[] array, int start, int end) {
-        // random pivot
+    private int findPivot(Task[] array, int start, int end) {
+        // random findPivot
         Random rand = new Random();
         int pivotIndex = rand.nextInt(end - start + 1) + start;
         Task pivot = array[pivotIndex];

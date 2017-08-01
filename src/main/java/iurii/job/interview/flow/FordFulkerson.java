@@ -90,8 +90,11 @@ public class FordFulkerson {
     private double excess(FlowNetwork G, int v) {
         double excess = 0.0;
         for (FlowEdge e : G.adj(v)) {
-            if (v == e.from()) excess -= e.flow();
-            else excess += e.flow();
+            if (v == e.from()) {
+                excess -= e.flow();
+            } else {
+                excess += e.flow();
+            }
         }
         return excess;
     }
@@ -122,8 +125,7 @@ public class FordFulkerson {
             return false;
         }
         for (int v = 0; v < G.V(); v++) {
-            if (v == s || v == t) continue;
-            else if (Math.abs(excess(G, v)) > EPSILON) {
+            if (v != s && v != t && Math.abs(excess(G, v)) > EPSILON) {
                 System.err.println("Net flow out of " + v + " doesn't equal zero");
                 return false;
             }
@@ -169,19 +171,4 @@ public class FordFulkerson {
 
         return true;
     }
-
-
-    // test client that creates random network, solves max flow, and prints results
-    /*public static void main(String[] args) {
-
-        // create flow network with V vertices and E edges
-        int V = Integer.parseInt(args[0]);
-        int E = Integer.parseInt(args[1]);
-        int s = 0, t = V-1;
-        FlowNetwork G = new FlowNetwork(V, E);
-
-        //compute maximum flow and minimum cut
-        FordFulkerson maxflow = new FordFulkerson(G, s, t);
-    }*/
-
 }
