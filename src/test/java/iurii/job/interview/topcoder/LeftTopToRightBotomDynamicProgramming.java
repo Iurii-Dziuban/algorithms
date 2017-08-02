@@ -7,7 +7,7 @@ public class LeftTopToRightBotomDynamicProgramming {
 
     /**
      * Find maximum path. Using dynamic programming.
-     * Main idea of dynamic programming is to use recurrence functions.
+     * LinkedListTest idea of dynamic programming is to use recurrence functions.
      * It is described using states where next state depends on some previous states.
      */
     public static void main(String[] args) {

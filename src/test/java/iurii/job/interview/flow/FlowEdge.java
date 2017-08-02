@@ -88,13 +88,4 @@ public class FlowEdge {
     public String toString() {
         return v + "->" + w + " " + flow + "/" + capacity;
     }
-
-
-    /**
-     * Test client.
-     */
-    public static void main(String[] args) {
-        //FlowEdge e = new FlowEdge(12, 23, 3.14);
-    }
-
 }
