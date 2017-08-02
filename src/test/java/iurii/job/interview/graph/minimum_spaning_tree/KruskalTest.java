@@ -2,15 +2,17 @@ package iurii.job.interview.graph.minimum_spaning_tree;
 
 import iurii.job.interview.graph.structure.DirectedEdge;
 import iurii.job.interview.graph.structure.UnorderedWeightedGraph;
+import org.junit.Test;
 
 import java.util.List;
 
-public class Main {
+/**
+ * Created by iurii.dziuban on 02/08/2017.
+ */
+public class KruskalTest {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         UnorderedWeightedGraph graph = new UnorderedWeightedGraph(5);
         graph.addEdge(0, 1, 1);
         graph.addEdge(0, 4, 1);
@@ -25,13 +27,5 @@ public class Main {
             System.out.println(edge);
         }
         System.out.println();
-
-        Prima prima = new Prima(graph);
-        List<DirectedEdge> minimumSpaningTreeP = prima.minimumSpaningTree();
-        for (DirectedEdge edge : minimumSpaningTreeP) {
-            System.out.println(edge);
-        }
-
     }
-
 }

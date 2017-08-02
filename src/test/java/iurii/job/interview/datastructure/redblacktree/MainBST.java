@@ -1,13 +1,13 @@
 package iurii.job.interview.datastructure.redblacktree;
 
+import org.junit.Test;
+
 import java.util.Iterator;
 
 public class MainBST {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         BST<Integer, String> bst = new BST<Integer, String>();
         bst.put(6, "Hello");
         bst.put(2, "WOrld");
