@@ -19,7 +19,15 @@ Maven build script is provided.
  * [Booking.com tasks](#bookingcom-tasks)
  * [Google tasks](#google-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
+ * [Cracking coding interview](#cracking-coding-interview)
+ * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
+ * [Data structures implementations](#data-structures-implementations)
+ * [Graph algorithms](#graph-algorithms)
+ * [Sorting algorithms](#sorting-algorithms)
  * [Generic](#generic)
+   * [Farm project](#farm-project) - pull model
+   * [Farm listener](#farm-listener) - push model
+ **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
 
@@ -49,6 +57,21 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 # Leetcode.com tasks
 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram
 
+# Cracking coding interview
+- package `cracking`
+
+# Coursera algorithms by Stanford
+- package `algorithms1.coursera` and `algorithms2.coursera` 
+
+# Data structures implementations
+- package `datastructure`
+
+# Graph algorithms
+- package `graph`
+
+# Sorting algorithms
+- package `sorting`
+
 # Generic
 
 ## Performance
@@ -57,12 +80,45 @@ LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest 
 ## Farm project
 Application with usage of regex, error handling, working with files (resources), Reflection API, Threads and Concurrency.
 - package `iurii.job.interview.generic.listener.farm`.
-Console application: `iurii.job.interview.generic.listener.farm.main.Main -f=animals.properties -l=history.log`
-`animals.properties` - property file to configure existing Animal classes. Extensible to have less/more classes and change names.
-`history.log` - file with logs from the application
+Console application: ```iurii.job.interview.generic.listener.farm.main.Main -f=animals.properties -l=history.log```
+  - `animals.properties` - property file to configure existing Animal classes. Extensible to have less/more classes and change names.
+  - `history.log` - file with logs from the application
 Basic console commands:
-`farm stat` - statistics of the application
-`farm close`- exit the application
-`cat|cow|pig|horse <name> [period]` - create an animal with the name and period of actions (default 5 sec and not less than 5 sec.)
-`eat|sleep|die|walk|grow <name>` - force animal with specific name to do action
+  - ```farm stat``` - statistics of the application
+  - ```farm close```- exit the application
+  - ```cat|cow|pig|horse <name> [period]``` - create an animal with the name and period of actions (default 5 sec and not less than 5 sec.)
+  - ```eat|sleep|die|walk|grow <name>``` - force animal with specific name to do action
 Simulation logic for animal the following: **eat**, **sleep**, **walk**, **grow** have equal chances to happen and **die** has 10 times less chance of any other command to happen.
+
+### Farm listener
+- FarmListenerTest (`observer_listener_pattern` package) - a test for `Observer/Listener design pattern` with multithreading and concurrency.
+`FarmListenerOrObserver` - is in the role of `listener` or `observer` and receives events from the `observable` `AnimalObservable`
+That is the main difference in comparison to `Farm project` where there is one Farm Thread 
+that makes `pulling` of animals in case they are ready and want to do something.
+`Farm Listener` is the example of `pushing` model, where each animal notifies Farm when it needs.
+
+So basically shows pluses and minuses of two approaches `Pull` vs `Push` . 
+Similar to client/server, browser/server or mobile app/server models.
+
+Pull model (communication initialized by client):
+  - Plus: less resources (Threads, memory)
+  - Plus: easier implementation
+  - Plus: no need of support from server (Listeners or events)
+  - Minus: constant pulling that consumes time (even when there are no events)
+  - Minus: No real time
+  - Minus: Degradation of time when more elements.
+  - Minus: more memory to store events on server
+  
+Push model (communication initialized by server):
+  - Plus: real time
+  - Plus: no degradation on number of entities
+  - Minus: degradation on the number of events.
+  - Minus: consumes more resources (Threads, memory)
+  - Minus: implementation of mechanism on both client and server
+  - Minus: more memory to store events on client
+  
+Best approach is to combine both: push and pull models where possible in order to minimize minuses of both approaches.
+
+Actor model (Akka in Scala) - uses underneath this approach, based on the principle of TCP/IP protocol
+for configuring push - pull based on back pressure (managing window size in TCP/IP), 
+depending on who is quicker: client or server.
