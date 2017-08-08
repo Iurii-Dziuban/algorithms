@@ -1,4 +1,4 @@
-package iurii.job.interview.topcoder;
+package iurii.job.interview.concurrency;
 
 /**
  * Java ReadWriteLock implementation for concurrency
@@ -62,7 +62,7 @@ public class ReadWriteLock {
         return waitingReaders;
     }
 
-    public synchronized int getWaitingWritters() {
+    public synchronized int getWaitingWriters() {
         return waitingWritters;
     }
 

@@ -1,4 +1,4 @@
-package iurii.job.interview.topcoder;
+package iurii.job.interview.concurrency;
 
 import java.util.LinkedList;
 

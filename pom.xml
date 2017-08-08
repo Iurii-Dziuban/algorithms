@@ -13,8 +13,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <jacoco.ratio.instruction>0.00</jacoco.ratio.instruction>
-        <jacoco.ratio.bundle>0.00</jacoco.ratio.bundle>
+        <jacoco.ratio.instruction>0.68</jacoco.ratio.instruction>
+        <jacoco.ratio.bundle>0.68</jacoco.ratio.bundle>
     </properties>
 
     <scm>
@@ -38,18 +38,6 @@
     </developers>
 
     <dependencies>
-        <!-- TODO  Move dependencies. Algorithms project should remain pure without dependencies -->
-        <!--<dependency>
-            <groupId>io.reactivex</groupId>
-            <artifactId>rxjava</artifactId>
-            <version>1.2.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>21.0</version>
-        </dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
@@ -79,8 +67,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 
