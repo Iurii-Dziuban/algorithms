@@ -19,7 +19,7 @@ public class Stack<T> {
         return element;
     }
 
-    public static final class Node<T> {
+    private static final class Node<T> {
         private final Node<T> next;
         private final T element;
 

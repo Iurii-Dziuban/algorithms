@@ -19,14 +19,17 @@ Maven build script is provided.
  * [Booking.com tasks](#bookingcom-tasks)
  * [Google tasks](#google-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
+ * [Codility.com tasks](#codilitycom-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
  * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
  * [Data structures implementations](#data-structures-implementations)
  * [Graph algorithms](#graph-algorithms)
  * [Sorting algorithms](#sorting-algorithms)
  * [Generic](#generic)
-   * [Farm project](#farm-project) - pull model
-   * [Farm listener](#farm-listener) - push model
+   * [Concurrency](#concurrency) - concurrency related structures
+   * [Performance](#performance) - performance related structures
+   * [Farm project](#farm-project) - pull model (event are pulled)
+   * [Farm listener](#farm-listener) - push model (events are pushed)
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
@@ -55,7 +58,18 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
 
 # Leetcode.com tasks
-LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram
+LeetCode is a platform for preparing technical coding interviews. 
+Pick from an expanding library of questions, code and submit your solution to see if you have solved it correctly. 
+The platform currently supports a total of 11 languages: C, C++, Java, Python, C#, JavaScript, Ruby, Swift, Go, Bash, MySQL.
+
+- LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram
+
+# Codility.com tasks
+Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.
+Look for "codility" package
+
+- BinaryGap (BinaryGapTest) - find maximal sequence of consecutive zeros that is surrounded by ones (in binary representation)
+
 
 # Cracking coding interview
 - package `cracking`
@@ -74,6 +88,13 @@ LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest 
 
 # Generic
 
+## Concurrency
+- ReadWriteLock - implementation of ReadWriteLock. Many readers can acquire lock (without writers) or only one writer acquires the lock.
+- ThreadPool - implementation of thread pool based on wait/notify paradigm with standard array for threads and linkedList for tasks. Implementation of "fair" processing.
+- ThreadPoolBlockingQueue - implementation of thread pool based on usage of BlockingQueue primitive 
+- ThreadPoolBlockingQueueWithExecutor - implementation with control over the thread pool 
+
+- ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
 ## Performance
 - FinalDeclarationPerformanceTest - compares operation time using final and non final variables. Final is a bit more efficient.
 
