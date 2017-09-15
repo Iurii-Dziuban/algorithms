@@ -95,6 +95,8 @@ Look for "codility" package
 - ThreadPoolBlockingQueueWithExecutor - implementation with control over the thread pool 
 
 - ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
+- ConcurrentLinkedList (ConcurrentLinkedListTest) - implementation of thread-safe LinkedList (Queue) for multithreaded environment in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
+- NonBlockingCounter (NonBlockingCounterTest) - implementation of thread-safe counter for multithreaded in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
 ## Performance
 - FinalDeclarationPerformanceTest - compares operation time using final and non final variables. Final is a bit more efficient.
 

@@ -3,6 +3,10 @@ package iurii.job.interview.datastructure.stack.linkedlist;
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Based on https://www.ibm.com/developerworks/library/j-jtp04186/index.html
+ *
+ */
 public class ConcurrentStack<T> {
 
     private AtomicReference<Node<T>> head = new AtomicReference<>();
