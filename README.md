@@ -27,6 +27,7 @@ Maven build script is provided.
  * [Sorting algorithms](#sorting-algorithms)
  * [Generic](#generic)
    * [Concurrency](#concurrency) - concurrency related structures
+   * [Hotspot](#hotspot) - hotspot related examples
    * [Performance](#performance) - performance related structures
    * [Farm project](#farm-project) - pull model (event are pulled)
    * [Farm listener](#farm-listener) - push model (events are pushed)
@@ -97,6 +98,13 @@ Look for "codility" package
 - ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
 - ConcurrentLinkedList (ConcurrentLinkedListTest) - implementation of thread-safe LinkedList (Queue) for multithreaded environment in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
 - NonBlockingCounter (NonBlockingCounterTest) - implementation of thread-safe counter for multithreaded in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
+
+## Hotspot
+
+- package `hotspot` (JVM crashes)
+  - NotValidAddressCrashTest - example of crashing VM trying to set value to address that is not readable or writable
+  - CrashIntTest - example of crashing JVM when trying to change the link address (between class instance and the field)
+  - CrashStringTest - example of crashing JVM when modifying internals of string
 ## Performance
 - FinalDeclarationPerformanceTest - compares operation time using final and non final variables. Final is a bit more efficient.
 
