@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Example from http://jeeconf.com/program/analyzing-hotspot-crashes/
+ * More info https://github.com/simonis/AnalyzingHotSpotCrashes
  * Created by iurii.dziuban on 18/09/2017.
  */
 public class CrashIntTest {
