@@ -70,7 +70,7 @@ Codility is a platform for hiring stronger programmers faster. Has requirements 
 Look for "codility" package
 
 - BinaryGap (BinaryGapTest) - find maximal sequence of consecutive zeros that is surrounded by ones (in binary representation)
-
+- Equilibrium (EquilibriumTest) - find element in the array, so that sum of element left to it equal to the sum of element right to it
 
 # Cracking coding interview
 - package `cracking`
@@ -94,6 +94,7 @@ Look for "codility" package
 - ThreadPool - implementation of thread pool based on wait/notify paradigm with standard array for threads and linkedList for tasks. Implementation of "fair" processing.
 - ThreadPoolBlockingQueue - implementation of thread pool based on usage of BlockingQueue primitive 
 - ThreadPoolBlockingQueueWithExecutor - implementation with control over the thread pool 
+- ForkJoinTest - example of using custom ForkJoinPool in the context and streams make use of it. Experiment with different number for parallelism 
 
 - ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
 - ConcurrentLinkedList (ConcurrentLinkedListTest) - implementation of thread-safe LinkedList (Queue) for multithreaded environment in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
