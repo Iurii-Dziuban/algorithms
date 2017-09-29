@@ -72,6 +72,8 @@ Look for "codility" package
 - BinaryGap (BinaryGapTest) - find maximal sequence of consecutive zeros that is surrounded by ones (in binary representation)
 - Equilibrium (EquilibriumTest) - find element in the array, so that sum of element left to it equal to the sum of element right to it
 - MissingInteger (MissingIntegerTest) - find minimum positive integer missing in the array
+- MaxConsecutiveOnes (MaxConsecutiveOnesTest) - find max consecutive ones in binary representation of int
+ 
 # Cracking coding interview
 - package `cracking`
 
