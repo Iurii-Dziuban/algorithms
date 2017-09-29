@@ -21,6 +21,7 @@ package iurii.job.interview.codility;
  expected worst-case time complexity is O(log(N));
  expected worst-case space complexity is O(1).
 
+ https://codility.com/programmers/lessons/1-iterations/binary_gap/
  * Created by iurii.dziuban on 23/08/2017.
  */
 public class BinaryGap {
