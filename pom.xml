@@ -74,7 +74,6 @@
 
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
                 <configuration>
                     <argLine>${argLine}</argLine>
                 </configuration>
@@ -198,12 +197,12 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>7.8.1</version>
+                        <version>8.2</version>
                     </dependency>
                     <dependency>
-                        <groupId>com.github.sevntu.checkstyle</groupId>
+                        <groupId>com.github.sevntu-checkstyle</groupId>
                         <artifactId>sevntu-checkstyle-maven-plugin</artifactId>
-                        <version>1.23.1</version>
+                        <version>1.24.2</version>
                     </dependency>
                 </dependencies>
                 <executions>
