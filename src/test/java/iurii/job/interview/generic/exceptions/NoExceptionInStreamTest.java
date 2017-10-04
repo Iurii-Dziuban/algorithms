@@ -13,6 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test of https://dzone.com/articles/noexception-in-stream-operations
+ * and
+ *         https://dzone.com/articles/sneakily-throwing-exceptions-in-lambda-expressions
  * <p>
  * Created by iurii.dziuban on 04/09/2017.
  */
@@ -66,5 +68,18 @@ public class NoExceptionInStreamTest {
         } catch (ExceptionalFunction.WrapperException we) {
             throw (IOException) we.getCause();
         }
+    }
+
+    @Test(expected = IOException.class)
+    public void testSneakyThrows() {
+        ExceptionalFunction.sneakyThrow(new IOException());
+    }
+
+    @Test
+    public void noExceptionTheBestUncheckedTest() {
+        Set<InetAddress> allowedAddresses = Arrays.stream(allowed)
+                .map(ExceptionalFunction.unchecked(InetAddress::getByName))
+                .collect(Collectors.toSet());
+        assertThat(allowedAddresses).size().isEqualTo(2);
     }
 }

@@ -23,5 +23,20 @@ public interface ExceptionalFunction<T, R> {
             super(e);
         }
     }
+
+    @SuppressWarnings("unchecked")
+    static <T extends Exception, R> R sneakyThrow(Exception t) throws T {
+        throw (T) t;
+    }
+
+    static <T, R> Function<T, R> unchecked(ExceptionalFunction<T, R> f) {
+        return t -> {
+            try {
+                return f.apply(t);
+            } catch (Exception ex) {
+                return ExceptionalFunction.sneakyThrow(ex);
+            }
+        };
+    }
 }
 
