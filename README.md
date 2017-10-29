@@ -59,6 +59,9 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 # Google tasks
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
 
+# Facebook tasks
+- `facebook` package
+
 # Leetcode.com tasks
 LeetCode is a platform for preparing technical coding interviews. 
 Pick from an expanding library of questions, code and submit your solution to see if you have solved it correctly. 
