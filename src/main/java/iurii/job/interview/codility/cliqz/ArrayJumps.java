@@ -1,8 +1,5 @@
 package iurii.job.interview.codility.cliqz;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  *
  *  https://codility.com/honeypot/Burda-Cliqz_Programmer/
@@ -12,21 +9,23 @@ import java.util.Set;
 public class ArrayJumps {
 
     public int countJumps(int[] A) {
-        if (A == null) {
+        // edge cases
+        if (A == null || A.length == 0) {
             return -1;
         }
-        Set<Integer> indexes = new HashSet<>();
-        int i = 0;
+        boolean[] hasBeen = new boolean[A.length];
+        // only because next address can potentially overflow with int
+        long index = 0;
         int steps = 0;
-        indexes.add(0);
-        while (i < A.length) {
-            i += A[i];
+        while (index < A.length && index >= 0) {
             steps++;
-            if (indexes.contains(i)) {
+            int curIndex = (int) index;
+            if (hasBeen[curIndex]) {
                 return -1;
             } else {
-                indexes.add(i);
+                hasBeen[curIndex] = true;
             }
+            index += A[curIndex];
         }
         return steps;
     }

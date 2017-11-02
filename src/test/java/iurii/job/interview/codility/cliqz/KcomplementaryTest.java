@@ -12,5 +12,7 @@ public class KcomplementaryTest {
     @Test
     public void test() {
         assertThat(new Kcomplementary().solution(6, new int[]{1, 8, -3, 0, 1, 3, -2, 4, 5})).isEqualTo(7);
+        assertThat(new Kcomplementary().solution(2, new int[]{1, 1, 5, 0})).isEqualTo(4);
+        assertThat(new Kcomplementary().solution(2, new int[]{1, 1, 1, 5, 0})).isEqualTo(9);
     }
 }
