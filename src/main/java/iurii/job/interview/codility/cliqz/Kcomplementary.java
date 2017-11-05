@@ -37,7 +37,7 @@ public class Kcomplementary {
                         leftDuplicateCount++;
                         left++;
                     }
-                    left--;
+                    left++;
                     int rightDuplicateCount = 1;
                     while (right - 1 >= left && A[right - 1] == A[right]) {
                         rightDuplicateCount++;
