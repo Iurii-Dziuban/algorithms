@@ -29,15 +29,18 @@ public class Fibonacci {
             return calculatedValues.get(n);
         }
 
-        int k = (n & 1) == 1 ? (n + 1) / 2 : n / 2;
+        int k = (n & 1) == 1 ? (int) ((n + 1L) / 2) : n / 2;
 
         // Applying above formula [Note value n & 1 is 1 if n is odd, else 0]
-        calculatedValues.putIfAbsent(n, (n & 1) == 1 ? (
-                fibonacciLeast6Digits(k) * fibonacciLeast6Digits(k) +
-                fibonacciLeast6Digits(k - 1) * fibonacciLeast6Digits(k - 1)
-                ) % 1000000
-                : ((2 * fibonacciLeast6Digits(k - 1) + fibonacciLeast6Digits(k))
-                * fibonacciLeast6Digits(k)) % 1000000);
-        return calculatedValues.get(n);
+        long fibK = (long) fibonacciLeast6Digits(k);
+        long fibK_1 = (long) fibonacciLeast6Digits(k - 1);
+        int res;
+        if ((n & 1) == 1) {
+            res = (int)((fibK * fibK + fibK_1 * fibK_1) % 1000000);
+        } else {
+            res = (int)(((2L * fibK_1 + fibK) * fibK) % 1000000);
+        }
+        calculatedValues.put(n, res);
+        return res;
     }
 }

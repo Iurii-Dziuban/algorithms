@@ -14,5 +14,6 @@ public class FibonacciTest {
         Fibonacci fibonacci = new Fibonacci();
         assertThat(fibonacci.fibonacciLeast6Digits(8)).isEqualTo(21);
         assertThat(fibonacci.fibonacciLeast6Digits(36)).isEqualTo(930352);
+        assertThat(fibonacci.fibonacciLeast6Digits(2147483647)).isEqualTo(282973);
     }
 }
