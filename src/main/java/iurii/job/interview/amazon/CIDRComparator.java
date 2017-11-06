@@ -25,23 +25,6 @@ public class CIDRComparator {
     private static final int MAX_UNSIGNED_BYTE = 256;
     private static final int NUMBER_OF_BYTE_BITS = 8;
 
-    /**
-     * Test method
-     */
-    public static void main(String[] args) {
-        CIDRComparator comparator = new CIDRComparator();
-        System.out.println(comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16"));
-        assert comparator.compareCIDR("23.45.67.89/16", "23.45.255.255/16") == CIDRComparatorResult.Equals;
-        System.out.println(comparator.compareCIDR("1.2.3.4/24", "1.2.3.4/16"));
-        assert comparator.compareCIDR("1.2.3.4/24", "1.2.3.4/16") == CIDRComparatorResult.Subset;
-        System.out.println(comparator.compareCIDR("172.84.26.128/16", "172.84.26.255/24"));
-        assert comparator.compareCIDR("172.84.26.128/16", "172.84.26.255/24") == CIDRComparatorResult.Superset;
-        System.out.println(comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25"));
-        assert comparator.compareCIDR("197.54.16.128/25", "197.54.16.127/25") == CIDRComparatorResult.Disjoint;
-        System.out.println(comparator.compareCIDR("197.54.16.128/32", "197.54.16.128/32"));
-        assert comparator.compareCIDR("197.54.16.128/32", "197.54.16.128/32") == CIDRComparatorResult.Equals;
-    }
-
     public enum CIDRComparatorResult {
         Equals, Subset, Superset, Disjoint
     }

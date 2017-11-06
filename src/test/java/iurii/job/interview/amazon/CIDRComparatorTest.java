@@ -9,11 +9,6 @@ public class CIDRComparatorTest {
     private CIDRComparator comparator = new CIDRComparator();
 
     @Test
-    public void testMain() {
-        CIDRComparator.main(new String[0]);
-    }
-
-    @Test
     public void testEquals() {
         assertThat(comparator.compareCIDR("23.45.67.89/16", "23.45.255.25/16"))
                 .isEqualTo(CIDRComparator.CIDRComparatorResult.Equals);

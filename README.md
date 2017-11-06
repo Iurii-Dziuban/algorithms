@@ -20,6 +20,7 @@ Maven build script is provided.
  * [Google tasks](#google-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
+ * [Other interview code tasks] (#other-interview-code-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
  * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
  * [Data structures implementations](#data-structures-implementations)
@@ -44,6 +45,8 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 - BalancedParenthensies (BalancedParenthensiesTest) - Check if parenthesies are balanced in a string or not. Note: Tests basic knowledge of Stack.
 - ProcessorsForTasks (ProcessorsForTasksTest) - find minimum number of processors for tasks
 - CountNegativeIntegersInRowColumnWiseSortedMatrix (CountNegativeIntegersInRowColumnWiseSortedMatrixTest) - mock amazon interview question
+- RangeMerge (RangeMergeTest) - sorted array of ints. Encode/Archive/Zip numbers into ranges. Optimized solution
+- TrappingRainWater (TrappingRainWaterTest) - array of landscape. Calculate how many units of water will remain after the rain inside.
 
 # Yandex tasks
 - Bencode (BencodeTest) - implementation of Bencode protocol for encoding/decoding data. Widely used in torrents. More info: https://en.wikipedia.org/wiki/Bencode
@@ -78,7 +81,12 @@ Look for "codility" package
 - MissingInteger (MissingIntegerTest) - find minimum positive integer missing in the array
 - MaxConsecutiveOnes (MaxConsecutiveOnesTest) - find max consecutive ones in binary representation of int
 - package `zooplus` updated - 100% result
-- package `cliqz` created
+- package `cliqz` updated - 100% result
+
+# Other interview code tasks
+
+- AnagramsQuick (AnagramsQuickTest) find anagrams of the given word with words from the file. Provide quickest possible solution
+- ReverseWords (ReverseWords) reverse each word (based on space separation ' ') in the character array. Optimize code.
 
 # Cracking coding interview
 - package `cracking`
