@@ -120,6 +120,8 @@ Added implementation of Scrooge coin from crypto currency course
 - ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
 - ConcurrentLinkedList (ConcurrentLinkedListTest) - implementation of thread-safe LinkedList (Queue) for multithreaded environment in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
 - NonBlockingCounter (NonBlockingCounterTest) - implementation of thread-safe counter for multithreaded in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
+- CountDownLatchTest - barrier, which all threads wait. Countdown can be executed from different thread. Usable once.
+- CyclicBarrierTest - barrier, which all threads wait. Waiting (which decreases the value) is inside of the threads. Can be reset/reused. Runnable action can be executed at the barrier, before threads are released. BrokenBarrierException if the thread breaks the barrier.
 
 ## Hotspot
 
