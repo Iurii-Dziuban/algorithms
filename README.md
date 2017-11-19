@@ -33,6 +33,7 @@ Maven build script is provided.
    * [Performance](#performance) - performance related structures
    * [Farm project](#farm-project) - pull model (event are pulled)
    * [Farm listener](#farm-listener) - push model (events are pushed)
+   * [String] (#string) - string manipulations
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
@@ -174,3 +175,7 @@ Best approach is to combine both: push and pull models where possible in order t
 Actor model (Akka in Scala) - uses underneath this approach, based on the principle of TCP/IP protocol
 for configuring push - pull based on back pressure (managing window size in TCP/IP), 
 depending on who is quicker: client or server.
+
+## String
+
+  - Reverse string via StringBuilder
