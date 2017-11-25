@@ -34,6 +34,7 @@ Maven build script is provided.
    * [Farm project](#farm-project) - pull model (event are pulled)
    * [Farm listener](#farm-listener) - push model (events are pushed)
    * [String] (#string) - string manipulations
+   * [Patterns] (#patterns) - design patterns examples
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
@@ -179,5 +180,11 @@ for configuring push - pull based on back pressure (managing window size in TCP/
 depending on who is quicker: client or server.
 
 ## String
+ - package `string`
+ 
+ - Reverse string via StringBuilder (simplest way using jdk)
 
-  - Reverse string via StringBuilder
+## Patterns
+ - package `patterns`
+ 
+ - SingletonNCountInstances - example to have specific amount of singletons based on enum properties. Thread safe via atomic int
