@@ -35,6 +35,11 @@ Maven build script is provided.
    * [Farm listener](#farm-listener) - push model (events are pushed)
    * [String] (#string) - string manipulations
    * [Patterns] (#patterns) - design patterns examples
+   * [Java 8 Features] (#java8) - java8 examples
+   * [Java EE] (#jee) - Java Enterprise Edition (Eclipse EE4J) examples
+   * [Java Server Faces] (#jsf) - jsf examples
+   * [Memory model] (#memory-model) - memory model related examples
+
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
@@ -188,3 +193,15 @@ depending on who is quicker: client or server.
  - package `patterns`
  
  - SingletonNCountInstances - example to have specific amount of singletons based on enum properties. Thread safe via atomic int
+ 
+## java8
+ - package `java 8` java8 related features
+ 
+## jee
+ - package `jee` Java Enterprise Edition (Eclipse EE4J) related
+ 
+## jsf
+ - package `jsf` Java Server Faces related
+ 
+## Memory model
+ - package `memmorymodel` - related to java memory model
