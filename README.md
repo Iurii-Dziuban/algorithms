@@ -33,6 +33,13 @@ Maven build script is provided.
    * [Performance](#performance) - performance related structures
    * [Farm project](#farm-project) - pull model (event are pulled)
    * [Farm listener](#farm-listener) - push model (events are pushed)
+   * [String] (#string) - string manipulations
+   * [Patterns] (#patterns) - design patterns examples
+   * [Java 8 Features] (#java8) - java8 examples
+   * [Java EE] (#jee) - Java Enterprise Edition (Eclipse EE4J) examples
+   * [Java Server Faces] (#jsf) - jsf examples
+   * [Memory model] (#memory-model) - memory model related examples
+
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
@@ -119,6 +126,8 @@ Added implementation of Scrooge coin from crypto currency course
 - ConcurrentStack (ConcurrentStackTest) - implementation of thread-safe Stack for multithreaded environment in lock-free (not wait-free!) manner. Wait-free algorithms have stronger guarantees. 
 - ConcurrentLinkedList (ConcurrentLinkedListTest) - implementation of thread-safe LinkedList (Queue) for multithreaded environment in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
 - NonBlockingCounter (NonBlockingCounterTest) - implementation of thread-safe counter for multithreaded in lock-free (not wait-free) manner. Wait-free algorithms have stronger guarantees.
+- CountDownLatchTest - barrier, which all threads wait. Countdown can be executed from different thread. Usable once.
+- CyclicBarrierTest - barrier, which all threads wait. Waiting (which decreases the value) is inside of the threads. Can be reset/reused. Runnable action can be executed at the barrier, before threads are released. BrokenBarrierException if the thread breaks the barrier.
 
 ## Hotspot
 
@@ -174,3 +183,25 @@ Best approach is to combine both: push and pull models where possible in order t
 Actor model (Akka in Scala) - uses underneath this approach, based on the principle of TCP/IP protocol
 for configuring push - pull based on back pressure (managing window size in TCP/IP), 
 depending on who is quicker: client or server.
+
+## String
+ - package `string`
+ 
+ - Reverse string via StringBuilder (simplest way using jdk)
+
+## Patterns
+ - package `patterns`
+ 
+ - SingletonNCountInstances - example to have specific amount of singletons based on enum properties. Thread safe via atomic int
+ 
+## java8
+ - package `java 8` java8 related features
+ 
+## jee
+ - package `jee` Java Enterprise Edition (Eclipse EE4J) related
+ 
+## jsf
+ - package `jsf` Java Server Faces related
+ 
+## Memory model
+ - package `memmorymodel` - related to java memory model
