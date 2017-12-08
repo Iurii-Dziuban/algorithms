@@ -68,6 +68,7 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 
 # Google tasks
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
+- RobotTest - iterative, recursive approaches to do steps/counting
 
 # Facebook tasks
 - `facebook` package
