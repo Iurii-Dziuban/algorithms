@@ -43,11 +43,11 @@ public class CrackingCodingInterview1 {
      * 1.2 Reverse String.
      */
     public static String reverseString(String s) {
-        String result = new String();
+        StringBuilder result = new StringBuilder();
         for (int i = s.length() - 1; i >= 0; i--) {
-            result += String.valueOf(s.charAt(i));
+            result.append(String.valueOf(s.charAt(i)));
         }
-        return result;
+        return result.toString();
     }
 
     /**
