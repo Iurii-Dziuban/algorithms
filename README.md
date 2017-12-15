@@ -18,6 +18,8 @@ Maven build script is provided.
  * [Yandex tasks](#yandex-tasks)
  * [Booking.com tasks](#bookingcom-tasks)
  * [Google tasks](#google-tasks)
+ * [Facebook tasks](#facebook-tasks)
+ * [Microsoft tasks](#microsoft-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
  * [Other interview code tasks] (#other-interview-code-tasks)
@@ -72,6 +74,9 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 
 # Facebook tasks
 - `facebook` package
+
+# Microsoft tasks
+- `microsoft` package
 
 # Leetcode.com tasks
 LeetCode is a platform for preparing technical coding interviews. 
