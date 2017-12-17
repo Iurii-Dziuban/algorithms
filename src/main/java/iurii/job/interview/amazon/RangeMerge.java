@@ -1,6 +1,9 @@
 package iurii.job.interview.amazon;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * You have sorted array list of integers with possible duplicates.
@@ -12,6 +15,9 @@ import java.util.LinkedHashMap;
  * Time complexity O(n) for traversal
  * Auxiliary space O(n) for storing ranges
  * <p>
+ *
+ * https://codereview.stackexchange.com/questions/90072/compact-a-comma-delimited-number-list-into-ranges
+ *
  * Created by iurii.dziuban on 27/10/2017.
  */
 public class RangeMerge {
@@ -33,4 +39,5 @@ public class RangeMerge {
         pairs.put(first, previous);
         return pairs;
     }
+
 }
