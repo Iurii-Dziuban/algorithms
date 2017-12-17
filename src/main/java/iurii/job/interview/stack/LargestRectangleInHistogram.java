@@ -5,6 +5,11 @@ import java.util.Stack;
 
 /**
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
+ *
+ * https://www.youtube.com/watch?v=VNbkzsnllsU&t=179s
+ *
+ * http://www.geeksforgeeks.org/largest-rectangular-area-in-a-histogram-set-1/
+ * 
  * There is a histogram:
  * 1 3 2 1 2
  *
@@ -21,6 +26,8 @@ import java.util.Stack;
  * if less than pop up position and height and
  * check possible rectangle until height is less in the stack when current height
  *
+ * Time complexity O(N) for traversal and stack pop/push
+ * Auxiliary space O(N) for stacks
  * Created by iurii.dziuban on 14/06/2017.
  */
 public class LargestRectangleInHistogram {

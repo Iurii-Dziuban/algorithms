@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
  * Return list of objects, which number is odd in list (according to equals test).
  * Ordering can be no sorting, ordering by appearance in the list, ordering by natural order or Comparator
  * <p>
+ * Time complexity O(n) for traversal
+ * Auxiliary space O(n) for storing in LinkedHashMap/LinkedHashSet/etc
  * Created by iurii.dziuban on 19/05/2017.
  */
 public class TakeOddObjects {
@@ -158,7 +160,7 @@ public class TakeOddObjects {
      * 1) Easy approach
      * 2) Concreate type
      * 3) Quick in general if hashcode is ok.
-     * 4) Order by appearance
+     * 4) Order by natural ordering
      * 5) Preconditions
      * Bad
      * 1) No support for mutability - we can not do much

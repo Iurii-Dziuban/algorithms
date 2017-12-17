@@ -28,7 +28,8 @@ Maven build script is provided.
  * [Data structures implementations](#data-structures-implementations)
  * [Graph algorithms](#graph-algorithms)
  * [Sorting algorithms](#sorting-algorithms)
- * [Crypto](#crypto)AAaaadsdadsadasaaaa
+ * [Crypto](#crypto)
+ * [Combinatorics](#combinatorics)
  * [Generic](#generic)
    * [Concurrency](#concurrency) - concurrency related structures
    * [Hotspot](#hotspot) - hotspot related examples
@@ -119,6 +120,10 @@ Look for "codility" package
 # Crypto
 - package `crypto`
 Added implementation of Scrooge coin from crypto currency course
+
+# Combinatorics
+- package `combinatorics`
+Added initial classes for implementation
 
 # Generic
 

@@ -27,13 +27,22 @@ import java.util.List;
  * <p>
  * Answer 1
  * <p>
- * NOTE!!!!
- * 1) Same task as booking.com CustomerServiceCapacity. Difference in naming, solution the same
- * 2) Same task as booking.com FindMaxGuestDayService. Difference in naming input data
+ *
+ * 1) Same task as booking.com {@link iurii.job.interview.booking_com.initial.CustomerServiceCapacity}.
+ * Difference in naming, solution the same
+ * 2) Same task as booking.com {@link iurii.job.interview.booking_com.pre_on_site.FindMaxGuestDayService}.
+ * Difference in naming input data
  *
  * Suggestions when each solution to use:
  * 1) Timeline if timeline is relatively smaller than number of time series.
+ * Time complexity O(N) + O(T) - number of series  + timeline traversal
+ * Auxiliary space O(T) - for timeline
  * 2) Sorting solution if timeline is relatively bigger than number of time series
+ * Time complexity O(NlogN) for sorting and O(n) for finding max
+ * Auxiliary complexity O(N) for sorted pairs
+ *
+ * Similar to merge sort technology:
+ * http://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/
  *
  * Created by iurii.dziuban on 06/06/2017.
  */

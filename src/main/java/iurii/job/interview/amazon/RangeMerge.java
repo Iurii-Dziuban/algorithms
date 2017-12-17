@@ -3,9 +3,14 @@ package iurii.job.interview.amazon;
 import java.util.LinkedHashMap;
 
 /**
- * You have sorted array list of integers.
+ * You have sorted array list of integers with possible duplicates.
+ * Merge/Zip the continuous integers into ranges
+ * For example:
  * 1,2,2,3,5,8,9,11,12
  * Result 1-3, 5-5, 8-9, 11-12
+ *
+ * Time complexity O(n) for traversal
+ * Auxiliary space O(n) for storing ranges
  * <p>
  * Created by iurii.dziuban on 27/10/2017.
  */

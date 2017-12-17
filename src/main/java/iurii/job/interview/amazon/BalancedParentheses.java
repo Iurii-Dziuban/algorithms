@@ -11,6 +11,12 @@ import java.util.Stack;
  *
  * The idea behind is to use stack to track recent open brackets
  * and on closing bracket check the latest bracket type.
+ *
+ * http://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
+ * N - number of characters in expression
+ * Time complexity: O(N) for expression traversal
+ * Auxiliary space O(N) for stack
+ *
  * Created by iurii.dziuban on 02/06/2017.
  */
 public class BalancedParentheses {

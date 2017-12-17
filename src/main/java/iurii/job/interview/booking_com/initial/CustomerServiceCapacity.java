@@ -33,6 +33,7 @@ import java.util.List;
  *
  * Answer 1
  *
+ * similar to {@link ProcessorsForTasks}
  * Created by iurii.dziuban on 06/06/2017.
  */
 public class CustomerServiceCapacity {

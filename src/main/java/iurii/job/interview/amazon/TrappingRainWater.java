@@ -1,7 +1,7 @@
 package iurii.job.interview.amazon;
 
 /**
- * Amazon and CRX Markets
+ * Amazon, Google and CRX Markets
  * <p>
  * There is an array of integers that represents landscape.
  * If there was a rain on this landscape, calculate how much water will remain inside
@@ -13,6 +13,7 @@ package iurii.job.interview.amazon;
  * <p>
  * https://stackoverflow.com/questions/24414700/water-collected-between-towers
  * <p>
+ * https://www.youtube.com/watch?v=UzeL2GcLx3Y
  *
  * Time Complexity: O(n)
  * Auxiliary Space: O(1)
