@@ -50,6 +50,9 @@ public class JumpGame2 {
         int jumps = 0;
         for(int i = 0; i < array.length - 1; i++) {
             maxReachFromCurrent = Math.max(maxReachFromCurrent, array[i] + i);
+            if (maxReachFromCurrent >= array.length - 1) {
+                return jumps + 1;
+            }
             if (endOfCurJump == i) {
                 jumps++;
                 endOfCurJump = maxReachFromCurrent;
