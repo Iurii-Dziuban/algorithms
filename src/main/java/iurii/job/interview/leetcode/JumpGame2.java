@@ -20,51 +20,41 @@ package iurii.job.interview.leetcode;
  */
 public class JumpGame2 {
 
+    /**
+     * Non null, possible negative, possible not reachable out of the highest index of array
+     */
     public int greedyJumpsOutOfMaxIndex(int[] array) {
-        if (array == null) {
-            return 0;
-        }
-        long step = 1;
-        long maxReachFromCurrent = 0; // not to have overflow
+        long endOfCurJump = 0;
+        long maxReachFromCurrent = Long.MIN_VALUE; // not to have overflow
         int jumps = 0;
         for(int i = 0; i < array.length; i++) {
             if (maxReachFromCurrent > array.length - 1) {
                 return jumps;
             }
             maxReachFromCurrent = Math.max(maxReachFromCurrent, i + array[i]);
-            step--;
-            if (step == 0) {
+            if (maxReachFromCurrent <= i) {
+                return -1;
+            }
+            if (endOfCurJump == i) {
                 jumps++;
-                if (i >= maxReachFromCurrent) {
-                    return -1;
-                }
-                step = maxReachFromCurrent - i;
+                endOfCurJump = maxReachFromCurrent;
             }
         }
         return jumps;
     }
 
-    // leetcode
+    // leetcode: not null, not negative, reachable till the last element
     public int greedyJumpsToLastElement(int[] array) {
-        if (array == null) {
-            return 0;
-        }
-        long step = 1;
+        long endOfCurJump = 0;
         long maxReachFromCurrent = 0; // not to have overflow
-        int jumps = -1;
-        for(int i = 0; i < array.length; i++) {
-            maxReachFromCurrent = Math.max(maxReachFromCurrent, i + array[i]);
-            step--;
-            if (step == 0) {
+        int jumps = 0;
+        for(int i = 0; i < array.length - 1; i++) {
+            maxReachFromCurrent = Math.max(maxReachFromCurrent, array[i] + i);
+            if (endOfCurJump == i) {
                 jumps++;
-                if ( i != array.length - 1) {
-                    if (i >= maxReachFromCurrent) {
-                        return -1;
-                    }
-                    step = maxReachFromCurrent - i;
-                }
+                endOfCurJump = maxReachFromCurrent;
             }
         }
-        return step == 0 ? jumps : jumps + 1;
+        return jumps;
     }
 }

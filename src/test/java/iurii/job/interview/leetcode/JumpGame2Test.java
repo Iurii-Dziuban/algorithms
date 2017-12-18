@@ -47,13 +47,8 @@ public class JumpGame2Test {
 
     @Test
     public void testEmptyAndNullReachableOutOfMaxIndex() {
-        assertThat(new JumpGame2().greedyJumpsOutOfMaxIndex(null)).isEqualTo(0);
         assertThat(new JumpGame2().greedyJumpsOutOfMaxIndex(new int[]{})).isEqualTo(0);
     }
-
-
-
-
 
     @Test
     public void testExampleReachableTillMaxIndex() {
@@ -92,14 +87,7 @@ public class JumpGame2Test {
     }
 
     @Test
-    public void testNegativeNotReachableTillMaxIndex() {
-        int[] exampleOfTowers = {-2, 3, 1, 0, 2, 0};
-        assertThat(new JumpGame2().greedyJumpsToLastElement(exampleOfTowers)).isEqualTo(-1);
-    }
-
-    @Test
-    public void testEmptyAndNullReachableTillMaxIndex() {
-        assertThat(new JumpGame2().greedyJumpsToLastElement(null)).isEqualTo(0);
+    public void testEmptyReachableTillMaxIndex() {
         assertThat(new JumpGame2().greedyJumpsToLastElement(new int[]{})).isEqualTo(0);
     }
 }
