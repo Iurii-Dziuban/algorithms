@@ -22,7 +22,7 @@ Maven build script is provided.
  * [Microsoft tasks](#microsoft-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
- * [Other interview code tasks] (#other-interview-code-tasks)
+ * [Other interview code tasks](#other-interview-code-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
  * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
  * [Data structures implementations](#data-structures-implementations)
@@ -36,18 +36,18 @@ Maven build script is provided.
    * [Performance](#performance) - performance related structures
    * [Farm project](#farm-project) - pull model (event are pulled)
    * [Farm listener](#farm-listener) - push model (events are pushed)
-   * [String] (#string) - string manipulations
-   * [Patterns] (#patterns) - design patterns examples
-   * [Java 8 Features] (#java8) - java8 examples
-   * [Java EE] (#jee) - Java Enterprise Edition (Eclipse EE4J) examples
-   * [Java Server Faces] (#jsf) - jsf examples
-   * [Memory model] (#memory-model) - memory model related examples
+   * [String](#string) - string manipulations
+   * [Patterns](#patterns) - design patterns examples
+   * [Java 8 Features](#java8) - java8 examples
+   * [Java EE](#jee) - Java Enterprise Edition (Eclipse EE4J) examples
+   * [Java Server Faces](#jsf) - jsf examples
+   * [Memory model](#memory-model) - memory model related examples
 
  **And much more** : greedy algorithms, topcoder, concurrency, usage of data structures in other algorithms
  
 # Checks
 
-Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
+`Jacoco`/`cobertura` code coverage, `pmd`, `checkstyle`, `enforcer`, `findbugs`
 
 # Amazon tasks
 - TakeOddObjects (TakeOddObjectsTest) - List contains duplicates. Take only ones, which count is odd.Compare according to equals method. Note: Tests knowledge of Map, Set different implementations: hash, tree, linkedHash.
@@ -81,6 +81,7 @@ Jacoco code coverage, pmd, checkstyle, enforcer, findbugs
 
 # Leetcode.com tasks
 LeetCode is a platform for preparing technical coding interviews. 
+
 Pick from an expanding library of questions, code and submit your solution to see if you have solved it correctly. 
 The platform currently supports a total of 11 languages: C, C++, Java, Python, C#, JavaScript, Ruby, Swift, Go, Bash, MySQL.
 
