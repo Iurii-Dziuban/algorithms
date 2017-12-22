@@ -47,7 +47,7 @@ public class RobotTest {
         private long i = 1;
 
         public boolean tryStep() {
-            return i++ % 10000 == 0 || i > 10000;
+            return i++ % 1000 == 0 || i > 1000;
         }
 
         public void iterativeMakeStep() {
