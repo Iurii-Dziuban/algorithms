@@ -6,6 +6,9 @@ import java.util.Map;
 /**
  * https://codility.com/honeypot/Burda-Cliqz_Programmer/
  *
+ * Solution:
+ * https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+ *
  * Created by IuriiDziuban on 10/29/17.
  */
 public class Fibonacci {

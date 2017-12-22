@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 /**
  * https://codility.com/honeypot/Burda-Cliqz_Programmer/
+ *
+ * Solution:
+ * https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
+ *
  * Created by IuriiDziuban on 10/29/17.
  */
 public class Kcomplementary {

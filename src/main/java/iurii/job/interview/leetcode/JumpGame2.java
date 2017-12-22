@@ -14,7 +14,7 @@ package iurii.job.interview.leetcode;
  * 2) Dynamic programing: based on memorization of min steps to reach end. From left/right of array.
  * 3) Greedy: to step on the element that given better next range of possible hops
  *
- * Asked in: Adobe,Amazon,Housing.com,Moonfrog Labs,Walmart
+ * Asked in: Adobe,Amazon,Housing.com, Moonfrog Labs,Walmart
  *
  * Created by iurii.dziuban on 18/12/2017.
  */

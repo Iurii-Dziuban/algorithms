@@ -6,8 +6,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ *  Min sub array with all unique values
  *
  *  https://codility.com/public-link/zooplus-AG-Java-Engineering-2016/
+ *
+ *  Time complexity: O(N)
+ *  Auxiliary space: O(N)
+ *
+ *  Similar to https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
  *
  * Created by IuriiDziuban on 10/22/17.
  */

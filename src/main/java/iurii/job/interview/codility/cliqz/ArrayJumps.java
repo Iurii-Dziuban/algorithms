@@ -4,6 +4,8 @@ package iurii.job.interview.codility.cliqz;
  *
  *  https://codility.com/honeypot/Burda-Cliqz_Programmer/
  *
+ * Similar to {@link iurii.job.interview.leetcode.CircularArrayLoop}
+ *
  * Created by IuriiDziuban on 10/29/17.
  */
 public class ArrayJumps {

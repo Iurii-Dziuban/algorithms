@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Solution for convexhull problem in geometry
+ * Solution for convex hull problem in geometry (finding polygon with angles < 180 degrees)
  */
 public class ConvexHull {
 

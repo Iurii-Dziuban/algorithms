@@ -76,8 +76,17 @@ Maven build script is provided.
 # Facebook tasks
 - `facebook` package
 
+- Buttons (ButtonsTest) - calculating number of combinations to open the Lock
+- IceCapsMelting (IceCapsMeltingTest) - array of temperatures. Find the biggest difference between two (smaller before larger)
+- MaximumSubarrayProblem(MaximumSubarrayProblemTest) - find maximum sum of sub array in array
+- MinIteratorOfSortedAscendingLists (MinIteratorOfSortedAscendingListsTest) - implement iterator over N sorted lists of elements
+- SortedSquaresOfSortedArray (SortedSquaresOfSortedArrayTest) - given sorted list of elements - return sorted list of squared elements
+- TypingSuggestions (TypingSuggestionsTest) - return possible correct words from the dictionary
+
 # Microsoft tasks
 - `microsoft` package
+
+- LowestCommonAncestor (LowestCommonAncestorTest) - finding lowest common ancestor in the tree
 
 # Leetcode.com tasks
 LeetCode is a platform for preparing technical coding interviews. 
@@ -85,7 +94,9 @@ LeetCode is a platform for preparing technical coding interviews.
 Pick from an expanding library of questions, code and submit your solution to see if you have solved it correctly. 
 The platform currently supports a total of 11 languages: C, C++, Java, Python, C#, JavaScript, Ruby, Swift, Go, Bash, MySQL.
 
-- LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram
+- LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram. https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+- CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array https://leetcode.com/problems/circular-array-loop/description/
+- JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element. https://leetcode.com/problems/jump-game-ii/description/
 
 # Codility.com tasks
 Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.
@@ -96,8 +107,14 @@ Look for "codility" package
 - MissingInteger (MissingIntegerTest) - find minimum positive integer missing in the array
 - MaxConsecutiveOnes (MaxConsecutiveOnesTest) - find max consecutive ones in binary representation of int
 - package `zooplus` updated - 100% result
+   - AllCitiesVacation (AllCitiesVacationTest) - find minimum sub array of consecutive values containing all the values of array
+   - SqlFunctionsTask - sql task to right a query based on joins, having and aggregation functions
+   - TelephoneNumbersFormatter (TelephoneNumbersFormatterTest) - format telephone number into specific format.
 - package `cliqz` updated - 100% result
-
+   - ArrayJumps (ArrayJumpsTest) - find number of jumps to reach out of the array (or -1 in case of cycle)
+   - Fibonacci (FibonacciTest) - finding last N digit of the Fibonacci most efficient way O(logN)
+   - Kcomplementary (KcomplementaryTest) - finding the number of all 2 pair numbers from array with sum equal to K
+   
 # Other interview code tasks
 
 - AnagramsQuick (AnagramsQuickTest) find anagrams of the given word with words from the file. Provide quickest possible solution
