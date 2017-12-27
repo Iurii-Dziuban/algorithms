@@ -97,7 +97,7 @@ public class CrackingCodingInterview3 {
         public Integer push(Integer value) {
             Stack<Integer> stack = getCurrentStack();
             if (stack == null || stack.size() == capacity) {
-                stack = new Stack<Integer>();
+                stack = new Stack<>();
                 stacks.add(stack);
             }
             return stack.push(value);
@@ -123,7 +123,7 @@ public class CrackingCodingInterview3 {
     }
 
     /**
-     * 3.4 implement Hanoy
+     * 3.4 implement Hanoi towers
      */
     public static class Tower {
         private Stack<Integer> tower = new Stack<Integer>();

@@ -11,10 +11,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SelectionSortTest {
 
     @Test
-    public void test() {
+    public void testSortOneFunction() {
+        int[] sorted = new SelectionSort().sortOneFunction(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8});
+        Utilities.println(sorted);
+        assertThat(sorted).containsExactly(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    }
+
+    @Test
+    public void testSort() {
         int[] sorted = new SelectionSort().sort(new int[]{9, 3, 6, 1, 4, 2, 5, 7, 8});
         Utilities.println(sorted);
         assertThat(sorted).containsExactly(1, 2, 3, 4, 5, 6, 7, 8, 9);
-
     }
 }
