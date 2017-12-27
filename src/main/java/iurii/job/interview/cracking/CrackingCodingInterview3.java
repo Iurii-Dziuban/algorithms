@@ -159,9 +159,16 @@ public class CrackingCodingInterview3 {
 
     /**
      * 3.5 Implement Queue using two stacks
+     *
+     * https://www.youtube.com/watch?v=m7ZYJkvWwlE
+     *
+     * https://www.glassdoor.com/Interview
+     * /How-to-implement-a-queue-simply-using-two-stacks-and-how-to-implement-a-highly-efficient-queue-using-two-stacks-QTN_41158.htm
+     *
+     *
      */
 
-    public static class MyQueue {
+    public static class MyQueueBasedOnTwoStacks {
         private Stack<Integer> inbound = new Stack<Integer>();
         private Stack<Integer> outbound = new Stack<Integer>();
 
@@ -190,6 +197,48 @@ public class CrackingCodingInterview3 {
 
         public int size() {
             return inbound.size() + outbound.size();
+        }
+
+    }
+
+    /**
+     * 3.5.1 Implement Queue using only one stack (+ Function call stack)
+     *
+     * https://www.youtube.com/watch?v=m7ZYJkvWwlE
+     */
+    public static class MyQueueBasedOnOneStack {
+
+        private Stack<Integer> inbound = new Stack<Integer>();
+
+        public Integer push(Integer el) {
+            inbound.push(el);
+            return el;
+        }
+
+        public Integer pop() {
+            if (inbound.size() == 1) {
+                return inbound.pop();
+            } else {
+                Integer value = inbound.pop();
+                Integer result = pop();
+                inbound.push(value);
+                return result;
+            }
+        }
+
+        public Integer peek() {
+            if (inbound.size() == 1) {
+                return inbound.peek();
+            } else {
+                Integer value = inbound.pop();
+                Integer result = peek();
+                inbound.push(value);
+                return result;
+            }
+        }
+
+        public int size() {
+            return inbound.size();
         }
 
     }

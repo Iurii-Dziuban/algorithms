@@ -89,8 +89,8 @@ public class CrackingCodingInterview3Test {
     }
 
     @Test
-    public void myQueueTest() {
-        CrackingCodingInterview3.MyQueue myQueue = new CrackingCodingInterview3.MyQueue();
+    public void myQueueBasedOnTwoStacksTest() {
+        CrackingCodingInterview3.MyQueueBasedOnTwoStacks myQueue = new CrackingCodingInterview3.MyQueueBasedOnTwoStacks();
         myQueue.push(1);
         myQueue.push(2);
         myQueue.push(0);
@@ -103,4 +103,21 @@ public class CrackingCodingInterview3Test {
         assertThat(myQueue.pop()).isEqualTo(0);
         assertThat(myQueue.size()).isEqualTo(0);
     }
+
+    @Test
+    public void myQueueBasedOnOneStackTest() {
+        CrackingCodingInterview3.MyQueueBasedOnOneStack myQueue = new CrackingCodingInterview3.MyQueueBasedOnOneStack();
+        myQueue.push(1);
+        myQueue.push(2);
+        myQueue.push(0);
+
+        assertThat(myQueue.size()).isEqualTo(3);
+        assertThat(myQueue.pop()).isEqualTo(1);
+        assertThat(myQueue.size()).isEqualTo(2);
+        assertThat(myQueue.pop()).isEqualTo(2);
+        assertThat(myQueue.size()).isEqualTo(1);
+        assertThat(myQueue.pop()).isEqualTo(0);
+        assertThat(myQueue.size()).isEqualTo(0);
+    }
+
 }
