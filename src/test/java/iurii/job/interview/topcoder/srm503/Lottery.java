@@ -123,7 +123,7 @@ public class Lottery {
             boolean unique = retrieveBoolean(params[3]);
             double validTicketCount = 0;
             if (!sorted && !unique) {
-                validTicketCount = power(choices, blanks);
+                validTicketCount = new PowerCalculator().power(choices, blanks);
             }
             if (!sorted && unique) {
                 validTicketCount = factorial(choices)
@@ -161,17 +161,7 @@ public class Lottery {
         return result;
     }
 
-    private double power(int a, int power) {
-        double result = 1;
-        while (power != 0) {
-            if ((power & 1) == 1) {
-                result *= a;
-            }
-            a *= a;
-            power = power >> 1;
-        }
-        return result;
-    }
+
 
     private double sorted(int choices, int blanks, int max, int callNumber,
             boolean isUnique) {
