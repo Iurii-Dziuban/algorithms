@@ -118,6 +118,20 @@ public class CrackingCodingInterview1 {
     }
 
     /**
+     * 1.4.1 If string is palindrome. Recursion
+     */
+    public static boolean isPalindrome(String s1) {
+        if (s1 == null || s1.length() < 2) {
+            return true;
+        }
+        int firstIndex = 0;
+        int lastIndex = s1.length() - 1;
+
+        return s1.charAt(firstIndex) == s1.charAt(lastIndex)
+                && isPalindrome(s1.substring(firstIndex + 1, lastIndex));
+    }
+
+    /**
      * 1.4 If two strings are anagrams. O(n) time. array of constant size.
      */
     public static boolean areAnagrams2(String s1, String s2) {

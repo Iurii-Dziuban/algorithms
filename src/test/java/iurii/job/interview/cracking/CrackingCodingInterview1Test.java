@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static iurii.job.interview.cracking.CrackingCodingInterview1.areAnagrams;
 import static iurii.job.interview.cracking.CrackingCodingInterview1.areAnagrams2;
+import static iurii.job.interview.cracking.CrackingCodingInterview1.isPalindrome;
 import static iurii.job.interview.cracking.CrackingCodingInterview1.isRotation;
 import static iurii.job.interview.cracking.CrackingCodingInterview1.isUnique;
 import static iurii.job.interview.cracking.CrackingCodingInterview1.isUnique2;
@@ -60,6 +61,14 @@ public class CrackingCodingInterview1Test {
         assertThat(areAnagrams("AaBbCcfhdAjr", "AaBbCcfhdjrA")).isTrue();
         assertThat(areAnagrams("AaBbCcfhdAjr", "AaBbCcfhdjrD")).isFalse();
         assertThat(areAnagrams(null, "AaBbCcfhdjrD")).isFalse();
+    }
+
+    @Test
+    public void isPalindromeTest() {
+        assertThat(isPalindrome("A")).isTrue();
+        assertThat(isPalindrome("")).isTrue();
+        assertThat(isPalindrome("rotor")).isTrue();
+        assertThat(isPalindrome("motor")).isFalse();
     }
 
     @Test
