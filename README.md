@@ -114,7 +114,11 @@ Look for "codility" package
    - ArrayJumps (ArrayJumpsTest) - find number of jumps to reach out of the array (or -1 in case of cycle)
    - Fibonacci (FibonacciTest) - finding last N digit of the Fibonacci most efficient way O(logN)
    - Kcomplementary (KcomplementaryTest) - finding the number of all 2 pair numbers from array with sum equal to K
-   
+- FindDifferentBallWeight - logic task to find the box/ball with bigger weight based on a specific number of weighings.
+- CardsSamePositionAfterShuffling - logic/probability/ combinatorics task to find number of cards remain at same position after random shuffling
+- OpenTheCombinationLock - logic/probability/combinatorics question on opening the combination lock
+- GenerateNumberWithProbability - logic/probability task for generation random uniformly distributed value from range
+
 # Other interview code tasks
 
 - AnagramsQuick (AnagramsQuickTest) find anagrams of the given word with words from the file. Provide quickest possible solution
