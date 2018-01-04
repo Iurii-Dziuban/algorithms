@@ -22,6 +22,7 @@ Maven build script is provided.
  * [Microsoft tasks](#microsoft-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
+ * [Interview cake](#interview-cake)
  * [Other interview code tasks](#other-interview-code-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
  * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
@@ -30,6 +31,7 @@ Maven build script is provided.
  * [Sorting algorithms](#sorting-algorithms)
  * [Crypto](#crypto)
  * [Combinatorics](#combinatorics)
+ * [Recursion](#recursion)
  * [Generic](#generic)
    * [Concurrency](#concurrency) - concurrency related structures
    * [Hotspot](#hotspot) - hotspot related examples
@@ -119,6 +121,9 @@ Look for "codility" package
 - OpenTheCombinationLock - logic/probability/combinatorics question on opening the combination lock
 - GenerateNumberWithProbability - logic/probability task for generation random uniformly distributed value from range
 
+# Interview cake
+Solutions to "interview cake" problems 
+
 # Other interview code tasks
 
 - AnagramsQuick (AnagramsQuickTest) find anagrams of the given word with words from the file. Provide quickest possible solution
@@ -146,6 +151,13 @@ Added implementation of Scrooge coin from crypto currency course
 # Combinatorics
 - package `combinatorics`
 Added initial classes for implementation
+
+# Recursion
+- package `recursion`
+Methods and algorithms that are solved by recursion
+- Count (CountTest) - counting object in list based on simple recursion, tail recursion, stream reduce, stream count method.
+- Max (MaxTest) - finding max object in list based on simple recursion, tail recursion, stream reduce, stream max method.
+- Sum (SumTest) - summing objects in list based on simple recursion, tail recursion, stream reduce, stream sum method.
 
 # Generic
 
@@ -238,3 +250,10 @@ depending on who is quicker: client or server.
  
 ## Memory model
  - package `memmorymodel` - related to java memory model
+
+
+# Ideas
+1. package concurrency. Make good tests for the primitive implementations. Add additional examples with Locks.
+1. package combinatorics. Implement combinatorics primitive implementations with tests.
+1. package dynamic_programming . Implement TODO classes. Implement good tests to cover.
+1. 
