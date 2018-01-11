@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
@@ -89,6 +90,18 @@ public class Main {
     public static final Period PERIOD_DAYS = Period.ofDays(7);
 
     public static void main(String[] args) {
+        // Optional
+        // Optional.of(null); // Null pointer
+        Optional<Integer> emptyOptional = Optional.empty();
+        Optional<Integer> nullableOptional = Optional.ofNullable(null);
+        Optional<Integer> fiveOptional = Optional.ofNullable(5);
+        System.out.println("Nullable.equals.Empty = " + emptyOptional.equals(nullableOptional));
+        System.out.println("emptyOrElse = " + emptyOptional.orElse(5));
+        System.out.println("fiveOptional = " + fiveOptional);
+        System.out.println("fiveOptionalGet = " + fiveOptional.get());
+        System.out.println("fiveOptionalGet = " + fiveOptional.orElse(6));
+        System.out.println("fiveOptionalGet = " + fiveOptional.orElseGet(() -> 7));
+
         // ------------- JDBC ---------------
 
 

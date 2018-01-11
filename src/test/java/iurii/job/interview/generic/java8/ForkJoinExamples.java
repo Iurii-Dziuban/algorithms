@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Example of Custom (Common) ForkJoinPool usage for parallel streams as they are executed in the specific pool
  */
-public class ParallelStreamAndForkJoin {
+public class ForkJoinExamples {
 
     public List<Integer> incByOneUseExistingPool(List<Integer> values) throws ExecutionException, InterruptedException {
 
@@ -17,8 +17,7 @@ public class ParallelStreamAndForkJoin {
         try {
             //ForkJoinCommonPool is configured via SystemProperty for parallelism
             // each time parallel stream is used it is better to provide explicitly the thread pool
-
-            // defaul number of threads in common pool is number of proc - 1, because of te main thread as well
+            // defaul number of threads in common pool is number of proc - 1, because of the main thread as well
             System.out.println("Common Pool Parallelism = " + ForkJoinPool.commonPool().getParallelism());
 
             return customThreadPool.submit(() -> values.parallelStream().map(i -> {
