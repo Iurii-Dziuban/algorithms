@@ -37,7 +37,7 @@ public class LargestRectangleInHistogram {
             throw new IllegalArgumentException("array should not be null");
         }
         // check negative heights
-        if (Arrays.stream(heights).filter(value -> value < 0).count() != 0) {
+        if (Arrays.stream(heights).anyMatch(value -> value < 0)) {
             throw new IllegalArgumentException("array should not contain negative heights");
         }
         // adding 0 in the end to handle end in the cycle (not after)

@@ -2,6 +2,8 @@ package iurii.job.interview.facebook;
 
 /**
  * Find maximum sum of continuous elements (sub array) in array
+ * https://leetcode.com/problems/maximum-subarray/description/
+ *
  * http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
  *
  * https://www.glassdoor.com/Interview

@@ -28,6 +28,12 @@ import java.util.Set;
  *   It can be created using guava or Collections.synchronizedSet() but it won`t give the best performance as the one derived from ConcurrentHashMap
  *   ConcurrentHashMap.newKeySet()
  *
+ * similar to {@link iurii.job.interview.leetcode.TwoSum} but just return true/false.
+ * similar to {@link FirstRecurringCharacter}
+ * HashSet is used. But HashMap can be used as well
+ *
+ * Time complexity: O(N) each element once and check Set in O(1)
+ * Auxiliary space complexity: O(N) store Set of values
  * Created by iurii.dziuban on 14/06/2017.
  */
 public class TwoPairParticularSum {

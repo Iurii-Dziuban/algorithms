@@ -59,7 +59,8 @@ Maven build script is provided.
 - CountNegativeIntegersInRowColumnWiseSortedMatrix (CountNegativeIntegersInRowColumnWiseSortedMatrixTest) - mock amazon interview question
 - RangeMerge (RangeMergeTest) - sorted array of ints. Encode/Archive/Zip numbers into ranges. Optimized solution
 - TrappingRainWater (TrappingRainWaterTest) - array of landscape. Calculate how many units of water will remain after the rain inside.
-
+- KClosestPoints (KClosestPointsTest) - find k closest 2d points to particular one
+ 
 # Yandex tasks
 - Bencode (BencodeTest) - implementation of Bencode protocol for encoding/decoding data. Widely used in torrents. More info: https://en.wikipedia.org/wiki/Bencode
 
@@ -73,6 +74,7 @@ Maven build script is provided.
 
 # Google tasks
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
+- FirstRecurringCharacter (FirstRecurringCharacterTest) - find first recurring character in string
 - RobotTest - iterative, recursive approaches to do steps/counting
 
 # Facebook tasks
@@ -96,9 +98,19 @@ LeetCode is a platform for preparing technical coding interviews.
 Pick from an expanding library of questions, code and submit your solution to see if you have solved it correctly. 
 The platform currently supports a total of 11 languages: C, C++, Java, Python, C#, JavaScript, Ruby, Swift, Go, Bash, MySQL.
 
-- LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram. https://leetcode.com/problems/largest-rectangle-in-histogram/description/
-- CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array https://leetcode.com/problems/circular-array-loop/description/
-- JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element. https://leetcode.com/problems/jump-game-ii/description/
+- 1 TwoSum (TwoSumTest) - find two elements which sum is equal to the target
+- 2 AddTwoNumbers (AddTwoNumbersTest) - add two linkedList numbers starting from lowest digit
+- 3 LongestSubstringWithoutRepeatingCharacters (LongestSubstringWithoutRepeatingCharactersTest)
+- 4 MedianOfTwoSortedArrays (MedianOfTwoSortedArraysTest) - find median of two sorted arrays
+- 5 LongestPalindromicSubstring (LongestPalindromicSubstringTest) - efficient algorithm
+- 6 ZigZagConversion (ZigZagConversionTest) - form a zigzag string from string with particular width
+- 7 ReverseInteger (ReverseIntegerTest) - reverse an integer (might be overflow)
+- 8 StringToInteger (StringToIntegerTest) - parsing string to int
+- 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element. https://leetcode.com/problems/jump-game-ii/description/
+- 53 MaximumSubarray - find maximum contiguous  sub array sum in array
+- 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram. https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+- 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array https://leetcode.com/problems/circular-array-loop/description/
+- 658 FindKClosestElements (FindKClosestElementsTest) - on plain find k closest elements to element
 
 # Codility.com tasks
 Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.

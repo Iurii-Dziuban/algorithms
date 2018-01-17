@@ -11,9 +11,9 @@ public class CircularArrayLoopTest {
 
     @Test
     public void testLeetCodeCircularFind() {
-        assertThat(new CircularArrayLoop().circularArrayLoopLeetCode(new int[]{2, -1, 1, -2, -2})).isFalse();
-        assertThat(new CircularArrayLoop().circularArrayLoopLeetCode(new int[]{2, -1, 1, 2, 2})).isTrue();
-        assertThat(new CircularArrayLoop().circularArrayLoopLeetCode(new int[]{-1, 2})).isFalse();
+        assertThat(new CircularArrayLoop().circularArrayLoopLeetcode(new int[]{2, -1, 1, -2, -2})).isFalse();
+        assertThat(new CircularArrayLoop().circularArrayLoopLeetcode(new int[]{2, -1, 1, 2, 2})).isTrue();
+        assertThat(new CircularArrayLoop().circularArrayLoopLeetcode(new int[]{-1, 2})).isFalse();
     }
 
     @Test

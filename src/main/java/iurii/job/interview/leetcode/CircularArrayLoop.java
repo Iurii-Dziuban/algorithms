@@ -7,6 +7,9 @@ package iurii.job.interview.leetcode;
  *
  * Similar to {@link iurii.job.interview.codility.cliqz.ArrayJumps}
  * Created by iurii.dziuban on 22/12/2017.
+ *
+ * Time complexity: O(n) at most two times one element to find a cycle
+ * Auxiliary space complexity: O(1) for pointers
  */
 public class CircularArrayLoop {
 
@@ -17,7 +20,7 @@ public class CircularArrayLoop {
      * 3) forward - after last element comes first / backward - after first comes last. Circle based
      * 4) Circle is only if there are more than one element in the circle
      */
-    public boolean circularArrayLoopLeetCode(int[] nums) {
+    public boolean circularArrayLoopLeetcode(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) {
                 continue;

@@ -1,7 +1,8 @@
 package iurii.job.interview.leetcode;
 
 /**
- * Jump Game / Tower Hopper problem / Minimum number of jumps to reach end
+ * 45. Jump Game / Tower Hopper problem / Minimum number of jumps to reach end
+ * (TowerHopperProblem)
  *
  * http://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
  * https://leetcode.com/problems/jump-game-ii/description/
@@ -16,6 +17,8 @@ package iurii.job.interview.leetcode;
  *
  * Asked in: Adobe,Amazon,Housing.com, Moonfrog Labs,Walmart
  *
+ * Time complexity: O(N) at most once each element
+ * Auxiliary space complexity: O(1) in greedy case O(N) in case of dynamic programing to store results
  * Created by iurii.dziuban on 18/12/2017.
  */
 public class JumpGame2 {
