@@ -10,6 +10,9 @@ import java.util.stream.Stream;
  * https://www.youtube.com/watch?v=eaYX0Ee0Kcg
  *
  * Similar to {@link iurii.job.interview.leetcode.FindKClosestElements}
+ *
+ * Time complexity: O((n-k)*log k) N - total number of elements, k - number of closest points to find
+ * Auxiliary space complexity: O(k) to store the result in minHeap
  */
 public class KClosestPoints {
 
@@ -37,20 +40,6 @@ public class KClosestPoints {
         @Override
         public int compareTo(Point o) {
             return Double.compare(distance, o.distance);
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (o instanceof Point) {
-                Point oPoint = (Point) o;
-                return x == oPoint.x && y == oPoint.y;
-            }
-            return false;
-        }
-
-        @Override
-        public int hashCode() {
-            return x + y;
         }
     }
 }
