@@ -84,6 +84,8 @@ import java.util.PriorityQueue;
  *
  * https://www.youtube.com/watch?v=DSGsa0pu8-k
  *
+ * Real world example:
+ * SIT https://www.sit.no/en/housing/parking
  * Created by iurii.dziuban on 14/12/2017.
  */
 public class ParkingLot {

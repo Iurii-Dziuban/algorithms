@@ -106,6 +106,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 6 ZigZagConversion (ZigZagConversionTest) - form a zigzag string from string with particular width
 - 7 ReverseInteger (ReverseIntegerTest) - reverse an integer (might be overflow)
 - 8 StringToInteger (StringToIntegerTest) - parsing string to int
+- 9 PalindromeNumber (PalindromeNumberTest) - checking integer if it is palindrome
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element. https://leetcode.com/problems/jump-game-ii/description/
 - 53 MaximumSubarray - find maximum contiguous  sub array sum in array
 - 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram. https://leetcode.com/problems/largest-rectangle-in-histogram/description/
