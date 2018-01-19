@@ -7,6 +7,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -55,17 +56,26 @@ public class ConcurrencyChapter7Test {
         AtomicReference<String> reference = new AtomicReference<>("hello");
     }
 
-
+    // Java 8 certification Question 1.
     @Test
     public void testCyclicBarrier() {
         final CyclicBarrier cb = new CyclicBarrier(2,()-> System.out.
                 println("Clean!"));// u1
-        ExecutorService service = Executors.newScheduledThreadPool(2);
+        ExecutorService service = Executors.newScheduledThreadPool(3);
         IntStream.iterate(1, i -> i + 1) // u2
                 .limit(12)
                 .forEach(i-> service.submit( // u3
                         ()-> await(cb, i))); // u4
         service.shutdown();
+
+        try {
+            service.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+        }
+
+        // Because there are only two threads in the executor service and cyclic barrier waits for three
+        // without release the lock - code runs forever. If there were 2 in cyclic barrier
+        // it would print "Clean!" 4 times , because 12 threads and after each 3 threads print the statement
     }
 
     private static void await(CyclicBarrier cb, int i) {
@@ -76,4 +86,6 @@ public class ConcurrencyChapter7Test {
             // Handle exception
         }
     }
+    //----- End of Question 1.
+
 }
