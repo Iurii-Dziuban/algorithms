@@ -2,6 +2,10 @@ package iurii.job.interview.amazon;
 
 /**
  * Amazon, Google and CRX Markets
+ *
+ * similar to {@link TrappingRainWater}
+ * similar to {@link iurii.job.interview.leetcode.ContainerWithMostWater
+ * }
  * <p>
  * There is an array of integers that represents landscape.
  * If there was a rain on this landscape, calculate how much water will remain inside
@@ -26,7 +30,6 @@ public class TrappingRainWater {
      * @param landscape input array representing landscape
      * @return number of water units inside the landscape
      */
-
     public long findWater(int[] landscape) {
         // check null
         if (landscape == null) {
