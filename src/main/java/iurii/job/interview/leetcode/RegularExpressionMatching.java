@@ -77,7 +77,7 @@ public class RegularExpressionMatching {
         return dp(0, 0, text, pattern);
     }
 
-    public boolean dp(int i, int j, String text, String pattern) {
+    private boolean dp(int i, int j, String text, String pattern) {
         if (memo[i][j] != null) {
             return memo[i][j] == Result.TRUE;
         }

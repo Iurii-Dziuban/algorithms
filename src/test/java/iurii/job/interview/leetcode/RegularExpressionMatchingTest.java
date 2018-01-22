@@ -8,6 +8,8 @@ public class RegularExpressionMatchingTest {
 
     @Test
     public void testRecursive() {
+        assertThat(new RegularExpressionMatching().isMatchRecursive("", "")).isTrue();
+        assertThat(new RegularExpressionMatching().isMatchRecursive("", ".*")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchRecursive("aa", "a")).isFalse();
         assertThat(new RegularExpressionMatching().isMatchRecursive("ab", "a.")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchRecursive("aa", "aa")).isTrue();
@@ -22,6 +24,8 @@ public class RegularExpressionMatchingTest {
 
     @Test
     public void testBottomUpDynamicProgramming() {
+        assertThat(new RegularExpressionMatching().isMatchBottomUp("", "")).isTrue();
+        assertThat(new RegularExpressionMatching().isMatchBottomUp("", ".*")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchBottomUp("aa", "a")).isFalse();
         assertThat(new RegularExpressionMatching().isMatchBottomUp("ab", "a.")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchBottomUp("aa", "aa")).isTrue();
@@ -36,6 +40,8 @@ public class RegularExpressionMatchingTest {
 
     @Test
     public void testTopDownDynamicProgramming() {
+        assertThat(new RegularExpressionMatching().isMatchTopDown("", "")).isTrue();
+        assertThat(new RegularExpressionMatching().isMatchTopDown("", ".*")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchTopDown("aa", "a")).isFalse();
         assertThat(new RegularExpressionMatching().isMatchTopDown("ab", "a.")).isTrue();
         assertThat(new RegularExpressionMatching().isMatchTopDown("aa", "aa")).isTrue();
