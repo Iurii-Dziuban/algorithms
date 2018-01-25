@@ -134,6 +134,7 @@ public class AdvancedClassDesignChapter1Test {
             assertThat(mammals.size()).isEqualTo(4);
             assertThat(birds.size()).isEqualTo(5);
         }
+
         // Not if c2 removed code will run without exceptions
     }
 
