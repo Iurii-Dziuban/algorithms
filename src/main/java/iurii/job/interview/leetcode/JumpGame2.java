@@ -8,6 +8,7 @@ package iurii.job.interview.leetcode;
  * https://leetcode.com/problems/jump-game-ii/description/
  *
  * https://www.youtube.com/watch?v=kHWy5nEfRIQ
+ * https://www.youtube.com/watch?v=cETfFsSTGJI
  * https://stackoverflow.com/questions/27858356/how-to-find-minimum-number-of-jumps-to-reach-the-end-of-the-array-in-on-time
  *
  * There are 3 solutions:

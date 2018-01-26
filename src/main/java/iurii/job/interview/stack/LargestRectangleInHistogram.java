@@ -6,7 +6,8 @@ import java.util.Stack;
 /**
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
  *
- * https://www.youtube.com/watch?v=VNbkzsnllsU&t=179s
+ * https://www.youtube.com/watch?v=VNbkzsnllsU&t
+ * https://www.youtube.com/watch?v=RVIh0snn4Qc
  *
  * http://www.geeksforgeeks.org/largest-rectangular-area-in-a-histogram-set-1/
  * 
