@@ -111,11 +111,12 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 11 ContainerWithMostWater (ContainerWithMostWaterTest) - find the container with highest capacity
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
-- 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element. https://leetcode.com/problems/jump-game-ii/description/
+- 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
 - 53 MaximumSubarray - find maximum contiguous  sub array sum in array
-- 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram. https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+- 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram.
 - 238 ProductOfArrayExceptSelf (ProductOfArrayExceptSelfTest) - added simple left-right multiplication, and log based that handles zero exists and negative numbers case.
-- 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array https://leetcode.com/problems/circular-array-loop/description/
+- 407 TrappingRainWater2 (TrappingRainWater2Test) - 3D extension
+- 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array
 - 658 FindKClosestElements (FindKClosestElementsTest) - on plain find k closest elements to element
 
 # Codility.com tasks
