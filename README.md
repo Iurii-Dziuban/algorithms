@@ -109,6 +109,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 9 PalindromeNumber (PalindromeNumberTest) - checking integer if it is palindrome
 - 10 RegularExpressionMatching (RegularExpressionMatchingTest) - checking wildcard pattern matching
 - 11 ContainerWithMostWater (ContainerWithMostWaterTest) - find the container with highest capacity
+- 12 IntegerToRoman (IntegerToRomanTest) convert integer value to Roman representation
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
