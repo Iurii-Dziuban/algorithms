@@ -7,6 +7,14 @@ package iurii.job.interview.leetcode;
  * <p>
  * https://www.geeksforgeeks.org/wildcard-pattern-matching/
  * https://www.geeksforgeeks.org/wildcard-character-matching/
+ *
+ * similar to {@link WildcardMatching}
+ *
+ * With Dynamic programming Bottom Up Approach without recursion
+ * T - length of text
+ * P - length of pattern
+ * Time complexity: O(T*P)
+ * Auxiliary space complexity: O(T*P)
  */
 public class RegularExpressionMatching {
 

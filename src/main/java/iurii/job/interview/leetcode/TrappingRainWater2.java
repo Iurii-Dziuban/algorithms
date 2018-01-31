@@ -9,11 +9,12 @@ import java.util.PriorityQueue;
  *
  * https://stackoverflow.com/questions/21818044/the-maximum-volume-of-trapped-rain-water-in-3d
  *
+ * similar to {@link iurii.job.interview.amazon.TrappingRainWater}
+ * similar to {@link ContainerWithMostWater}
+ *
  * Time complexity: O(N*M*log(N*M)) n,m - height and width of the landscape
  * (logarithm is added for priorityQueue insert operations)
  * Auxiliary space: O(N*M) to store priority queue and visited map
- *
- *
  */
 public class TrappingRainWater2 {
     public int trapRainWater(int[][] heightMap) {

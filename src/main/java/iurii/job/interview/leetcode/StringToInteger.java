@@ -3,6 +3,8 @@ package iurii.job.interview.leetcode;
 /**
  * 8. String to Integer (atoi) https://leetcode.com/problems/string-to-integer-atoi/description/
  *
+ * idea is similar {@link IntegerToRoman}
+ *
  * Time complexity: O(N) where N string length
  * Auxiliary space complexity: O(1) for result
  */

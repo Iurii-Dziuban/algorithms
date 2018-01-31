@@ -6,6 +6,7 @@ package iurii.job.interview.leetcode;
  * https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
  * https://leetcode.com/articles/find-smallest-letter-greater-than-target/
  *
+ * Idea is similar to {@link FindKClosestElements}
  * Time complexity : O(N) linear search and O(log(N)) binary search
  * Auxiliary space complexity : O(1) store the value
  */

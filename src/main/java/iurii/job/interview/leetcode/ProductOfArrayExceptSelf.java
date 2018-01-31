@@ -29,6 +29,7 @@ public class ProductOfArrayExceptSelf {
     }
 
     /**
+     * Based on epsilon precision and Log properties. Covered zeros and negative values
      * Time complexity: O(N)
      * Auxiliary space: O(1) to store the precision, if there is zero, multiplication if zero exists,
      * negative count, sum of logs

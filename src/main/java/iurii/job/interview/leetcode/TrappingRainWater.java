@@ -8,6 +8,8 @@ package iurii.job.interview.leetcode;
  * similar to {@link iurii.job.interview.amazon.TrappingRainWater}
  * similar to {@link ContainerWithMostWater}
  *
+ * Idea is similar to {@link TrappingRainWater2}
+ *
  * Time Complexity: O(n)
  * Auxiliary Space: O(1)
  *

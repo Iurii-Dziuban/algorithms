@@ -5,7 +5,7 @@ package iurii.job.interview.leetcode;
  *
  * https://www.geeksforgeeks.org/maximum-product-subarray/
  *
- * Idea is similar to Maximum sum Sub array
+ * Idea is similar to {@link MaximumSubarray}
  * Time complexity: O(N)
  * Auxiliary space complexity: O(N) for dynamic programming and O(1) for holding min/max values only
  */

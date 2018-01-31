@@ -4,6 +4,12 @@ package iurii.job.interview.leetcode;
  * 44. Wildcard Matching https://leetcode.com/problems/wildcard-matching/description/
  *
  * similar to {@link RegularExpressionMatching}
+ *
+ * With dynamic programming Bottom Up Approach without recursion
+ * T - length of text
+ * P - length of pattern
+ * Time complexity: O(T*P)
+ * Auxiliary space complexity: O(T*P)
  */
 public class WildcardMatching {
 

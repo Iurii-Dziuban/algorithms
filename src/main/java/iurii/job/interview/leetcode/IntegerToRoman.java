@@ -6,6 +6,11 @@ import java.util.TreeMap;
  * 12. Integer to Roman https://leetcode.com/problems/integer-to-roman/description/
  *
  * https://stackoverflow.com/questions/12967896/converting-integers-to-roman-numerals-java
+ *
+ * Idea similar to {@link IntegerToEnglishWords}
+ * Time complexity: O(log(N)) for TreeMap and arrays. A bit quicker for arrays, cause search is O(1)
+ * and search in TreeMap is a bit slower, even though it will be a constant factor
+ * Auxiliary Space complexity: O(1) constant length of TreeMap or array
  */
 public class IntegerToRoman {
 

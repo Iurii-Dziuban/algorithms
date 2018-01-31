@@ -17,6 +17,8 @@ import java.util.stream.Stream;
  *
  * Similar to {@link iurii.job.interview.amazon.KClosestPoints} but array already sorted
  *
+ * Idea is similar in {@link FindSmallestLetterGreaterThanTarget}
+ *
  * But in case already sorted array, no need to use PriorityQueue for sorting,
  * just use two pointers
  *
