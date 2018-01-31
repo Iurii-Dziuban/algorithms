@@ -60,6 +60,10 @@ public class MaximumProductSubarray {
      * Min/max solution
      */
     public int maxProduct(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
         int res = nums[0], iMax = res, iMin = res;
 
         for(int i=1; i<nums.length; i++) {
