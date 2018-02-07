@@ -6,10 +6,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LongestCommonPrefixTest {
     @Test
-    public void test() {
+    public void testByString() {
         LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix();
-        assertThat(longestCommonPrefix.longestCommonPrefix(new String[]{})).isEqualTo("");
-        assertThat(longestCommonPrefix.longestCommonPrefix(new String[]{"aa", "ab", "ac"})).isEqualTo("a");
-        assertThat(longestCommonPrefix.longestCommonPrefix(new String[]{"aab", "aabc", "aabd"})).isEqualTo("aab");
+        assertThat(longestCommonPrefix.longestCommonPrefixByWord(new String[]{})).isEqualTo("");
+        assertThat(longestCommonPrefix.longestCommonPrefixByWord(new String[]{"aa", "ab", "ac"})).isEqualTo("a");
+        assertThat(longestCommonPrefix.longestCommonPrefixByWord(new String[]{"aab", "aabc", "aabd"})).isEqualTo("aab");
+    }
+
+    @Test
+    public void testByChar() {
+        LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix();
+        assertThat(longestCommonPrefix.longestCommonPrefixByChars(new String[]{})).isEqualTo("");
+        assertThat(longestCommonPrefix.longestCommonPrefixByChars(new String[]{"aa", "ab", "ac"})).isEqualTo("a");
+        assertThat(longestCommonPrefix.longestCommonPrefixByChars(new String[]{"aab", "aabc", "aabd"})).isEqualTo("aab");
     }
 }

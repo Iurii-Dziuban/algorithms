@@ -11,14 +11,14 @@ package iurii.job.interview.leetcode;
  * https://www.geeksforgeeks.org/longest-common-prefix-set-4-binary-search/
  * https://www.geeksforgeeks.org/longest-common-prefix-set-5-using-trie/
  *
- * Time complexity : O(N * M) N - number of strings and M longest string length
+ * Time complexity : O(N * M) , N - number of strings and M longest string length
  * Auxiliary space : O(M)
  *
- * TODO: other solutions
+ * Important Note: other solutions do not provide better, but even worse bigO Time/space complexity
  */
 public class LongestCommonPrefix {
 
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefixByWord(String[] strs) {
         if (strs.length == 0) {
             return "";
         }
@@ -37,6 +37,28 @@ public class LongestCommonPrefix {
             if (curLength < prefix.length()) {
                 prefix = prefix.substring(0, curLength);
             }
+        }
+        return prefix;
+    }
+
+    public String longestCommonPrefixByChars(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+        String prefix = strs[0];
+        for (String s : strs) {
+            if (s.length() < prefix.length()) {
+                prefix = s;
+            }
+        }
+        int i = 0;
+        while (i < prefix.length()) {
+            for (String s : strs) {
+                if (s.charAt(i) != prefix.charAt(i)) {
+                    return prefix.substring(0, i);
+                }
+            }
+            i++;
         }
         return prefix;
     }
