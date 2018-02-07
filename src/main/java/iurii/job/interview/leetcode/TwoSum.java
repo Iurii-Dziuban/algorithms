@@ -1,5 +1,6 @@
 package iurii.job.interview.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class TwoSum {
     public int[] twoSumSaveValueIndex(int[] nums, int target) {
         Map<Integer, Integer> valueToIndex = new HashMap<>();
         for (int i = 0; i < nums.length; i ++) {
-            if (valueToIndex.containsKey(target-nums[i])) {
+            if (valueToIndex.containsKey(target - nums[i])) {
                 return new int[] {valueToIndex.get(target - nums[i]), i};
             } else {
                 valueToIndex.put(nums[i], i);
@@ -42,6 +43,30 @@ public class TwoSum {
                 return new int[] {supplementToValueIndex.get(nums[i]), i};
             } else {
                 supplementToValueIndex.put(target - nums[i], i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Solution with sorting :
+     * Time complexity: O(N log(N)) slower, because of the sorting
+     * Auxiliary space complexity: O(1). No auxiliary space needed for the map
+     *
+     * Note! returns numbers itself, not indexes. Sorting solution does not work for indexes, cause they change
+     */
+    public int[] twoSumWithSoring(int[] nums, int target) {
+        Arrays.sort(nums);
+        int lo = 0;
+        int hi = nums.length - 1;
+        while (lo < hi) {
+            if (nums[lo] + nums[hi] == target) {
+                return new int[]{nums[lo], nums[hi]};
+            }
+            if (nums[lo] + nums[hi] < target) {
+                lo++;
+            } else {
+                hi--;
             }
         }
         return null;

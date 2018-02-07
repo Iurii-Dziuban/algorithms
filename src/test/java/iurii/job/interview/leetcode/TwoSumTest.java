@@ -13,6 +13,7 @@ public class TwoSumTest {
         int target =  9;
         assertThat(twoSum.twoSumSaveValueIndex(nums, target)).containsExactly(0,1);
         assertThat(twoSum.twoSumSaveSupplementWithValueIndex(nums, target)).containsExactly(0,1);
+        assertThat(twoSum.twoSumWithSoring(nums, target)).containsExactly(2,7);
     }
 
     @Test
@@ -20,5 +21,6 @@ public class TwoSumTest {
         int target =  8;
         assertThat(twoSum.twoSumSaveValueIndex(nums, target)).isNull();
         assertThat(twoSum.twoSumSaveSupplementWithValueIndex(nums, target)).isNull();
+        assertThat(twoSum.twoSumWithSoring(nums, target)).isNull();
     }
 }

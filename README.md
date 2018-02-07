@@ -112,6 +112,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 12 IntegerToRoman (IntegerToRomanTest) convert integer value to Roman representation
 - 13 RomanToInteger (RomanToIntegerTest) convert Roman string to int. Reverse to RomanToInteger
 - 14 LongestCommonPrefix (LongestCommonPrefixTest) find longest common prefix for all strings in the array
+- 15 ThreeSum (ThreeSumTest) - 3Sum - find all 3 element pairs, which sum is equal to the target value
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
