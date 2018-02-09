@@ -10,7 +10,9 @@ public class SingletonExample {
     public enum EnumSingleton {
         ONE(1), TWO(2); // how many instances of the class you need
 
-        private int value;
+        // encapsulation, so that fields can not be accessed;
+        // has non null invariant (property, truth that is maintained )
+        private final int value;
 
         // public and protected modifiers are not allowed for the enum
         EnumSingleton(int value) {

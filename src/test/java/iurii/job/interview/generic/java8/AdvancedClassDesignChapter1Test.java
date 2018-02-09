@@ -24,6 +24,7 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Optional;
@@ -495,4 +496,34 @@ public class AdvancedClassDesignChapter1Test {
      */
 
     // --- End of Question 20.s
+}
+
+/**
+ * Functional interfaces, lambda, static and default methods in the interfaces
+ */
+// having one method in the interface (and even additionally marking with @FunctionalInterface)
+// gives the ability to use lambda expressions as an implementation
+// in the place, where instance of functional interface is needed. so lambda can be used instead of
+// instance of anonymous class
+// lambdas provide notion of deferred executions. Invoke only when needed
+@FunctionalInterface // make sure that there will be only one method/lambda
+interface DefaultAndStaticInInterface {
+
+    int method1(int i);
+
+    default int increment(int i){
+        return i + 1;
+    }
+
+    static int inc(int i){
+        return i + 1;
+    }
+
+    //trying to override Object method gives compile time error as
+    //"A default method cannot override a method from java.lang.Object"
+
+    //	default String toString(){
+    //		return "i1";
+    //	}
+
 }

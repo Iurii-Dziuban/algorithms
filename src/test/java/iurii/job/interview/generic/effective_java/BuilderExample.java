@@ -28,6 +28,7 @@ public class BuilderExample {
 
         }
 
+        // builder pattern with generic type and recursive type parameter!
         interface BuilderInterface<T extends BuilderInterface<T>> {
             // pattern to get access to "this" instance. in java known as simulated self type idiom
             // for type hierarchy done via recursive type parameter
