@@ -63,10 +63,10 @@ public class FourSum {
             for (int index = 0; index < minSize; index++) {
                 res = Integer.compare(list1.get(index), list2.get(index));
                 if (res != 0) {
-                    return res;
+                    break;
                 }
             }
-            return list1.size() - list2.size() + res;
+            return res;
         });
         return lists;
     }

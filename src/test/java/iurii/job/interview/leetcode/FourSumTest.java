@@ -11,6 +11,8 @@ public class FourSumTest {
     @Test
     public void testWith2Sums() {
         FourSum fourSum = new FourSum();
+        assertThat(fourSum.fourSumWith2Sums(new int[]{1, 0}, 0)).isEmpty();
+        assertThat(fourSum.fourSumWith2Sums(new int[]{1, 0, 0, 0, -1}, 2)).isEmpty();
         assertThat(fourSum.fourSumWith2Sums(new int[]{1, 0, -1, 0, -2, 2}, 0))
                 .containsExactlyInAnyOrder(Arrays.asList(-1, 0, 0, 1),
                         Arrays.asList(-2, 0, 0, 2), Arrays.asList(-2, -1, 1, 2));
@@ -42,6 +44,8 @@ public class FourSumTest {
     @Test
     public void test() {
         FourSum fourSum = new FourSum();
+        assertThat(fourSum.fourSum(new int[]{1, 0}, 0)).isEmpty();
+        assertThat(fourSum.fourSumWith2Sums(new int[]{1, 0, 0, 0, -1}, 2)).isEmpty();
         assertThat(fourSum.fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0))
                 .containsExactlyInAnyOrder(Arrays.asList(-1, 0, 0, 1),
                 Arrays.asList(-2, 0, 0, 2), Arrays.asList(-2, -1, 1, 2));
