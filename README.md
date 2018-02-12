@@ -74,7 +74,7 @@ Maven build script is provided.
 
 # Google tasks
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
-- FirstRecurringCharacter (FirstRecurringCharacterTest) - find first recurring character in string
+- FirstRecurringCharacter (FirstRecurringCharacterTest) - find firstIndex recurring character in string
 - RobotTest - iterative, recursive approaches to do steps/counting
 
 # Facebook tasks
@@ -115,6 +115,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 15 ThreeSum (ThreeSumTest) - 3Sum - find all 3 element pairs, which sum is equal to the target value
 - 16 ThreeSumClosest (ThreeSumClosestTest) find 3 sum closest to target
 - 17 LetterCombinationsOfAPhoneNumber (LetterCombinationsOfAPhoneNumberTest) - permutation with repetition combinatorics question
+- 18 FourSum (FourSumTest) - find all four elements that sum equals target
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
