@@ -1,6 +1,6 @@
 package iurii.job.interview.generic.effective_java;
 
-public class BuilderExample {
+public class BuilderExampleTest {
 
     static class Parent {
         private final int mandatoryParentField;

@@ -2,7 +2,7 @@ package iurii.job.interview.generic.effective_java;
 
 import java.util.Comparator;
 
-public class InnerClassesExample {
+public class InnerClassesExampleTest {
 
     // private/protected/package default/ public
     // static and final are possible
@@ -33,7 +33,7 @@ public class InnerClassesExample {
             // get enclosing class field
             int local = topPrivateValue;
             // another way to get enclosing class field
-            local = InnerClassesExample.this.topPrivateValue;
+            local = InnerClassesExampleTest.this.topPrivateValue;
         }
     }
 
