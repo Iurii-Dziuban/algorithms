@@ -8,6 +8,8 @@ import java.util.function.Function;
 
 public class GenericsExampleTest {
 
+    // Heap pollution with arrays - runtime type of array does not match compile time array type
+
     // Generic singleton factory for any generic type parameter T (here Integer)
     private static Function<Integer, Integer> identity = Function.<Integer> identity();
 
@@ -25,19 +27,27 @@ public class GenericsExampleTest {
     @Test
     public void arrayList() {
         // generics are type safe and implemented via erasure
-        // generics are invariant. we can not assign
+        // generics are invariant and erased. we can not assign
         //! not possible
         //List<Number> list = new ArrayList<Integer>();
 
+        // parametrized type
         // upper bounded wildcard type
-        List<? extends Number> extendsNumberList = new ArrayList<Integer>();
+        List<? extends Number> extendsNumberList = new ArrayList<Integer>(); // integer - actual type parameter
 
         // lower bounded wildcard type
         List<? super Integer> superIntegerList = new ArrayList<Integer>();
 
+        // unbounded wildcard type
+        List<?> unboundedTypeList = new ArrayList<Integer>();
+
+        // new List<E>[], new List<String>[], new E[] is not possible - generic array creation
+
     }
 
-    // parameter T will be _inferred_ to concrete type during invocation
+    // formal type parameter T will be _inferred_ to concrete type during invocation
+    // T is called reifiable type - during runtime it is Object
+    // generic method
     private static <T> T returnT(T element) {
         return element;
     }
@@ -60,5 +70,12 @@ public class GenericsExampleTest {
     // upper bounded generic type -> get value without cast
     private static <E extends Object> E getElementExtendE(List<E> list) {
         return list.get(0);
+    }
+
+    // recursive type bound
+    // make two instances mutually comparable
+    // express instance of Address should be comparable only to itself
+    public static <E extends Comparable<E>> E max(List<E> list) {
+        return list.stream().max(E::compareTo).get();
     }
 }
