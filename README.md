@@ -120,7 +120,8 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
-- 53 MaximumSubarray - find maximum contiguous  sub array sum in array
+- 53 MaximumSubarray (MaximumSubarrayProblemTest) - find maximum contiguous  sub array sum in array
+- 69 Sqrt (SqrtTest) - calculation of int part of sqrt(x)
 - 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram.
 - 152 MaximumProductSubarray (MaximumProductSubarrayTest) - idea is similar to MaximumSubarray
 - 238 ProductOfArrayExceptSelf (ProductOfArrayExceptSelfTest) - added simple left-right multiplication, and log based that handles zero exists and negative numbers case.
