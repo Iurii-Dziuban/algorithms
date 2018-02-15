@@ -131,6 +131,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array
 - 658 FindKClosestElements (FindKClosestElementsTest) - on plain find k closest elements to element
 - 744 FindSmallestLetterGreaterThanTarget (FindSmallestLetterGreaterThanTargetTest) - find via linear or binary search
+- 755 PourWater(PourWaterTest) - pouring water at specific index find the result heights 
 
 # Codility.com tasks
 Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.
