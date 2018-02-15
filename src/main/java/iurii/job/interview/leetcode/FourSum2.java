@@ -35,6 +35,9 @@ public class FourSum2 {
     }
 
     public int fourSumCountForLoop(int[] A, int[] B, int[] C, int[] D) {
+        if (A.length == 0 || B.length == 0 || C.length == 0 || D.length ==0) {
+            return 0;
+        }
         int count = 0;
         Arrays.sort(A);
         Arrays.sort(B);
