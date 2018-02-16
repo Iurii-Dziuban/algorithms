@@ -7,6 +7,7 @@ package iurii.job.interview.generic.effective_java;
 public class BuilderExampleTest {
 
     static class Parent {
+        // incapsulation
         private final int mandatoryParentField;
         private int parentField;
 

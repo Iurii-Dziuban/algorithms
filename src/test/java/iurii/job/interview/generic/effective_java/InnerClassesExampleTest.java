@@ -2,6 +2,10 @@ package iurii.job.interview.generic.effective_java;
 
 import java.util.Comparator;
 
+/**
+ * Better to have static members. Not to have reference to the parent object implicitly
+ * Better to use one top class per file - not to have clashes
+ */
 public class InnerClassesExampleTest {
 
     // private/protected/package default/ public
