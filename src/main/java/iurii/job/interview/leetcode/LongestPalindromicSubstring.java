@@ -12,11 +12,11 @@ package iurii.job.interview.leetcode;
 public class LongestPalindromicSubstring {
     // O(n) Manacher`s algorithm to check (https://en.wikipedia.org/wiki/Longest_palindromic_substring)
 
-    private int start;
+    private int low;
     private int maxLength;
 
     public String longestPalindrome(String s) {
-        start = 0;
+        low = 0;
         maxLength = 1;
         // One by one consider every character as center
         // point of even and length palindromes. Skip s.charAt(0) cause it is a base case
@@ -29,7 +29,7 @@ public class LongestPalindromicSubstring {
             // center point as i
             findLengthExpandFromCenterAtIndexI(s, i - 1, i + 1);
         }
-        return s.substring(start, start + maxLength);
+        return s.substring(low, low + maxLength);
     }
 
     private void findLengthExpandFromCenterAtIndexI(String s, int low, int high) {
@@ -40,7 +40,7 @@ public class LongestPalindromicSubstring {
         }
         if (high - low - 1 > maxLength) {
             maxLength = high - low - 1;
-            start = low + 1;
+            this.low = low + 1;
         }
     }
 }

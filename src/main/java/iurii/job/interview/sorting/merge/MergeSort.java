@@ -10,11 +10,11 @@ import java.util.Arrays;
  */
 public class MergeSort extends InverseFind {
 
-    public int[] mergeSort(int[] array, int start, int end) {
-        int dividePointer = (end + start) / 2;
+    public int[] mergeSort(int[] array, int low, int high) {
+        int dividePointer = (high + low) / 2;
         if (dividePointer > 0) {
-            int[] firstHalf = mergeSort(Arrays.copyOfRange(array, start, dividePointer));
-            int[] secondHalf = mergeSort(Arrays.copyOfRange(array, dividePointer, end));
+            int[] firstHalf = mergeSort(Arrays.copyOfRange(array, low, dividePointer));
+            int[] secondHalf = mergeSort(Arrays.copyOfRange(array, dividePointer, high));
             return merge(firstHalf, secondHalf);
         } else {
             return array;

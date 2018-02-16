@@ -1,5 +1,9 @@
 package iurii.job.interview.generic.effective_java;
 
+/**
+ * High cohesion approach to create objects.
+ * If change is done on object it should be done in builder as well
+ */
 public class BuilderExampleTest {
 
     static class Parent {
@@ -11,7 +15,7 @@ public class BuilderExampleTest {
             this.mandatoryParentField = mandatoryParentField;
         }
 
-        // telescoping constructor technique (using mandatory constructor and optional parameter)
+        // telescoping constructor technique (using mandatory constructor and optional parameter) - anti pattern
         // ! builder is better option than telescoping in terms of readability
         private Parent(final int mandatoryParentField, final int parentField) {
             this(mandatoryParentField);
@@ -96,6 +100,7 @@ public class BuilderExampleTest {
                 this.mandatoryChildField = mandatoryChildField;
             }
 
+            // return this to enable fluent Api and no issues in casting in hierarchies
             ChildBuilder withChildField(final int childField) {
                 this.childField = childField;
                 return self();

@@ -54,15 +54,15 @@ public class FindSmallestLetterGreaterThanTarget {
         if (letters == null || letters.length == 0) {
             return '!' ; // not valid
         }
-        int lo = 0, hi = letters.length;
-        while (lo < hi) {
-            int mi = lo + (hi - lo) / 2;
+        int low = 0, high = letters.length;
+        while (low < high) {
+            int mi = low + (high - low) / 2;
             if (letters[mi] <= target) {
-                lo = mi + 1;
+                low = mi + 1;
             } else {
-                hi = mi;
+                high = mi;
             }
         }
-        return letters[lo % letters.length];
+        return letters[low % letters.length];
     }
 }

@@ -11,28 +11,28 @@ public class QuickSort {
         return sort(array, 0, array.length - 1);
     }
 
-    private int[] sort(int[] array, int start, int end) {
-        if (start > end) {
+    private int[] sort(int[] array, int low, int high) {
+        if (low > high) {
             return array;
         }
-        int pivot = pivot(array, start, end);
-        sort(array, start, pivot - 1);
-        sort(array, pivot + 1, end);
+        int pivot = pivot(array, low, high);
+        sort(array, low, pivot - 1);
+        sort(array, pivot + 1, high);
         return array;
     }
 
-    protected int pivot(int[] array, int start, int end) {
+    protected int pivot(int[] array, int low, int high) {
         // random pivot
         Random rand = new Random();
-        int pivotIndex = rand.nextInt(end - start + 1) + start;
+        int pivotIndex = rand.nextInt(high - low + 1) + low;
         int pivot = array[pivotIndex];
         // swap first
-        int swapFirst = array[start];
-        array[start] = array[pivotIndex];
+        int swapFirst = array[low];
+        array[low] = array[pivotIndex];
         array[pivotIndex] = swapFirst;
-        int i = start + 1;
+        int i = low + 1;
         // swap for <p & >p border
-        for (int j = start + 1; j <= end; j++) {
+        for (int j = low + 1; j <= high; j++) {
             if (array[j] < pivot) {
                 int swap = array[i];
                 array[i] = array[j];
@@ -41,7 +41,7 @@ public class QuickSort {
             }
         }
         // final swap
-        array[start] = array[i - 1];
+        array[low] = array[i - 1];
         array[i - 1] = pivot;
         return i - 1;
     }

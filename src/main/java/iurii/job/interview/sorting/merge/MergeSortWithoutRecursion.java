@@ -21,9 +21,7 @@ public class MergeSortWithoutRecursion extends MergeSort {
                 int[] left = Arrays.copyOfRange(array, division.get(i), division.get(i + 1));
                 int[] right = Arrays.copyOfRange(array, division.get(i + 1), division.get(i + 2));
                 int[] merge = merge(left, right);
-                for (int j = 0; j < merge.length; j++) {
-                    array[division.get(i) + j] = merge[j];
-                }
+                System.arraycopy(merge, 0, array, division.get(i), merge.length);
             }
             division.clear();
             step *= 2;
@@ -84,19 +82,19 @@ public class MergeSortWithoutRecursion extends MergeSort {
         return array;
     }
 
-    private void merge(int[] array, int start, int middle, int end) {
-        int totalLength = end - start;
+    private void merge(int[] array, int low, int middle, int high) {
+        int totalLength = high - low;
         int[] result = new int[totalLength];
         int i = 0;
         int j = 0;
         for (int index = 0; index < totalLength; index++) {
-            if (i == middle - start || j < end - middle && array[i + start] > array[middle + j]) {
+            if (i == middle - low || j < high - middle && array[i + low] > array[middle + j]) {
                 result[index] = array[middle + j++];
             } else {
-                result[index] = array[start + i++];
+                result[index] = array[low + i++];
             }
         }
-        System.arraycopy(result, 0, array, start, result.length);
+        System.arraycopy(result, 0, array, low, result.length);
     }
 
 

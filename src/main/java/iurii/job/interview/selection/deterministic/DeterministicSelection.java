@@ -7,52 +7,52 @@ public class DeterministicSelection {
         return select(array, 0, array.length - 1, index);
     }
 
-    private int select(int[] array, int start, int end, int index) {
-        if (end - start < 10) {
-            int[] sortedArray = new MergeSort().mergeSort(array, start, end);
+    private int select(int[] array, int low, int high, int index) {
+        if (high - low < 10) {
+            int[] sortedArray = new MergeSort().mergeSort(array, low, high);
             for (int i = 0; i < sortedArray.length; i++) {
-                array[start + i] = sortedArray[i];
+                array[low + i] = sortedArray[i];
             }
             return array[index];
         }
-        int pivot = pivot(array, start, end);
+        int pivot = pivot(array, low, high);
         return pivot == index
                 ? array[index]
                 : pivot < index ?
-                 select(array, pivot + 1, end, index) :
-                 select(array, start, pivot - 1, index);
+                 select(array, pivot + 1, high, index) :
+                 select(array, low, pivot - 1, index);
     }
 
-    private int pivot(int[] array, int start, int end) {
+    private int pivot(int[] array, int low, int high) {
         // deterministic pivot
-        int count = end - start / 5;
+        int count = high - low / 5;
         for (int i = 0; i < count - 1; i++) {
-            int start1 = start + 5 * i;
-            int end1 = start + 5 * (i + 1);
+            int start1 = low + 5 * i;
+            int end1 = low + 5 * (i + 1);
             int[] sortedArray = new MergeSort().mergeSort(array, start1, end1);
             for (int j = 0; j < sortedArray.length; j++) {
                 array[start1 + j] = sortedArray[j];
             }
         }
 
-        int start1 = start + 5 * (count - 1);
-        int[] sortedArray = new MergeSort().mergeSort(array, start1, end);
+        int start1 = low + 5 * (count - 1);
+        int[] sortedArray = new MergeSort().mergeSort(array, start1, high);
         for (int j = 0; j < sortedArray.length; j++) {
             array[start1 + j] = sortedArray[j];
         }
         int[] medians = new int[count];
         for (int i = 0; i < medians.length; i++) {
-            medians[i] = array[start + 2 + 5 * i];
+            medians[i] = array[low + 2 + 5 * i];
         }
         int pivot = medians[count / 2];
-        int pivotIndex = start + 2 + 5 * count / 2;
+        int pivotIndex = low + 2 + 5 * count / 2;
         // swap first
-        int swapFirst = array[start];
-        array[start] = array[pivotIndex];
+        int swapFirst = array[low];
+        array[low] = array[pivotIndex];
         array[pivotIndex] = swapFirst;
-        int index = start + 1;
+        int index = low + 1;
         // swap for <p & >p border
-        for (int j = start + 1; j <= end; j++) {
+        for (int j = low + 1; j <= high; j++) {
             if (array[j] < pivot) {
                 int swap = array[index];
                 array[index++] = array[j];
@@ -60,7 +60,7 @@ public class DeterministicSelection {
             }
         }
         // final swap
-        array[start] = array[index - 1];
+        array[low] = array[index - 1];
         array[index - 1] = pivot;
         return index - 1;
     }

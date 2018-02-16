@@ -11,18 +11,18 @@ public class RandomizedSelection extends QuickSort {
         return select(array, 0, array.length - 1, index);
     }
 
-    private int select(int[] array, int start, int end, int index) {
-        if (start > end) {
+    private int select(int[] array, int low, int high, int index) {
+        if (low > high) {
             return -1;
         }
-        int pivot = pivot(array, start, end);
+        int pivot = pivot(array, low, high);
         if (pivot == index) {
             return array[index];
         } else {
             if (pivot < index) {
-                return select(array, pivot + 1, end, index);
+                return select(array, pivot + 1, high, index);
             } else {
-                return select(array, start, pivot - 1, index);
+                return select(array, low, pivot - 1, index);
             }
         }
     }

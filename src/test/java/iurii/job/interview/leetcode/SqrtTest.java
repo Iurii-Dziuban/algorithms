@@ -20,5 +20,9 @@ public class SqrtTest {
         assertThat(sqrt.mySqrt(9)).isEqualTo(3);
         assertThat(sqrt.mySqrt(8)).isEqualTo(2);
         assertThat(sqrt.mySqrt(4)).isEqualTo(2);
+        assertThat(sqrt.mySqrt(3)).isEqualTo(1);
+        assertThat(sqrt.mySqrt(2)).isEqualTo(1);
+        assertThat(sqrt.mySqrt(1)).isEqualTo(1);
+        assertThat(sqrt.mySqrt(0)).isEqualTo(0);
     }
 }

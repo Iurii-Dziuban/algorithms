@@ -11,27 +11,26 @@ public class QuickSortLastPivot {
         return sort(array, 0, array.length - 1);
     }
 
-    private static int[] sort(int[] array, int start, int end) {
-        if (start >= end) {
+    private static int[] sort(int[] array, int low, int high) {
+        if (low >= high) {
             return array;
         }
-        int pivot = pivot(array, start, end);
-        sort(array, start, pivot - 1);
-        sort(array, pivot + 1, end);
+        int pivot = pivot(array, low, high);
+        sort(array, low, pivot - 1);
+        sort(array, pivot + 1, high);
         return array;
     }
 
-    private static int pivot(int[] array, int start, int end) {
+    private static int pivot(int[] array, int low, int high) {
         // first pivot
-        int pivotIndex = end;
-        int pivot = array[pivotIndex];
+        int pivot = array[high];
         // swap first
-        int swapFirst = array[start];
-        array[start] = array[pivotIndex];
-        array[pivotIndex] = swapFirst;
-        int i = start + 1;
+        int swapFirst = array[low];
+        array[low] = array[high];
+        array[high] = swapFirst;
+        int i = low + 1;
         // swap for <p & >p border
-        for (int j = start + 1; j <= end; j++) {
+        for (int j = low + 1; j <= high; j++) {
             if (array[j] < pivot) {
                 int swap = array[i];
                 array[i] = array[j];
@@ -39,9 +38,9 @@ public class QuickSortLastPivot {
                 i++;
             }
         }
-        comparisonNumber += end - start;
+        comparisonNumber += high - low;
         // final swap
-        array[start] = array[i - 1];
+        array[low] = array[i - 1];
         array[i - 1] = pivot;
         return i - 1;
     }

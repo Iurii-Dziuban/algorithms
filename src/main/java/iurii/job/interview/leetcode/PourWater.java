@@ -29,19 +29,19 @@ public class PourWater {
     }
 
     private void drop(int[] heights, int K) {
-        int best = K;
+        int index = K;
         for (int d = -1; d <= 1; d += 2) {
             int i = K + d;
             while (i >= 0 && i < heights.length && heights[i] <= heights[i - d]) {
-                if (heights[i] < heights[best]) {
-                    best = i;
+                if (heights[i] < heights[index]) {
+                    index = i;
                 }
                 i += d;
             }
-            if (best != K) {
+            if (index != K) {
                 break;
             }
         }
-        heights[best]++;
+        heights[index]++;
     }
 }

@@ -518,42 +518,42 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return keys(min(), max());
     }
 
-    // the keys between lo and hi, as an Iterable
-    public Iterable<Key> keys(Key lo, Key hi) {
+    // the keys between low and high, as an Iterable
+    public Iterable<Key> keys(Key low, Key high) {
         Queue<Key> queue = new ArrayDeque<Key>();
-        // if (isEmpty() || lo.compareTo(hi) > 0) return queue;
-        keys(root, queue, lo, hi);
+        // if (isEmpty() || low.compareTo(high) > 0) return queue;
+        keys(root, queue, low, high);
         return queue;
     }
 
-    // add the keys between lo and hi in the subtree rooted at x
+    // add the keys between low and high in the subtree rooted at x
     // to the queue
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    private void keys(Node x, Queue<Key> queue, Key low, Key high) {
         if (x == null) {
             return;
         }
-        int cmplo = lo.compareTo(x.key);
-        int cmphi = hi.compareTo(x.key);
-        if (cmplo < 0) {
-            keys(x.left, queue, lo, hi);
+        int cmpLow = low.compareTo(x.key);
+        int cmpHigh = high.compareTo(x.key);
+        if (cmpLow < 0) {
+            keys(x.left, queue, low, high);
         }
-        if (cmplo <= 0 && cmphi >= 0) {
+        if (cmpLow <= 0 && cmpHigh >= 0) {
             queue.add(x.key);
         }
-        if (cmphi > 0) {
-            keys(x.right, queue, lo, hi);
+        if (cmpHigh > 0) {
+            keys(x.right, queue, low, high);
         }
     }
 
-    // number keys between lo and hi
-    public int size(Key lo, Key hi) {
-        if (lo.compareTo(hi) > 0) {
+    // number keys between low and high
+    public int size(Key low, Key high) {
+        if (low.compareTo(high) > 0) {
             return 0;
         }
-        if (contains(hi)) {
-            return rank(hi) - rank(lo) + 1;
+        if (contains(high)) {
+            return rank(high) - rank(low) + 1;
         } else {
-            return rank(hi) - rank(lo);
+            return rank(high) - rank(low);
         }
     }
 

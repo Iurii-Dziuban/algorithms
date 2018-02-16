@@ -17,15 +17,15 @@ package iurii.job.interview.leetcode;
 public class ContainerWithMostWater {
 
     public int maxArea(int[] height) {
-        int lo = 0;
-        int hi = height.length - 1;
+        int low = 0;
+        int high = height.length - 1;
         int max = 0;
-        while (lo < hi) {
-            max = Math.max(Math.min(height[hi], height[lo]) * (hi - lo) , max);
-            if (height[lo] >= height[hi]) {
-                hi--;
+        while (low < high) {
+            max = Math.max(Math.min(height[high], height[low]) * (high - low) , max);
+            if (height[low] >= height[high]) {
+                high--;
             } else {
-                lo++;
+                low++;
             }
         }
         return max;

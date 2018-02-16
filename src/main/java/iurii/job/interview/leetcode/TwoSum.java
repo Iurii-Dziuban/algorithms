@@ -57,16 +57,16 @@ public class TwoSum {
      */
     public int[] twoSumWithSoring(int[] nums, int target) {
         Arrays.sort(nums);
-        int lo = 0;
-        int hi = nums.length - 1;
-        while (lo < hi) {
-            if (nums[lo] + nums[hi] == target) {
-                return new int[]{nums[lo], nums[hi]};
+        int low = 0;
+        int high = nums.length - 1;
+        while (low < high) {
+            if (nums[low] + nums[high] == target) {
+                return new int[]{nums[low], nums[high]};
             }
-            if (nums[lo] + nums[hi] < target) {
-                lo++;
+            if (nums[low] + nums[high] < target) {
+                low++;
             } else {
-                hi--;
+                high--;
             }
         }
         return null;

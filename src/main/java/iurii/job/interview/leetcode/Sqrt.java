@@ -3,9 +3,9 @@ package iurii.job.interview.leetcode;
 /**
  * 69. Sqrt(x) https://leetcode.com/problems/sqrtx/description/
  *
- * binary search
+ * idea based on binary search
  *
- * Time complexity: O(log(N))
+ * Time complexity: O(log(N)) - N value of the number
  * Auxiliary space complexity: O(1) for pointers
  */
 public class Sqrt {
@@ -15,21 +15,21 @@ public class Sqrt {
     }
 
     public int mySqrt(int x) {
-        long start = 0, end = x;
-        while (start + 1 < end) {
-            long mid = start + (end - start) / 2;
+        int low = 0, high = x;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
             if (mid * mid == x) {
-                return (int) mid;
+                return mid;
             } else if (mid * mid < x) {
-                start = mid;
+                low = mid + 1;
             } else {
-                end = mid;
+                high = mid - 1;
             }
         }
-        if (end * end <= x) {
-            return (int) end;
+        if (low * low <= x) {
+            return low;
         } else {
-            return (int) start;
+            return low - 1;
         }
     }
 }

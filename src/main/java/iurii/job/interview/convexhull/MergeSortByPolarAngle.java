@@ -15,11 +15,11 @@ public class MergeSortByPolarAngle {
         }
     }
 
-    public static Point2D[] mergesort(Point2D[] array, int start, int end) {
-        int dividePointer = (end + start) / 2;
+    public static Point2D[] mergesort(Point2D[] array, int low, int high) {
+        int dividePointer = (high + low) / 2;
         if (dividePointer > 0) {
-            Point2D[] firstHalf = mergesort(Arrays.copyOfRange(array, start, dividePointer));
-            Point2D[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, end));
+            Point2D[] firstHalf = mergesort(Arrays.copyOfRange(array, low, dividePointer));
+            Point2D[] secondHalf = mergesort(Arrays.copyOfRange(array, dividePointer, high));
             return merge(firstHalf, secondHalf);
         } else {
             return array;

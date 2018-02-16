@@ -68,7 +68,7 @@ Maven build script is provided.
 - CustomerServiceCapacity (CustomerServiceCapacityTest) - find minimum additional number of employers needed to handle all the calls.
 - Polygons (PolygonsTest) - 4 sided polygons. Determine type of the polygon and count different types.
 - DeltaEncoding (DeltaEncodingTest) - encode list of number with list, each next value is different between current and previous number. If difference is more than some value (e.x. one byte) use escape value.
-- SortHotelsList (SortHotelsListTest) - standard map-reduce example. In Big data world can be done by Spark/Hadoop. In java best approach to continue with Stream API and probably use parallelStream for better performance. Be careful not to design solution with adding stream values into collection. Slows down the solution. Better to have the whole pipeline and aggregation function in the end
+- SortHotelsList (SortHotelsListTest) - standard map-reduce example. In Big data world can be done by Spark/Hadoop. In java best approach to continue with Stream API and probably use parallelStream for better performance. Be careful not to design solution with adding stream values into collection. Slows down the solution. Better to have the whole pipeline and aggregation function in the high
 - FindMaxGuestDayService (FindMaxGuestDayServiceTest) - similar to CustomerServiceCapacity and ProcessorsForTasks.
 - PathsFromRoot (PathsFromRootTest) - Binary tree. Find paths from root with specific sum value.
 
@@ -119,7 +119,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 19 RemoveNthNodeFromEndOfList (RemoveNthNodeFromEndOfListTest) - linked list remove
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
-- 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the end based on possible range to jump from current element.
+- 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the high based on possible range to jump from current element.
 - 53 MaximumSubarray (MaximumSubarrayProblemTest) - find maximum contiguous  sub array sum in array
 - 69 Sqrt (SqrtTest) - calculation of int part of sqrt(x)
 - 84 LargestRectangleInHistogram (LargestRectangleInHistogramTest) - finding largest rectangle under the histogram.
@@ -131,6 +131,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array
 - 658 FindKClosestElements (FindKClosestElementsTest) - on plain find k closest elements to element
 - 744 FindSmallestLetterGreaterThanTarget (FindSmallestLetterGreaterThanTargetTest) - find via linear or binary search
+- 751 IPtoCIDR (IPtoCIDRTest) - convert ip to lowest range of CIDRs to cover
 - 755 PourWater(PourWaterTest) - pouring water at specific index find the result heights 
 
 # Codility.com tasks
