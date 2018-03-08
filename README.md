@@ -117,6 +117,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 17 LetterCombinationsOfAPhoneNumber (LetterCombinationsOfAPhoneNumberTest) - permutation with repetition combinatorics question
 - 18 FourSum (FourSumTest) - find all four elements that sum equals target
 - 19 RemoveNthNodeFromEndOfList (RemoveNthNodeFromEndOfListTest) - linked list remove
+- 20 ValidParentheses same as BalancedParentheses (BalancedParenthesesTest)
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
 - 45 JumpGame2 (JumpGame2Test) - Jump Game / Tower Hopper problem / Minimum number of jumps to reach the high based on possible range to jump from current element.
