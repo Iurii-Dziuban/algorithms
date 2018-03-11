@@ -7,7 +7,7 @@ package iurii.job.interview.generic.effective_java;
 public class BuilderExampleTest {
 
     static class Parent {
-        // incapsulation
+        // encapsulation
         private final int mandatoryParentField;
         private int parentField;
 
@@ -112,7 +112,7 @@ public class BuilderExampleTest {
                 return this;
             }
 
-            // covariant return type
+            // covariant return type (instead of more general Parent, it is more specific Child)
             @Override
             Child build() {
                 return new Child(this);

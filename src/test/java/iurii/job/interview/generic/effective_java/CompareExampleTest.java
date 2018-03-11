@@ -1,20 +1,17 @@
 package iurii.job.interview.generic.effective_java;
 
-import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class CompareExampleTest {
 
-    // recursive type bound
-    // make two instances mutually comparable
-    // express instance of Address should be comparable only to itself
+    // recursive type bound to make two instances mutually comparable
+    // [express instance of Address should be comparable only to itself]
     // Comparable is from java.lang package and assumes object has a natural ordering
     // Class should implement it, rather than use as a functional interface.
     // Comparable also can be named as mixin interface, cause provides additional functionality to the main one
+    // Comparable and Comparator are Consumers (type parameter extends)
     public static class Address implements Comparable<Address> {
 
         // encapsulation
@@ -66,6 +63,7 @@ public class CompareExampleTest {
         // using Comparator API. could be a bit slower but provides ready API.
         // Returns comparator nulls first/last and order of comparing
         // in case first comparison is equal. reversing or natural order
+        // comparator construction methods are used
         Comparator.nullsLast(Comparator.comparing(Address::getAddress).thenComparingInt(Address::getId)).reversed();
         // using compareTo if E extends Comparable
         return list.stream().max(E::compareTo);
