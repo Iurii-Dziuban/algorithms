@@ -22,6 +22,7 @@ Maven build script is provided.
  * [Microsoft tasks](#microsoft-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
+ * [Design questions](#design-questions)
  * [Interview cake](#interview-cake)
  * [Other interview code tasks](#other-interview-code-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
@@ -135,6 +136,11 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 744 FindSmallestLetterGreaterThanTarget (FindSmallestLetterGreaterThanTargetTest) - find via linear or binary search
 - 751 IPtoCIDR (IPtoCIDRTest) - convert ip to lowest range of CIDRs to cover
 - 755 PourWater(PourWaterTest) - pouring water at specific index find the result heights 
+
+# Design questions
+- package `design`
+  - `ParkingLotDesign` - design of Parking Lot
+  - `WhatsAppDesign` - design of messaging system like whatsApp / facebook messager /weChat
 
 # Codility.com tasks
 Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.
