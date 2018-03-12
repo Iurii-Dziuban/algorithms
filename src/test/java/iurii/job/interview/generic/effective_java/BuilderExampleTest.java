@@ -28,9 +28,9 @@ public class BuilderExampleTest {
 
         // builder simulates optional named parameters in python, scala
         private Parent(final ParentBuilder builder) {
+            // pursue the failure atomicity during object creation: check all the parameters for validity
             this.mandatoryParentField = builder.mandatoryParentField;
             this.parentField = builder.parentField;
-
         }
 
         // builder pattern with generic type and recursive type parameter!

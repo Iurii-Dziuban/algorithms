@@ -41,6 +41,11 @@ public class GenericsExampleTest {
         // Heap pollution with list - runtime type of adding element does not match compile time array type
         integer2.add("abcd");
         // no exceptions, only warnings - cause no casts
+
+        // use empty collections instead of null, cause it is safer. In order not to allocate space use predefined empty
+        List<Integer> emptyList = Collections.emptyList();
+        Set<Double> emptySet = Collections.emptySet();
+        Map<String, Long> emptyMap = Collections.emptyMap();
     }
 
     @Test
@@ -112,7 +117,7 @@ public class GenericsExampleTest {
         list.set(i, list.set(j, list.get(i)));
     }
 
-    // varargs can be used with generics (leaky abstraction)! only because they are handy
+    // varargs (variable arity) can be used with generics (leaky abstraction)! only because they are handy
     private Object[] varargsWithGeneric(List<Integer>... lists) {
         // but not type safe cause backed by arrays and nothing stops to return as array without type
         // heap pollution will occur trying to insert incorrect type

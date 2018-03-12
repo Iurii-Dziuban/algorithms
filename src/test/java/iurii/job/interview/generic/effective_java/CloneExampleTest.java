@@ -14,6 +14,8 @@ public class CloneExampleTest {
 
         // copy constructor. Functional approach to apply function to create new instance without changing params
         public Phone(Phone phone) {
+            // do defensive copies if the object is not immutable before checking the validity of parameters
+            // because of window of vulnerability between parameters checked and copied - time-of-check/time-of-use
             this.number = String.valueOf(phone.number);
         }
 

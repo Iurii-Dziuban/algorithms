@@ -3,6 +3,7 @@ package iurii.job.interview.generic.effective_java;
 import org.junit.Test;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 /**
@@ -39,6 +40,10 @@ public class LambdaAndStreamTest {
         // lambda should be self explanatory otherwise use method reference
         FuncInterface lambda = () -> 2;
         FuncInterface methodReference = ThreadLocalRandom.current()::nextInt;
+
+        // inexact method reference, cause it is overloaded and can invoke different methods depending on type supplied
+        Consumer<Integer> intConsumer = System.out::println;
+        Consumer<Double> doubleConsumer = System.out::println;
         // method references and lambda types
         // 1) static - reference to static methods
         // 2) bound - reference to instance method (bounded to instance)

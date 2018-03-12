@@ -54,6 +54,8 @@ public class CompareExampleTest {
     // make two instances mutually comparable
     // express instance of Address should be comparable only to itself
     public static <E extends Comparable<E>> Optional<E> max(List<E> list) {
+        // use Optionals carefully, cause they require user API to do additional checks
+
         // to compare primitive types use:
         Short.compare((short)1,(short)1);
         Float.compare((short)1,(short)1);

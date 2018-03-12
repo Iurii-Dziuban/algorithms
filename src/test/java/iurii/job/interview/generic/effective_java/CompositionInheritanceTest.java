@@ -35,6 +35,11 @@ public class CompositionInheritanceTest {
 
         // default methods in the interfaces provide methods for all who inherit them.
         // Even though its implementation might be wrong.. in this case overriding is needed
+
+        // take care with @Override annotation not to produce overloaded method.
+        // Which method to call for overloaded method determined during compile time based on reference type
+        // and for overriding method determined during runtime based on the actual type
+        // sometimes the cast is needed in order to call the expected method
         @Override
         public int size() {
             // forwarding is a bit tedious
