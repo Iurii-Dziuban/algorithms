@@ -22,6 +22,7 @@ public class CloneExampleTest {
         }
 
         // if support cloneable - make visibility public instead of protected to indicate it.
+        // (visibility in the hierarchy can be changed to broader, but exceptions only to narrower!)
         // do the cast inside and provide covariant return type of the exact instance (here Phone)
         // if class implements Cloneable no exception will be thrown
         // does not provide synchronized, so not thread safe. synchronization should be done explicitly if needed
@@ -46,6 +47,7 @@ public class CloneExampleTest {
     public static class NotCloneable {
 
         // not public and throws exception. No children can change the method via inheritance
+        // Also this interface does not implement Cloneable, so throwing the exception is default behaviour
         @Override
         protected final NotCloneable clone() throws CloneNotSupportedException {
             throw new CloneNotSupportedException();

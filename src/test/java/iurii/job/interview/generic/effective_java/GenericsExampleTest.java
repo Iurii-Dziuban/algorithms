@@ -2,12 +2,10 @@ package iurii.job.interview.generic.effective_java;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Never use raw types. violates type system.
@@ -19,6 +17,7 @@ import java.util.function.Function;
 public class GenericsExampleTest {
 
     // Generic singleton factory for any generic type parameter T (here Integer)
+    // Function.<Integer> Integer is explicit type parameter in case compiler can not infer it (required prior java 8)
     private static Function<Integer, Integer> identity = Function.<Integer> identity();
 
     @Test(expected = ArrayStoreException.class)
@@ -35,7 +34,8 @@ public class GenericsExampleTest {
 
     @Test
     public void listTest() {
-        // diamond operator from java 7
+        // diamond operator from java 7 : generic type is derived based on the declaration
+        // There are sometimes issues when compiler needs help with the "target type" to infer it
         List<Integer> integers = new ArrayList<>();
         List integer2 = integers;
         // Heap pollution with list - runtime type of adding element does not match compile time array type
@@ -51,17 +51,20 @@ public class GenericsExampleTest {
         //List<Number> list = new ArrayList<Integer>();
 
         // parametrized type
-        // upper bounded wildcard type
+        // upper bounded wildcard type (producer of number)
         List<? extends Number> extendsNumberList = new ArrayList<Integer>(); // integer - actual type parameter
 
-        // lower bounded wildcard type
-        List<? super Integer> superIntegerList = new ArrayList<Integer>();
+        // lower bounded wildcard type (consumer of integer)
+        List<? super Integer> superIntegerList = new ArrayList<>();
+
+        // for bounded wildcard types remember mnemonic PECS: producer-extends, consumer-super
 
         // unbounded wildcard type
         List<?> unboundedTypeList = new ArrayList<Integer>();
 
         // new List<E>[], new List<String>[], new E[] is not possible - generic array creation
 
+        // if user thinks about wildcard types then something is wrong with the API
     }
 
     // formal type parameter T will be _inferred_ to concrete type during invocation
@@ -138,8 +141,9 @@ public class GenericsExampleTest {
     @Test(expected = ClassCastException.class)
     public void testAsSubclassDynamicCast () {
         // Integer can be safely dynamically casted to Number
-        Integer.class.asSubclass(Number.class);
-        // number can not casted to integer
+        Class<? extends Number> asSubclass = Integer.class.asSubclass(Number.class);
+        assertThat(asSubclass.getName()).isEqualTo("java.lang.Integer");
+        // number can not be casted to integer
         Number.class.asSubclass(Integer.class);
     }
 }
