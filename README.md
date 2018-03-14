@@ -129,6 +129,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 152 MaximumProductSubarray (MaximumProductSubarrayTest) - idea is similar to MaximumSubarray
 - 238 ProductOfArrayExceptSelf (ProductOfArrayExceptSelfTest) - added simple left-right multiplication, and log based that handles zero exists and negative numbers case.
 - 273 IntegerToEnglishWords (IntegerToEnglishWordsTest) similar to IntegerToRoman conversion 
+- 301 RemoveInvalidParentheses (RemoveInvalidParenthesesTest) removing minimum invalid parentheses with BFS on queue
 - 407 TrappingRainWater2 (TrappingRainWater2Test) - 3D extension
 - 454 FourSum2 (FourSum2Test) four elements sum equal to target value
 - 457 CircularArrayLoop (CircularArrayLoopTest) - finding if loop exists in the connected element array by delta/index jumps stored in array
