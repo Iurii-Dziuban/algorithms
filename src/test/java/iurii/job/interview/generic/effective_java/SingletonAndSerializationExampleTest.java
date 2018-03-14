@@ -2,7 +2,12 @@ package iurii.job.interview.generic.effective_java;
 
 import org.junit.Test;
 
+import java.io.IOException;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +18,7 @@ import java.util.function.UnaryOperator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SingletonExampleTest {
+public class SingletonAndSerializationExampleTest {
 
     // enum singleton is the best approach: no issues with multithreading, no issues with serialization or reflection creation
     // can not be used if needs to extend other class than Enum
@@ -45,12 +50,22 @@ public class SingletonExampleTest {
         }
     }
 
+    // serialization/deserialization are extralinguistic and attack surface is too big and growing
+    // deserialization can take forever with HashSet<HashSet> structure. Hashcodes are recomputed. Deserialization bomb
+    // currently serialization should be avoided and cross-platform structured-data representations should be used
+    // XML, JSON and Protobuf. Better JSON for text and Protobuf for binary and language neutral
+    // text can have schemas for validation. Never deserialize untrusted data (Secure issue)
+    // Prefer whitelisting to blacklisting, cause blacklisting protects only about known threats
+    // Stream unique identifiers or serial versions UID should be put and changed in case of class changes.
+    // Do not rely on generated one
+    // during deserialization values stealing can be applied and deserialized instance may be compromised
+    // more secure way for serialization/deserialization to use serialization proxy pattern
     public static class ClassSingleton implements Serializable {
 
         // public field approach
         public static final ClassSingleton INSTANCE = new ClassSingleton();
 
-        // enforcing noninstantiability.
+        // enforcing non-instantiability.
         // can not be subclassed cause private constructor can not be invoked from subclass
         private ClassSingleton() {
         }
@@ -59,6 +74,30 @@ public class SingletonExampleTest {
         private Object readResolve() {
             return INSTANCE;
         }
+
+        private void readObjectNoData() throws InvalidObjectException {
+            throw new InvalidObjectException("Stream data required!");
+        }
+
+        private synchronized void writeObject(ObjectOutputStream s) throws IOException {
+            s.defaultWriteObject();
+        }
+
+        /*private Object writeReplace() {
+            return new Proxy(this);
+        }*/
+
+        // and provide readResolve method on Serialization proxy class
+        private void readObject(ObjectInputStream stream) throws InvalidObjectException {
+            throw new InvalidObjectException("Proxy required");
+        }
+
+        // for read use defensive read with copy and checks
+
+
+        // inner classes use compiler-generated synthetic fields to store references to enclosing instances
+        // should not be serializable. Static member class is ok to implement Serializable
+        // Use logical representation in serialization instead of physical (List instead of linkedList)
     }
 
     public static class ClassSingletonFactory implements Supplier<ClassSingleton> {

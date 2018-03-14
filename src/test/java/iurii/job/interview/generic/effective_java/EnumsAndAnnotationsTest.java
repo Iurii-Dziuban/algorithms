@@ -8,7 +8,7 @@ import java.util.EnumSet;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- *  enums prove to be great abstraction for Singleton pattern {@link SingletonExampleTest}
+ *  enums prove to be great abstraction for Singleton pattern {@link SingletonAndSerializationExampleTest}
  */
 public class EnumsAndAnnotationsTest {
 
