@@ -16,4 +16,15 @@ public class RemoveInvalidParenthesesTest {
         assertThat(removeInvalidParentheses.removeInvalidParentheses(")(")).containsExactlyInAnyOrder("");
         assertThat(removeInvalidParentheses.removeInvalidParentheses("x(")).containsExactlyInAnyOrder("x");
     }
+
+    @Test
+    public void testOptimized() {
+        RemoveInvalidParentheses removeInvalidParentheses = new RemoveInvalidParentheses();
+        assertThat(removeInvalidParentheses.removeInvalidParenthesesOptimized("()())()"))
+                .containsExactlyInAnyOrder("()()()","(())()");
+        assertThat(removeInvalidParentheses.removeInvalidParenthesesOptimized("(a)())()"))
+                .containsExactlyInAnyOrder("(a)()()","(a())()");
+        assertThat(removeInvalidParentheses.removeInvalidParenthesesOptimized(")(")).containsExactlyInAnyOrder("");
+        assertThat(removeInvalidParentheses.removeInvalidParenthesesOptimized("x(")).containsExactlyInAnyOrder("x");
+    }
 }

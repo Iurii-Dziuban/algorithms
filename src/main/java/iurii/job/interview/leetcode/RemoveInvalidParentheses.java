@@ -16,10 +16,42 @@ import java.util.Set;
  * Queue to track all strings after removing 1,2, .. step characters
  * Flag to track if level with valid Parentheses was achieved
  *
- * Time complexity: O(2^N * N) all possible configs
- * Auxiliary space complexity: O(2^N * N) to store all possible strings in Queue and visited (base 2, cause absent or present)
+ * Time complexity: O(N^2) check if invalid and remove it
+ * Auxiliary space complexity: O(N^2) to store all valid strings with minimum amount removed
  */
 public class RemoveInvalidParentheses {
+
+    public List<String> removeInvalidParenthesesOptimized(String s) {
+        List<String> result = new ArrayList<>();
+        remove(result, s, 0, '(', ')');
+        return result;
+    }
+
+    private void remove(List<String> result, String s, int startIndex, char openBracket, char closeBracket) {
+        int openClosedBalance = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == openBracket) {
+                openClosedBalance++;
+            }
+            if (s.charAt(i) == closeBracket) {
+                openClosedBalance--;
+            }
+            if (openClosedBalance < 0) {
+                for (int j = startIndex; j <= i; j++) {
+                    if (s.charAt(j) == closeBracket && (j == startIndex || s.charAt(j - 1) != closeBracket)) {
+                        remove(result, s.substring(0, j) + s.substring(j + 1), j, openBracket, closeBracket);
+                    }
+                }
+                return;
+            }
+        }
+        String reverseS = new StringBuilder(s).reverse().toString();
+        if (openBracket == '(') {
+            remove(result, reverseS, 0, ')', '(');
+        } else {
+            result.add(reverseS);
+        }
+    }
 
     public List<String> removeInvalidParentheses(String s) {
         List<String> results = new ArrayList<>();
