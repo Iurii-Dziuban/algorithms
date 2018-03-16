@@ -119,6 +119,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 18 FourSum (FourSumTest) - find all four elements that sum equals target
 - 19 RemoveNthNodeFromEndOfList (RemoveNthNodeFromEndOfListTest) - linked list remove
 - 20 ValidParentheses same as BalancedParentheses (BalancedParenthesesTest)
+- 21 MergeTwoSortedLists (MergeTwoSortedLists) merging linkedList structures
 - 22 GenerateParentheses (GenerateParenthesesTest) - generate all valid combinations of n parentheses
 - 32 LongestValidParentheses (LongestValidParenthesesTest) - find longest substring of valid parentheses
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
