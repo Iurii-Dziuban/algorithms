@@ -145,7 +145,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
   - `ParkingLotDesign` - design of Parking Lot
   - `WhatsAppDesign` - design of messaging system like whatsApp / facebook messenger /weChat
   - `TwitterDesign` - design of messaging system with ability to follow and have timeline
-
+  - `RideSharingDesign` - design of car sharing system.
 # Codility.com tasks
 Codility is a platform for hiring stronger programmers faster. Has requirements for time and space complexity.
 Look for "codility" package
