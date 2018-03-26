@@ -87,7 +87,7 @@ Maven build script is provided.
 - MinIteratorOfSortedAscendingLists (MinIteratorOfSortedAscendingListsTest) - implement iterator over N sorted lists of elements
 - SortedSquaresOfSortedArray (SortedSquaresOfSortedArrayTest) - given sorted list of elements - return sorted list of squared elements
 - TypingSuggestions (TypingSuggestionsTest) - return possible correct words from the dictionary
-
+- LeastDisruptiveSubrange (LeastDisruptiveSubrangeTest) - return index from which replacement is least disruptive 
 # Microsoft tasks
 - `microsoft` package
 
