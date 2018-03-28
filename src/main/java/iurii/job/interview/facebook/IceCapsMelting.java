@@ -14,6 +14,9 @@ package iurii.job.interview.facebook;
  *
  * Glider is used for verification https://glider.ai
  *
+ * Time complexity: O(N)
+ * Auxiliary space complexity: O(1)
+ *
  * Created by IuriiDziuban on 10/22/17.
  */
 public class IceCapsMelting {

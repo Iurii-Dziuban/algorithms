@@ -8,6 +8,8 @@ package iurii.job.interview.facebook;
  *
  * https://glider.ai
  *
+ * Time complexity: O(N) - N operations
+ * Auxiliary space complexity: O(1) - storing the result
  * Created by IuriiDziuban on 10/22/17.
  */
 public class Buttons {

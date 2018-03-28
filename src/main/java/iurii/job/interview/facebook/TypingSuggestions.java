@@ -16,6 +16,9 @@ import java.util.stream.Collectors;
  * https://www.facebook.com/Engineering/videos/10152735777427200/
  *
  * Similar to AllSubsetsOfASet https://www.youtube.com/watch?v=bGC2fNALbNU
+ *
+ * Time complexity: O(n^k) where n - length and k -
+ * Auxiliary space complexity:
  * Created by iurii.dziuban on 07/11/2017.
  */
 public class TypingSuggestions {

@@ -81,13 +81,16 @@ Maven build script is provided.
 # Facebook tasks
 - `facebook` package
 
-- Buttons (ButtonsTest) - calculating number of combinations to open the Lock
 - IceCapsMelting (IceCapsMeltingTest) - array of temperatures. Find the biggest difference between two (smaller before larger)
-- MaximumSubarrayProblem(MaximumSubarrayProblemTest) - find maximum sum of sub array in array
 - MinIteratorOfSortedAscendingLists (MinIteratorOfSortedAscendingListsTest) - implement iterator over N sorted lists of elements
+
+- MaximumSubarrayProblem(MaximumSubarrayProblemTest) - find maximum sum of sub array in array
 - SortedSquaresOfSortedArray (SortedSquaresOfSortedArrayTest) - given sorted list of elements - return sorted list of squared elements
 - TypingSuggestions (TypingSuggestionsTest) - return possible correct words from the dictionary
 - LeastDisruptiveSubrange (LeastDisruptiveSubrangeTest) - return index from which replacement is least disruptive 
+- CalendarConflicts (CalendarConflicts) - find conflicting events
+- Buttons (ButtonsTest) - calculating number of combinations to open the Lock
+
 # Microsoft tasks
 - `microsoft` package
 

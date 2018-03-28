@@ -7,10 +7,12 @@ package iurii.job.interview.facebook;
  * Replace continuous sub-array with whole replacement array, so that "disruption" is the smallest possible
  * (Sum of the differences of original values with values that replace them)
  *
+ * https://www.youtube.com/watch?v=1wMBw38rAlw
+ *
  * With naive approach:
+ *
  * Time complexity: O(N*K) where N and K are lengths of the arrays correspondingly
  * Auxiliary space complexity: O(1) - sums and indexes
- * https://www.youtube.com/watch?v=1wMBw38rAlw
  */
 public class LeastDisruptiveSubrange {
 

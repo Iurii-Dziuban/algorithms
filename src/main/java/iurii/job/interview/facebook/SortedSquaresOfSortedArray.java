@@ -2,6 +2,10 @@ package iurii.job.interview.facebook;
 
 /**
  * https://www.careercup.com/question?id=5754478975254528
+ *
+ * Time complexity: O(N)
+ * Auxiliary space complexity: O(N)
+ *
  * Created by IuriiDziuban on 10/22/17.
  */
 public class SortedSquaresOfSortedArray {
