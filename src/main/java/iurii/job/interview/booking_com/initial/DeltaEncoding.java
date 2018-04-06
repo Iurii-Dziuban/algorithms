@@ -21,7 +21,7 @@ import java.util.List;
  *
  * For this task use -128 as the escape symbol
  *
- * Following the same exemple above, the final output would be:
+ * Following the same example above, the final output would be:
  *
  * 25626 -128 131 -128 -1390 -100 -128 -24251 84 -98 -128 7275
  *
@@ -32,6 +32,24 @@ public class DeltaEncoding {
     private static final int ESCAPE_TOKEN = -128;
     private static final int MIN_DIFFERENCE = -127;
     private static final int MAX_DIFFERENCE = 127;
+
+    public int[] encode(int[] values) {
+        List<Integer> encoded = new ArrayList<>();
+        int last = 0;
+        for (int value : values) {
+            if (encoded.isEmpty()) {
+                encoded.add(value);
+            } else {
+                int difference = value - last;
+                if (difference > MAX_DIFFERENCE || difference < MIN_DIFFERENCE) {
+                    encoded.add(ESCAPE_TOKEN);
+                }
+                encoded.add(difference);
+            }
+            last = value;
+        }
+        return encoded.parallelStream().mapToInt(i -> i).toArray();
+    }
 
     public List<Integer> encode (List<Integer> values) {
         List<Integer> encoded = new ArrayList<>();

@@ -27,8 +27,10 @@ public class DeltaEncodingTest {
         values.add(7277);
 
         List<Integer> encoded = deltaEncoding.encode(values);
+        int[] encodedArray = deltaEncoding.encode(values.parallelStream().mapToInt(i -> i).toArray());
 
         assertThat(encoded).containsExactly(25626, -128, 131, -128, -1390, -100, -128, -24251, 84, -98, -128, 7275);
+        assertThat(encodedArray).containsExactly(25626, -128, 131, -128, -1390, -100, -128, -24251, 84, -98, -128, 7275);
     }
 
 }

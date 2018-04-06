@@ -77,7 +77,7 @@ public class ProcessorsForTasks {
         ArrayList<Integer> positiveInsAndNegativeOuts = new ArrayList<>();
         for(Pair pair : pairs) {
             positiveInsAndNegativeOuts.add(pair.getFirst());
-            positiveInsAndNegativeOuts.add(- pair.getSecond());
+            positiveInsAndNegativeOuts.add(-pair.getSecond());
         }
         int maxNumber = 0;
         int currentNumberOfProcessors = 0;

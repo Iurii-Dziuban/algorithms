@@ -1,7 +1,11 @@
 package iurii.job.interview.booking_com.initial;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,6 +34,26 @@ import java.util.stream.Collectors;
  * Created by iurii.dziuban on 07/06/2017.
  */
 public class SortHotelsList {
+
+    public int[] sort_hotels(String keywords, int[] hotel_ids, String[] reviews) {
+        Set<String> keywordsSet = Arrays.stream(keywords.split(" "))
+                .parallel().map(String::toLowerCase).collect(Collectors.toSet());
+        Map<Integer, Long> idsToCount = new HashMap<>();
+        for (int i = 0; i < hotel_ids.length; i++) {
+            long count = Arrays.stream(reviews[i].split(" ")).parallel()
+                    .map(word -> word.replaceAll("[.,]", ""))
+                    .map(String::toLowerCase)
+                    .filter(keywordsSet::contains)
+                    .count();
+            idsToCount.put(hotel_ids[i], idsToCount.getOrDefault(hotel_ids[i],0L) + count);
+        }
+        List<HotelRating> hotelRatings = new ArrayList<>();
+        for (Map.Entry<Integer, Long> entry : idsToCount.entrySet()) {
+            hotelRatings.add(new HotelRating(entry.getKey(), entry.getValue()));
+        }
+        Collections.sort(hotelRatings);
+        return hotelRatings.parallelStream().mapToInt(HotelRating::getId).toArray();
+    }
 
     /**
      * Implementation should be the most efficient. So couple insights:

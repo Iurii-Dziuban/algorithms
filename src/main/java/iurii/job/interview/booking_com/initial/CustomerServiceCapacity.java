@@ -3,6 +3,8 @@ package iurii.job.interview.booking_com.initial;
 import iurii.job.interview.amazon.ProcessorsForTasks;
 import iurii.job.interview.utils.pair.Pair;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -37,6 +39,36 @@ import java.util.List;
  * Created by iurii.dziuban on 06/06/2017.
  */
 public class CustomerServiceCapacity {
+
+    public int howManyAgentsToAdd(int noOfCurrentAgents, int[][] callsTimes) {
+        List<Integer> positiveInsAndNegativeOuts = new ArrayList<>();
+        for(int[] callTime : callsTimes) {
+            positiveInsAndNegativeOuts.add(callTime[0]);
+            positiveInsAndNegativeOuts.add(-callTime[1]);
+        }
+        int maxNumber = 0;
+        int currentNumberOfAgents = 0;
+        positiveInsAndNegativeOuts.sort(new ChecksComparator());
+        for(int value : positiveInsAndNegativeOuts) {
+            currentNumberOfAgents += value > 0 ? 1 : - 1;
+            if (currentNumberOfAgents > maxNumber) {
+                maxNumber = currentNumberOfAgents;
+            }
+        }
+        int additionalAgentsCount = maxNumber - noOfCurrentAgents;
+        return additionalAgentsCount >= 0 ? additionalAgentsCount : 0;
+    }
+
+    public static class ChecksComparator implements Comparator<Integer> {
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            int difference = Math.abs(o1) - Math.abs(o2);
+            if (difference == 0) {
+                return o2 - o1;
+            }
+            return difference;
+        }
+    }
 
     private ProcessorsForTasks processorsForTasks = new ProcessorsForTasks();
 
