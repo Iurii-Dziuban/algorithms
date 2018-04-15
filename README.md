@@ -170,6 +170,7 @@ Look for "codility" package
    - LongestSubarrayDifferenceMaxOne (LongestSubarrayDifferenceMaxOneTest) - find maximum subset of ints in array, so that difference between any in the subset is <= 1
    - AdjacentCoinProblem (AdjacentCoinProblemTest) - find maximum equal adjacent two coins count after flipping one of the coins.
 - package `tipico_pic` - tipico test questions
+- package `flow_traders` - flow traders programming tasks and questions
 - FindDifferentBallWeight - logic task to find the box/ball with bigger weight based on a specific number of weighings.
 - CardsSamePositionAfterShuffling - logic/probability/ combinatorics task to find number of cards remain at same position after random shuffling
 - OpenTheCombinationLock - logic/probability/combinatorics question on opening the combination lock
