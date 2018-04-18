@@ -14,6 +14,10 @@ import java.util.*;
  */
 public class ShortestRangeInKSortedLists {
 
+    /**
+     * Basic solution without priorityQueue and any constructs.
+     * Each step increase the pointer in list which has smallest current value
+     */
     public Range findRange(List<List<Integer>> lists) {
         // checks if needed
         if (lists == null || lists.isEmpty()) {
@@ -27,11 +31,9 @@ public class ShortestRangeInKSortedLists {
         int listsCount = lists.size();
         List<Integer> pointers = new ArrayList<>(Collections.nCopies(listsCount, 0));
         // initial value - will be changed, because min > max
-        Range result = new Range();
-        result.min = Integer.MIN_VALUE;
-        result.max = Integer.MAX_VALUE;
+        Range result = new Range(Integer.MIN_VALUE, Integer.MAX_VALUE);
         // find
-        while (totalTransitionSize-- > 0) { // check all transitions
+        do { // check all transitions
             long min = Integer.MAX_VALUE;
             long max = Integer.MIN_VALUE;
             int minFromExisting = Integer.MAX_VALUE;
@@ -46,19 +48,39 @@ public class ShortestRangeInKSortedLists {
                     minPointer = i;
                 }
             }
-            pointers.set(minPointer, pointers.get(minPointer) + 1);
+            if (minPointer != -1) {
+                pointers.set(minPointer, pointers.get(minPointer) + 1);
+            }
             if (max - min < result.max - result.min) {
                 result.min = min;
                 result.max = max;
             }
-        }
+        } while (totalTransitionSize-- > 0);
         return result;
     }
 
     // long not to have overflow in case wide range of integers
     public static class Range {
-        long min;
-        long max;
+        private long min;
+        private long max;
+
+        Range(long min, long max) {
+            this.min = min;
+            this.max = max;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("[%d]-[%d]", min, max);
+        }
+
+        public long getMin() {
+            return min;
+        }
+
+        public long getMax() {
+            return max;
+        }
     }
 
     public Range findRangeWithPriorityQueue(List<List<Integer>> lists) {
@@ -69,16 +91,14 @@ public class ShortestRangeInKSortedLists {
         if (lists.stream().anyMatch(List::isEmpty)) {
             return null;
         }
-        Range result = new Range();
-        result.min = Integer.MIN_VALUE;
-        result.max = Integer.MAX_VALUE;
+        Range result = new Range(Integer.MIN_VALUE, Integer.MAX_VALUE);
         MixedListsIterator iterator = new MixedListsIterator(lists);
-        while (iterator.hasNext()) {
+        do {
             Range range = iterator.next();
             if (range.max - range.min < result.max - result.min) {
                 result = range;
             }
-        }
+        } while (iterator.hasNext());
         return result;
     }
 
@@ -87,20 +107,18 @@ public class ShortestRangeInKSortedLists {
 
     private class MixedListsIterator implements MinIteratorOfSortedAscendingLists<Range> {
 
-        private final List<List<Integer>> lists;
         private final PriorityQueue<ListIterator> minQueue;
         private final PriorityQueue<Integer> maxQueue;
         private long totalTransitionSize;
 
-        public MixedListsIterator(List<List<Integer>> lists) {
-            this.lists = lists;
+        MixedListsIterator(List<List<Integer>> lists) {
             minQueue = new PriorityQueue<>(lists.size());
             maxQueue = new PriorityQueue<>(lists.size(), Comparator.reverseOrder());
             for (List<Integer> list : lists) {
                 minQueue.add(new ListIterator(list.iterator()));
                 maxQueue.add(list.get(0));
             }
-            totalTransitionSize = lists.stream().mapToLong(list -> list.size() - 1).sum();
+            totalTransitionSize = lists.stream().mapToLong(list -> list.size() - 1).sum() + 1;
         }
 
         @Override
@@ -112,7 +130,7 @@ public class ShortestRangeInKSortedLists {
         public Range next() {
             if (hasNext()) {
                 ListIterator listIterator = minQueue.poll();
-                Range result = new Range();
+                Range result = new Range(Integer.MIN_VALUE, Integer.MAX_VALUE);
                 if (listIterator.hasNext()) {
                     int min = listIterator.next();
                     int max = maxQueue.peek();
@@ -124,6 +142,7 @@ public class ShortestRangeInKSortedLists {
                         maxQueue.add(listIterator.value);
                     }
                 }
+                totalTransitionSize--;
                 return result;
             }
             throw new NoSuchElementException();
@@ -134,7 +153,7 @@ public class ShortestRangeInKSortedLists {
         private Iterator<Integer> iterator;
         private Integer value;
 
-        public ListIterator(Iterator<Integer> iterator) {
+        ListIterator(Iterator<Integer> iterator) {
             this.iterator = iterator;
             if (iterator.hasNext()) {
                 value = iterator.next();
@@ -143,10 +162,14 @@ public class ShortestRangeInKSortedLists {
 
         @Override
         public int compareTo(ListIterator o) {
-            if (iterator.hasNext() ^ o.iterator.hasNext()) {
+            if (hasNext() && o.hasNext()) {
                 return Integer.compare(value, o.value);
             } else {
-                return iterator.hasNext() ? -1 : 1;
+                if (!hasNext() && !o.hasNext()) {
+                    return 0;
+                } else {
+                    return hasNext() ? -1 : 1;
+                }
             }
         }
 
