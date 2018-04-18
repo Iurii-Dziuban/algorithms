@@ -61,7 +61,7 @@ Maven build script is provided.
 - RangeMerge (RangeMergeTest) - sorted array of ints. Encode/Archive/Zip numbers into ranges. Optimized solution
 - TrappingRainWater (TrappingRainWaterTest) - array of landscape. Calculate how many units of water will remain after the rain inside.
 - KClosestPoints (KClosestPointsTest) - find k closest 2d points to particular one
- 
+- ShortestRangeInKSortedLists (ShortestRangeInKSortedListsTest) - take one element from each list - make the range of taken numbers the shortest possible
 # Yandex tasks
 - Bencode (BencodeTest) - implementation of Bencode protocol for encoding/decoding data. Widely used in torrents. More info: https://en.wikipedia.org/wiki/Bencode
 
