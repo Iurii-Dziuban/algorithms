@@ -124,6 +124,7 @@ The platform currently supports a total of 11 languages: C, C++, Java, Python, C
 - 20 ValidParentheses same as BalancedParentheses (BalancedParenthesesTest)
 - 21 MergeTwoSortedLists (MergeTwoSortedLists) merging linkedList structures
 - 22 GenerateParentheses (GenerateParenthesesTest) - generate all valid combinations of n parentheses
+- 23 MergeKSortedList (MergeKSortedListTest) - divide recursively lists in two and then merge
 - 32 LongestValidParentheses (LongestValidParenthesesTest) - find longest substring of valid parentheses
 - 42 TrappingRainWater (TrappingRainWaterTest) - calculate water inside the landscape
 - 44 WildcardMatching (WildcardMatchingTest) - checking wildcard pattern matching
