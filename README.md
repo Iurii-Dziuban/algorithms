@@ -24,6 +24,7 @@ Maven build script is provided.
  * [Codility.com tasks](#codilitycom-tasks)
  * [Design questions](#design-questions)
  * [Interview cake](#interview-cake)
+ * [Hacker rank](#hackerrank)
  * [Other interview code tasks](#other-interview-code-tasks)
  * [Cracking coding interview](#cracking-coding-interview)
  * [Coursera algorithms by Stanford](#coursera-algorithms-by-stanford)
@@ -172,10 +173,19 @@ Look for "codility" package
    - AdjacentCoinProblem (AdjacentCoinProblemTest) - find maximum equal adjacent two coins count after flipping one of the coins.
 - package `tipico_pic` - tipico test questions
 - package `flow_traders` - flow traders programming tasks and questions
-- FindDifferentBallWeight - logic task to find the box/ball with bigger weight based on a specific number of weighings.
+   - FindFirstRepeatedWord (FindFirstRepeatedWordTest) - find first repeated word in the string
+   - PointsBelongToTriangle (PointsBelongToTriangleTest) - find if 2D dot belongs to a triangle or not
+   - TheHuffmanDecoder (TheHuffmanDecoderTest) - decode Huffman encoded string 
+   - AverageCalculatorCodePairInterviewTest - calculate average of last N prices in one-thread / multithreaded environment
+- FindDifferentBallWeight - logic task to find the box/ball with bigger weight based on a specific number of weighs.
 - CardsSamePositionAfterShuffling - logic/probability/ combinatorics task to find number of cards remain at same position after random shuffling
 - OpenTheCombinationLock - logic/probability/combinatorics question on opening the combination lock
 - GenerateNumberWithProbability - logic/probability task for generation random uniformly distributed value from range
+
+# Hackerrank
+- package `hacker_rank`
+   - NonDivisibleSubset (NonDivisibleSubsetTest) - find maximum subset size, in which any two element sum is not evenly dividable by k
+   - RepeatedString (RepeatedStringTest) - find number of 'a' symbol in first N characters of the repeated infinite string
 
 # Interview cake
 Solutions to "interview cake" problems 
