@@ -2,54 +2,42 @@ package iurii.job.interview.topcoder;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Anagrams {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        System.out.println(isAnagram("hellosveta", "setavelloh"));
-        System.out.println(isAnagram("hellosveta", "setavelloe"));
+        System.out.println(isAnagram("hellome", "meelloh"));
+        System.out.println(isAnagram("hellome", "metello"));
 
     }
 
     private static boolean isAnagram(String standard, String test) {
+        Objects.requireNonNull(standard);
+        Objects.requireNonNull(test);
         if (standard.length() != test.length()) {
             return false;
         }
-        // count characters in map
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        // count characters in characterToCountMap
+        Map<Character, Integer> characterToCountMap = new HashMap<>();
         for (int i = 0; i < standard.length(); i++) {
             char curChar = standard.charAt(i);
-            if (!map.containsKey(curChar)) {
-                map.put(curChar, 0);
-            }
-            Integer count = map.get(curChar) + 1;
-            map.put(curChar, count);
+            characterToCountMap.merge(curChar, 1, (oldValue, newValue) -> oldValue + newValue);
         }
-        // decrease count of equal characters in map
+        // decrease count of equal characters in characterToCountMap
         for (int i = 0; i < test.length(); i++) {
             char curChar = test.charAt(i);
-            if (!map.containsKey(curChar)) {
+            if (!characterToCountMap.containsKey(curChar)) {
                 return false;
             }
-            Integer count = map.get(curChar);
-            if (count.equals(0)) {
-                return false;
-            }
-            map.put(curChar, count - 1);
-        }
-        // check that all values in map are zero
-        for (int i = 0; i < standard.length(); i++) {
-            char curChar = standard.charAt(i);
-            Integer count = map.get(curChar);
-            if (!count.equals(0)) {
-                return false;
+            int count = characterToCountMap.get(curChar);
+            if (count == 1) {
+                characterToCountMap.remove(curChar);
+            } else {
+                characterToCountMap.put(curChar, count - 1);
             }
         }
-        return true;
-
+        return characterToCountMap.isEmpty();
     }
 
 }

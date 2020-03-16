@@ -1,0 +1,3 @@
+1) Object oriented design. Design Dialogs: PopUp dialog with fixed center location on screen, 100X100 size. Ok button.
+Design Confirm - dialog with Ok, Cancel button with methods to change location on screen - move and size - resize.
+2) More intensive part on the Amazon Leadership Principles. Prepare to use STAR model for previous experience.
