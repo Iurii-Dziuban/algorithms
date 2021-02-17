@@ -1,5 +1,12 @@
 package iurii.job.interview.google;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * 1. Your friend types you a message. His keyboard letter 'e' is broken and when he types it, space ' ' is printed
  * You have a dictionary with correct words - find all possibilities of friends message.
@@ -106,4 +113,96 @@ package iurii.job.interview.google;
  *  answer: [1,3 e][4,10 e] [10, 14 dnd][14, 15 e];
  */
 public class GoogleOnsite2 {
+
+    public static final char SPACE = ' ';
+
+    /**
+     * 1.
+     * @param message message
+     * @param dictionaryWords dictionary words
+     * @return all possible messages
+     */
+    public List<String> findAllPossibleMessages(String message, Set<String> dictionaryWords) {
+        Trie trie = new Trie();
+        trie.insert(dictionaryWords);
+
+        List<String> results = new ArrayList<>();
+        int index = 0;
+        char[] m = new char[message.length()];
+
+        find(m, message, trie, trie, index, results);
+
+        return results;
+    }
+
+    /**
+     *
+     * @param m current collected message
+     * @param message original message
+     * @param cur current Trie pointer
+     * @param root root of the Trie pointer
+     * @param index current index of character in message to check
+     * @param results list of possible message
+     */
+    private void find(char[] m, String message, Trie cur, Trie root, int index, List<String> results) {
+        // if cur == null -> no match
+        if (cur == null) {
+            return;
+        }
+        // if out of bounds
+        if (index == message.length()) {
+            // result only in case matches word
+            if (cur.word != null) {
+                results.add(new String(m));
+            }
+            return;
+        }
+        char c = message.charAt(index);
+        if (c == SPACE) {
+            // matches word or character 'e'
+            if (cur.word != null) {
+                m[index] = SPACE;
+                find(m, message, root, root, index + 1, results);
+            }
+            c = 'e';
+        }
+        // considered character
+        m[index] = c;
+        // get next element from try
+        Trie next = cur.get(c);
+        find(m, message, next, root, index + 1, results);
+    }
+
+    /**
+     * Simplest implementation of Trie.
+     * 1. Children - at least empty map.
+     * 2. Insertion per word
+     * 3. Easy get next node in Trie by char
+     */
+    private static class Trie {
+        Map<Character, Trie> children = new HashMap<>();
+        String word;
+
+        public void insert(Collection<String> words) {
+            for(String w : words) {
+                insert(w);
+            }
+        }
+
+        public void insert(String word) {
+            Trie cur = this;
+            for (char c : word.toCharArray()) {
+                if (cur.children.get(c) == null) {
+                    cur.children.put(c, new Trie());
+                }
+                cur = cur.children.get(c);
+            }
+            cur.word = word;
+        }
+
+        public Trie get(char c) {
+            return children.get(c);
+        }
+    }
+
 }

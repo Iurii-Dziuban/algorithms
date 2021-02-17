@@ -75,9 +75,13 @@ Maven build script is provided.
 - PathsFromRoot (PathsFromRootTest) - Binary tree. Find paths from root with specific sum value.
 
 # Google tasks
+- package `google`
+Details:  
 - TwoPairParticularSum (TwoPairParticularSumTest) - mock interview find two pairs in array sum is equal to particular one
 - FirstRecurringCharacter (FirstRecurringCharacterTest) - find firstIndex recurring character in string
 - RobotTest - iterative, recursive approaches to do steps/counting
+- GoogleOnsite - first onsite interview questions
+- GoogleOnsite2 - second onsite interview questions
 
 # Facebook tasks
 - `facebook` package
@@ -182,7 +186,7 @@ Look for "codility" package
 - CardsSamePositionAfterShuffling - logic/probability/ combinatorics task to find number of cards remain at same position after random shuffling
 - OpenTheCombinationLock - logic/probability/combinatorics question on opening the combination lock
 - GenerateNumberWithProbability - logic/probability task for generation random uniformly distributed value from range
-
+- package `zalando` - zalando online codility challenge questions
 # Hackerrank
 - package `hacker_rank`
    - NonDivisibleSubset (NonDivisibleSubsetTest) - find maximum subset size, in which any two element sum is not evenly dividable by k
