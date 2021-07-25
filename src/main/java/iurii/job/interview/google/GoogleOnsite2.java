@@ -205,4 +205,124 @@ public class GoogleOnsite2 {
         }
     }
 
+    /**
+     * 4.1 Remove each even node (not value) in circular linked list
+     *
+     * Good source:
+     * https://www.geeksforgeeks.org/delete-all-odd-or-even-positioned-nodes-from-circular-linked-list/
+     */
+    public Node deleteAllEvenNodes(Node head) {
+        // Take size of list
+        int len = length(head);
+
+        int count = 1;
+        Node previous = head, next = head;
+
+        // Check list is empty
+        // if empty simply return
+        if (head == null)
+        {
+            System.out.printf("\nList is empty\n");
+            return null;
+        }
+
+        // if list have single node
+        // then return
+        if (len < 2)
+        {
+            return null;
+        }
+
+        // make first node is previous
+        previous = head;
+
+        // make second node is current
+        next = previous.next;
+
+        while (len > 0)
+        {
+
+            // check node number is even
+            // if node is even then
+            // delete that node
+            if (count % 2 == 0)
+            {
+                previous.next = next.next;
+                previous = next.next;
+                next = previous.next;
+            }
+
+            len--;
+            count++;
+        }
+        return head;
+    }
+
+    // Function return number of nodes present in list
+    private static int length(Node head) {
+        Node current = head;
+        int count = 0;
+        // if list is empty simply return length zero
+        if (head == null)
+        {
+            return 0;
+        } else {
+            // traverse first to last node
+            do {
+                current = current.next;
+                count++;
+            } while (current != head);
+        }
+        return count;
+    }
+
+    public static class Node {
+        Node next;
+    }
+
+    /**
+     * 4.2 There is system of bunkers. Each bunker knows neighbours and number of people.
+     * Write distributed system with send message, onReceive message to count number of total people
+     * in all of the bunkers
+     */
+    public static class Bunker {
+        int count;
+        List<Bunker> neighbours;
+
+        public void onReceive(Message message) {
+            //implement
+        }
+
+        public void send(Message message) {
+            //implement
+        }
+    }
+
+    public static class Message {
+        // any fields
+    }
+
+    /**
+     * 5. There is an overlapping list of intervals for meetings [long i, long j]  j >= i;
+     *  there is a dnd (do not disturb) interval to be inserted into intervals,
+     *  so that dnd wins (cuts over events if they have part of time inside dnd);
+     *  split list of events into non overlapping with dnd
+     *
+     *  example: [1,3 e] [4,8 e], [5, 11 e], [13, 15 e]
+     *  dnd : [10, 14, dnd]
+     *  answer: [1,3 e][4,10 e] [10, 14 dnd][14, 15 e];
+     */
+    public List<Interval> merge(List<Interval> intervals, Interval dnd) {
+        return null;
+    }
+
+    public static class Interval {
+        int a;
+        int b;
+        IntervalType type;
+    }
+    public enum IntervalType {
+        E,
+        DND,
+    }
 }
