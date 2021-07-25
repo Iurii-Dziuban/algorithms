@@ -82,6 +82,7 @@ Details:
 - RobotTest - iterative, recursive approaches to do steps/counting
 - GoogleOnsite - first onsite interview questions
 - GoogleOnsite2 - second onsite interview questions
+- GooglePhoneCall - phone call task
 
 # Facebook tasks
 - `facebook` package
