@@ -95,6 +95,7 @@ Details:
 - LeastDisruptiveSubrange (LeastDisruptiveSubrangeTest) - return index from which replacement is least disruptive 
 - CalendarConflicts (CalendarConflicts) - find conflicting events
 - Buttons (ButtonsTest) - calculating number of combinations to open the Lock
+- FacebookInterview - facebook phone screen and onsite interview questions
 
 # Microsoft tasks
 - `microsoft` package
