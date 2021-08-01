@@ -50,6 +50,17 @@ public class FacebookInterviewTest {
         assertThat(facebookInterview.findKSmallest(arr, 9)).isEqualTo(9);
         assertThat(facebookInterview.findKSmallest(arr, 10)).isEqualTo(-1);
 
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 1)).isEqualTo(1);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 2)).isEqualTo(2);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 3)).isEqualTo(3);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 4)).isEqualTo(4);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 5)).isEqualTo(5);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 6)).isEqualTo(6);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 7)).isEqualTo(7);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 8)).isEqualTo(8);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 9)).isEqualTo(9);
+        assertThat(facebookInterview.findKSmallestQuickSelect(arr, 10)).isEqualTo(-1);
+
     }
     @Test
     public void testMinNumberOfFoodPieces() {

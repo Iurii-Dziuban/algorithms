@@ -12,7 +12,7 @@ public class FacebookInterview {
      *
      * Assume database is read only and there are millions of places placed.
      *
-     * Design API which returns sorted list of places and works from any place in the world.
+     * Design API and database which returns sorted list of places and works from any place in the world.
      *
      * Check Quad Tree design:
      * 1. https://www.educative.io/courses/grokking-the-system-design-interview/B8rpM8E16LQ
@@ -24,6 +24,43 @@ public class FacebookInterview {
      * Data structure should adapt to data.
      * 2. How many locations at one place is too much to split into smaller quads?
      * 3. How to search across the quads when you provide the location.
+     *
+     * Simplest solution is to place all places into SQL database with
+     * longitude and latitude columns (each with  separate index)
+     *
+     * and then query SQL data base with SQL query
+     * longitude between longitude + X, longitude - X and
+     * latitude between latitude + X, latitude - X
+     *
+     * Regardless each column has its index - the problematic part
+     * is there will be multiple places
+     * which satisfy each separate condition for longitude and latitude,
+     * so intersection between queries will be in O(N^2) time, which is not acceptable.
+     *
+     * Second option is to split the planet into N x N squares with particular lang.
+     * Then it can be easy to find closest places by finding particular square
+     * for longitude and latitude and check it and 8 closest squares to it
+     * (each square can have links to its neighbours).
+     * The problematic part with that approach, there can be squares with zero locations
+     * and there can be squares with too many locations.
+     * So this is not optimal from data perspective and from time to find perspective.
+     * In general, from time perspective it should be such quicker than SQL solution
+     * and from structural perspective it is pretty easy to maintain structure
+     * (links to neighbours can be maintained just by 1 difference for X and/or Y coordinates)
+     * once decided with square size.
+     *
+     * What if we can come up with with mechanism to dynamically split square if there will be two many locations
+     * in it. Starting from whole earth as one square, adding locations and then slitting in 4 pieces
+     * if there are > X locations in square.
+     *
+     * There is such structure called QuadTree.
+     * In that case there will be dynamic structure squares will be different size, depending on number of locations
+     * Good thing is that search will be in log(N) by navigating to proper square from top square.
+     * Once constructing Quad Tree important to add links between same level squares and/or square and parent,
+     * to be able to navigate to closest squares if there are not enough locations in the square,
+     * which has corresponding longitude and latitude
+     *
+     * Maintaining such structure will be harder than maintaining SQL solution or Grid of squares.
      */
 
 
@@ -73,7 +110,6 @@ public class FacebookInterview {
         return curNew;
     }
 
-
     static class Node {
         int val;
         Node next;
@@ -104,7 +140,7 @@ public class FacebookInterview {
      * - if more than k - pop()
      */
     public int findKSmallest(int[] arr, int k) {
-        if (k > arr.length) {
+        if (k > arr.length || k < 0) {
             return -1;
         }
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
@@ -115,6 +151,65 @@ public class FacebookInterview {
             }
         }
         return maxHeap.peek();
+    }
+
+    public int findKSmallestQuickSelect(int[] arr, int k) {
+        if (k > arr.length || k < 0) {
+            return -1;
+        }
+
+        int l = 0;
+        int r = arr.length - 1;
+        return quickSelect(arr, l, r, k - 1); // k - 1 for indexing from 1
+    }
+
+    // important way
+    private int quickSelect(int[] arr, int l, int r, int k) {
+        if (l < r) {
+            int p = partition(arr, l, r);
+            if (p == k) {
+                return arr[p];
+            }
+            if (k < p) {
+                return quickSelect(arr, l, p - 1, k);
+            } else {
+                return quickSelect(arr, p + 1, r, k);
+            }
+        }
+        return arr[l];
+    }
+
+    // initial implementation of quick sort to be able to modify to quick select.
+    private void quickSort(int[] arr, int l, int r) {
+        if (l < r) {
+            int p = partition(arr, l,r);
+            quickSort(arr, l, p - 1);
+            quickSort(arr, p + 1, r);
+        }
+    }
+
+    private int partition(int[] arr, int l, int r) {
+        Random random = new Random();
+        int pivot = random.nextInt(r - l + 1);
+        swap(arr,l, l + pivot);
+        int index = l;
+        for(int i = l + 1; i <= r; i++) {
+            if (arr[i] < arr[index]) {
+                if (i != index + 1) {
+                    // swap to spare space
+                    swap(arr, index, index + 1);
+                }
+                swap(arr, index, i);
+                index++;
+            }
+        }
+        return index;
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int swap = arr[i];
+        arr[i] = arr[j];
+        arr[j] = swap;
     }
 
     // Onsite Online Interviews
