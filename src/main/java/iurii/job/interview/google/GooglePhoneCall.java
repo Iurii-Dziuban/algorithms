@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class GooglePhoneCall {
+/**
+    Task that was given on Google Phone interview:
 
-    /*
     There are two strings with same size.
     containing lower case latin (a-z)
 
@@ -33,37 +33,45 @@ public class GooglePhoneCall {
     all same letter occurrences on the same positions.
     lengths of two strings should be the same.
 
-    Collect all the indexes of occurred letter
-
-    Map<Character, Set<Integer>>
-    a -> 0, 3
-    b -> 1
-    c -> 2
-
-    Then go through the keySet of Map and for each value in set check same letter in the resulting string
-
-    Time complexity : O(N)
-    Memory Complexity : O(N) - because tracking all of the cases.
-
-
-    Map solution is nice, but what if we have all 26 characters from a to z
-    and second string just shifted by 1 position?
-
-    abc...z
-    zabc...y
-
-    we can not transform first string into second cause will get into collapsing...
-    Can we use intermediate operations - yes.
-    There should be additional check if there is no cycle
-
     Leetcode example : https://leetcode.com/discuss/interview-question/340493/Google-or-Onsite-or-String-Conversion
 
     Take care of homomorphic /isomorphic changes.
 
     Leetcode : https://leetcode.com/problems/string-transforms-into-another-string/
 */
+public class GooglePhoneCall {
 
+    /**
+     * Collect all the indexes of occurred letter
+     *
+     *     Map<Character, Set<Integer>>
+     *     a -> 0, 3
+     *     b -> 1
+     *     c -> 2
+     *
+     *     Then go through the keySet of Map and for each value in set check same letter in the resulting string
+
+     *     Map solution is nice, but what if we have all 26 characters from a to z
+     *     and second string just shifted by 1 position?
+     *
+     *     abc...z
+     *     zabc...y
+     *
+     *     we can not transform first string into second cause will get into collapsing...
+     *     Can we use intermediate operations - yes.
+     *     There should be additional check if there is no cycle
+     *
+     *     This is kind of graph cycle problem.
+     * Time complexity : O(N)
+     * Memory Complexity : O(N) - because tracking all the cases.
+     * @param a first string
+     * @param b second string
+     * @return true if it is possible to change a to b
+     */
     // first attempt
+    // no need to have Map<Character, Set<Integer>> it is enough to have Map<Character, Character>
+    // and check if already exists mapping is same.
+    // what if all characters are used? -> even if mapping is correct there will be a cycle - not solved here.
     public boolean canTransformNotBest(String a, String b) {
         if (a.length() != b.length()) {
             return false;
@@ -99,7 +107,8 @@ public class GooglePhoneCall {
      * Space Complexity - O(1) = 26 * 1 (number of letters) for Map key-value
      * Time Complexity - O(N) - to check the whole string
      *
-     * Note! Not proper solution
+     * Note! Not proper solution what is there is a cycle
+     * and can we use temporal `letter` to avoid cycles?
      *
      * @param a - start string
      * @param b - end string
@@ -121,8 +130,29 @@ public class GooglePhoneCall {
         return true;
     }
 
-    // Proper Leetcode Solution
-    // Leetcode : https://leetcode.com/problems/string-transforms-into-another-string/
+    /**
+     * Proper Leetcode Solution
+     * Leetcode : https://leetcode.com/problems/string-transforms-into-another-string/
+     *
+     * Checks if there is a cycle and uses spare temporal `letter` to temporal conversion
+     * by set.size() < 26
+     *
+     * if all the characters are used from second word (set.size() == 26):
+     * 1. there is no spare letter for conversion
+     * 2. if str1 != str2 - there will be a cycle.
+     *
+     * If there is a spare letter it is always possible to break a cycle.
+     *
+     * But if two same letters in first string correspond to two  different letters in second string
+     * conversion is not possible. This is invariant that does not change.
+     *
+     * This is a shortcut cycle check solution here.
+     * In general, it is better to go via each letter (26 total) and go via mapping and see there is no  cycle.
+     *
+     * @param str1 first string
+     * @param str2 second string
+     * @return true if possible to convert str1 -> str2
+     */
     public boolean canConvert(String str1, String str2) {
         if (str1.length() != str2.length()) {
             return false;
