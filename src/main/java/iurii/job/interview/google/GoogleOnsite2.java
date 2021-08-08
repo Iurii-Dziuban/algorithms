@@ -331,12 +331,6 @@ public class GoogleOnsite2 {
      */
     public static Node deleteAllEvenPositionNodes(Node head) {
         int len = length(head);
-
-        if (head == null) {
-            System.out.printf("\nList is empty\n");
-            return null;
-        }
-
         // if list have single node
         // then return
         if (len < 2) {
@@ -362,16 +356,13 @@ public class GoogleOnsite2 {
             return;
         }
         Node current = head;
-        while(true) {
+        do {
             Node toBeDeleted = current.next;
             // Note: current.next.next can not be null in circular list.
             current.next = current.next.next;
             toBeDeleted.next = null;
             current = current.next;
-            if(current == head || current.next == head) {
-                break;
-            }
-        }
+        } while(current != head && current.next != head);
     }
 
     // Function to delete first. returns new head
@@ -419,10 +410,6 @@ public class GoogleOnsite2 {
     public static class Node {
         Node next;
         int val;
-
-        String toShortString() {
-            return String.format("{%d}", val);
-        }
     }
 
     // ========================== End of Task 4.1 ========================================
@@ -669,20 +656,6 @@ public class GoogleOnsite2 {
         int sender;
         int receiver;
         int count;
-    }
-
-    /**
-     * Simple message
-     * - senderId to not send message back
-     * - bunkerIdToCount have set of ids to send across.
-     * - isLasMessage to send final message from neighbours.
-     */
-    public class Message {
-        int senderId;
-        // how to send to next
-        int ttl;
-        Map<Integer, Integer> bunkerIdToCount;
-        boolean isLastMessage;
     }
 
     // ========================== End of Task 4.2 ========================================
