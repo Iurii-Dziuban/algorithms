@@ -82,6 +82,8 @@ import java.util.stream.IntStream;
  * (Assuming copying array on each take snapshot too costly.)
  * - Assuming that arrayList has specific length and there are no delete() or add operations, but
  * - Better to have Mapping with logging changes for each element that was changed. (Last change, instead of whole log)
+ *
+ * Going to task -> solution one by one
  */
 public class GoogleOnsite {
 
