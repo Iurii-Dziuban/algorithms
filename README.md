@@ -83,6 +83,7 @@ Details:
 - GoogleOnsite - first onsite interview questions
 - GoogleOnsite2 - second onsite interview questions
 - GooglePhoneCall - phone call task
+- GooglePhoneCall1 - phone call task
 
 # Facebook tasks
 - `facebook` package
@@ -97,6 +98,7 @@ Details:
 - CalendarConflicts (CalendarConflicts) - find conflicting events
 - Buttons (ButtonsTest) - calculating number of combinations to open the Lock
 - FacebookInterview - facebook phone screen and onsite interview questions
+- FacebookPhoneInterview1 - facebook phone screen with 2 tasks
 
 # Microsoft tasks
 - `microsoft` package
