@@ -20,6 +20,7 @@ Maven build script is provided.
  * [Google tasks](#google-tasks)
  * [Facebook tasks](#facebook-tasks)
  * [Microsoft tasks](#microsoft-tasks)
+ * [Grammarly tasks](#grammarly-tasks)
  * [Leetcode.com tasks](#leetcodecom-tasks)
  * [Codility.com tasks](#codilitycom-tasks)
  * [Design questions](#design-questions)
@@ -104,6 +105,11 @@ Details:
 - `microsoft` package
 
 - LowestCommonAncestor (LowestCommonAncestorTest) - finding lowest common ancestor in the tree
+
+# Grammarly tasks
+- `grammarly` package
+    - Array Reduction
+    - Scatter-Palindrome
 
 # Leetcode.com tasks
 LeetCode is a platform for preparing technical coding interviews. 
