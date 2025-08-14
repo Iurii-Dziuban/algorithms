@@ -23,6 +23,10 @@ public class HeadsTailsOnlineAssessment {
      * We can find number of heads in sequence then start traversing and check each character
      * and depending on character correct number of flips.
      *
+     * Complexity: O(N), N - sequence length / coin count; we need to go once to count heads
+     * and once from left to right to collect the answer
+     * Memory: O(1) - we need a couple of values to store results and a couple of current values, pointers;
+     *
      * @param sequence - H or T , ex. HTHTHT
      * @return minimum flips, for HTHTHT : 2 flips with ex. result : HTTTTT
      */
