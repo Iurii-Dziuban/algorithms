@@ -1,5 +1,7 @@
 package iurii.job.interview.amazon;
 
+import java.util.Collections;
+
 /**
  * A Amazon Shopping recently launched a new coin collection album.
  * Each page has a coin pasted on it, with either the head or a tail side facing upwards,
@@ -9,6 +11,48 @@ package iurii.job.interview.amazon;
  * One of the buyers has a hobby to collect and organize coins.
  * The buyer pastes the end coins on end pages and then wishes to organize them into a beautiful sequence.
  * Given the initial sequence of coins, find a minimum number of coins that must be flipped to obtain a beautiful sequence.
+ *
+ * The sequence of coins can be very long;
+ * THHHTH - 2
+ * HHTT - 0
+ * HHHH - 0
+ *
+ * (H)*(T)*
+ * TTTTTT
+ * HTTTTT
+ * HHTTTT
+ * ..
+ * HHHHHH
+ *
+ * Algo:
+ * - Find count of H - count of flips to make TTTTTT..
+ * TflipsCount = 0
+ * - on i =0, 1..
+ * - if on i pos H : HflipsCount = HflipsCount-1
+ * - if on i pos T: TflipsCount = TflipsCount + 1
+ * - if TflipsCount+HflipsCount < Result : Result = TflipsCount+HflipsCount
+ *
+ * You can see constraints;
+ *
+ * Variation : what if 2 coins are flipped at a time? => see
+ *
+ * We will use sliding window to find first T from the left and first H from right and flip them.
+ * Will this be optimal solution? It should be as we flip only coins that violate condition (H)*(T)*
+ * This is different from original question when each flip is separate operation and we are not sure
+ * if flipping in the beginning is better than flipping on the end.
+ *
+ * THTTTTTT
+ * i     i
+ *
+ * HTTTTTTT
+ *
+ * TTTHHHH
+ * i     i
+ * HTTHHHT
+ *  i   i
+ * HHTHHTT
+ *   i i
+ * HHHHTTT
  */
 public class HeadsTailsOnlineAssessment {
 
@@ -62,20 +106,94 @@ public class HeadsTailsOnlineAssessment {
                 result.firstTailPosition = i + 1; // Tails will start from next position
             }
         }
+        result.resultSequenceAfterFlips =
+            String.join("", Collections.nCopies(result.firstTailPosition,"H")) +
+            String.join("", Collections.nCopies(sequenceLength - result.firstTailPosition,"T"));
         return result;
     }
 
+    /**
+     * This is variation with minimum 2 coin flips at a time.
+     *
+     * We will use sliding window to find first T from the left and first H from right and flip them.
+     * Will this be optimal solution? It should be as we flip only coins that violate condition (H)*(T)*
+     * This is different from original question when each flip is separate operation and we are not sure
+     * if flipping in the beginning is better than flipping on the end.
+     *
+     * THTTTTTT
+     * i     i
+     *
+     * HTTTTTTT
+     *
+     * TTTHHHH
+     * i     i
+     * HTTHHHT
+     *  i   i
+     * HHTHHTT
+     *   i i
+     * HHHHTTT
+     * @param sequence
+     * @return
+     */
+    public  HeadsTailsResult minFlipsForBeautifulSequenceFlip2CoinsAtOnce(String sequence) {
+        int sequenceLength = sequence.length();
+        int headPointer = findFromLeft(0, sequence, 'T');
+        int tailPointer = findFromRight(sequenceLength - 1, sequence, 'H');
+        char[] resSeq = sequence.toCharArray();
+        HeadsTailsResult result = new HeadsTailsResult();
+        while (headPointer < tailPointer) {
+            // flip
+            resSeq[headPointer] = 'H';
+            resSeq[tailPointer] = 'T';
+            result.numberOfFlips++;
+
+            // next
+            headPointer = findFromLeft(headPointer + 1, sequence, 'T');
+            tailPointer = findFromRight(tailPointer - 1, sequence, 'H');
+        }
+        result.resultSequenceAfterFlips = String.valueOf(resSeq);
+        result.firstTailPosition = result.resultSequenceAfterFlips.indexOf('T');
+        return result;
+    }
+
+    // return position
+    private int findFromLeft(int initialPosition, String sequence, char character) {
+        int pos = initialPosition;
+        while (pos < sequence.length()) {
+            if (sequence.charAt(pos) == character) {
+                return pos;
+            }
+            pos++;
+        }
+        return pos;
+    }
+
+    private int findFromRight(int initialPosition, String sequence, char character) {
+        int pos = initialPosition;
+        while (pos >= 0) {
+            if (sequence.charAt(pos) == character) {
+                return pos;
+            }
+            pos--;
+        }
+        return pos;
+    }
+
+    // helper data classes
     public static class HeadsTailsResult {
-        int firstTailPosition;
+        int firstTailPosition = -1; // by default not set
         int numberOfFlips;
+        // should be in format (H)*(T)*
+        String resultSequenceAfterFlips = ""; // by default not set
 
         public HeadsTailsResult () {
 
         }
 
-        public HeadsTailsResult (int firstTailPosition, int numberOfFlips) {
+        public HeadsTailsResult (int firstTailPosition, int numberOfFlips, String resultSequenceAfterFlips) {
             this.firstTailPosition = firstTailPosition;
             this.numberOfFlips = numberOfFlips;
+            this.resultSequenceAfterFlips = resultSequenceAfterFlips;
         }
 
         @Override
@@ -84,12 +202,15 @@ public class HeadsTailsOnlineAssessment {
                 return false;
             }
             HeadsTailsResult other = (HeadsTailsResult) obj;
-            return firstTailPosition == other.firstTailPosition && numberOfFlips == other.numberOfFlips;
+            return firstTailPosition == other.firstTailPosition
+                && numberOfFlips == other.numberOfFlips
+                && resultSequenceAfterFlips.equals(other.resultSequenceAfterFlips);
         }
 
         @Override
         public String toString() {
-            return String.format("firstTailPosition = %d numberOfFlips = %d", firstTailPosition, numberOfFlips);
+            return String.format("firstTailPosition = %d numberOfFlips = %d resultSequenceAfterFlips = %s",
+                firstTailPosition, numberOfFlips, resultSequenceAfterFlips);
         }
     }
 }
